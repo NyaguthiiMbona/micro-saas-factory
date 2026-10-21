@@ -19,16 +19,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-     
+          node-version: '22'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Step 1 - Run Trend-Spotter Agent (Agent 1)
-        env:
-          REDDIT_API_KEY: ${{ secrets.REDDIT_API_KEY }}
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           node scripts/trend-spotter.js
 
@@ -42,9 +38,9 @@ jobs:
         run: |
           git config --global user.name "Autonomous Factory Bot"
           git config --global user.email "factory-bot@micro-saas.internal"
-          git add specs/ app/tools/ public/sitemap.xml
-          git commit -m "feat(factory): autonomous build and deploy pipeline execution"
-          git push origin main
+          git add specs/ app/tools/ public/sitemap.xml || true
+          git diff --staged --quiet || git commit -m "feat(factory): autonomous build and deploy pipeline execution"
+          git push origin main || true
 
       - name: Step 3 - Run DevOps Publisher (Agent 3)
         env:
