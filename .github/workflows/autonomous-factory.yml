@@ -2,15 +2,16 @@ name: Autonomous Micro-SaaS Factory Pipeline
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Runs daily at 06:00 UTC
-  workflow_dispatch: # Allows manual trigger for testing
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   autonomous-pipeline:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
 
     steps:
       - name: Checkout Repository
@@ -21,35 +22,50 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Verify Project Files
+        run: |
+          echo "Checking repository files..."
+          test -f package.json || {
+            echo "ERROR: package.json not found in repository root."
+            exit 1
+          }
+          echo "package.json found."
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found."
+          else
+            echo "WARNING: package-lock.json not found."
+          fi
+
       - name: Install Dependencies
         run: npm install
 
       - name: Step 1 - Run Trend-Spotter Agent (Agent 1)
-        run: |
-          node scripts/trend-spotter.js
+        run: node scripts/trend-spotter.js
 
       - name: Step 2 - Run Full-Stack Developer Agent (Agent 2)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          node scripts/generate-tool.js
+        run: node scripts/generate-tool.js
 
       - name: Commit & Push Code Changes
         run: |
-          git config --global user.name "Autonomous Factory Bot"
-          git config --global user.email "factory-bot@micro-saas.internal"
+          git config user.name "Autonomous Factory Bot"
+          git config user.email "factory-bot@micro-saas.internal"
           git add specs/ app/tools/ public/sitemap.xml || true
-          git diff --staged --quiet || git commit -m "feat(factory): autonomous build and deploy pipeline execution"
-          git push origin main || true
+
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(factory): autonomous build and deploy pipeline execution"
+            git push origin HEAD:main
+          else
+            echo "No changes to commit."
+          fi
 
       - name: Step 3 - Run DevOps Publisher (Agent 3)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: |
-          node scripts/deploy-cloudflare.js
+        run: node scripts/deploy-cloudflare.js
 
       - name: Step 4 - Run SEO Indexer (Agent 4)
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
-        run: |
-          node scripts/index-seo.js
+        run: node scripts/index-seo.js
