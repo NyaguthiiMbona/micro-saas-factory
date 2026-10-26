@@ -45,4 +45,10 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: node scripts/deploy-cloudflare.js
+         node -e "
+            console.log('API token present:', Boolean(process.env.CLOUDFLARE_API_TOKEN));
+            console.log('Account ID present:', Boolean(process.env.CLOUDFLARE_ACCOUNT_ID));
+            console.log('Account ID length:', (process.env.CLOUDFLARE_ACCOUNT_ID || '').length);
+            console.log('Deployment script:');
+          "
+          grep -nE 'Starting Cloudflare|Initiating deployment|wrangler|CLOUDFLARE_ACCOUNT_ID' scripts/deploy-cloudflare.js
