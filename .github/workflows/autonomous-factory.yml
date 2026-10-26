@@ -34,22 +34,34 @@ jobs:
           test -f components/ToolEngine.tsx
           test -f components/ToolLayout.tsx
           test -f components/AdSlot.tsx
+          test -f scripts/deploy-cloudflare.js
 
       - name: Build Website
         run: npm run build
 
       - name: Verify Static Export
-        run: test -f out/index.html
+        run: |
+          if [ ! -f out/index.html ]; then
+            echo "ERROR: out/index.html was not created by the build."
+            exit 1
+          fi
+          echo "Static export verified."
 
-       name: Diagnose Cloudflare Configuration
+      - name: Diagnose Cloudflare Configuration
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          node -e "
-            console.log('API token present:', Boolean(process.env.CLOUDFLARE_API_TOKEN));
-            console.log('Account ID present:', Boolean(process.env.CLOUDFLARE_ACCOUNT_ID));
-            console.log('Account ID length:', (process.env.CLOUDFLARE_ACCOUNT_ID || '').length);
-            console.log('Deployment script:');
-          "
+          node -e '
+            console.log("API token present:", Boolean(process.env.CLOUDFLARE_API_TOKEN));
+            console.log("Account ID present:", Boolean(process.env.CLOUDFLARE_ACCOUNT_ID));
+            console.log("Account ID length:", (process.env.CLOUDFLARE_ACCOUNT_ID || "").length);
+          '
+          echo "Checking deployment script:"
           grep -nE 'Starting Cloudflare|Initiating deployment|wrangler|CLOUDFLARE_ACCOUNT_ID' scripts/deploy-cloudflare.js
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/deploy-cloudflare.js
