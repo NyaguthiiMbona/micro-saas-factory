@@ -1,19 +1,44 @@
-const { execSync } = require('child_process');
+
+const { execFileSync } = require('child_process');
+const fs = require('fs');
 
 async function deployToCloudflare() {
   try {
-    console.log('Initiating deployment to Cloudflare Pages via API/CLI...');
-    
-    // Run wrangler build and deploy command
-    const output = execSync('npx wrangler pages deploy .next --project-name=micro-saas-factory', {
-      encoding: 'utf-8',
-      env: { ...process.env }
-    });
+    console.log('Starting Cloudflare Pages deployment...');
 
-    console.log('Deployment Output:', output);
-    console.log('Agent 3 Success: Production-ready URL deployed and verified.');
+    if (!process.env.CLOUDFLARE_API_TOKEN) {
+      throw new Error('Missing CLOUDFLARE_API_TOKEN GitHub secret.');
+    }
+
+    if (!process.env.CLOUDFLARE_ACCOUNT_ID) {
+      throw new Error('Missing CLOUDFLARE_ACCOUNT_ID GitHub secret.');
+    }
+
+    if (!fs.existsSync('out/index.html')) {
+      throw new Error(
+        'out/index.html not found. Run npm run build successfully before deployment.'
+      );
+    }
+
+    execFileSync(
+      'npx',
+      [
+        '--yes',
+        'wrangler',
+        'pages',
+        'deploy',
+        'out',
+        '--project-name=micro-saas-factory'
+      ],
+      {
+        stdio: 'inherit',
+        env: process.env
+      }
+    );
+
+    console.log('Cloudflare Pages deployment completed successfully.');
   } catch (error) {
-    console.error('Deployment failed:', error);
+    console.error('Deployment failed:', error.message);
     process.exit(1);
   }
 }
