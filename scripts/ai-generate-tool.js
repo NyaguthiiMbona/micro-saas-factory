@@ -2,106 +2,62 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 
-const API_KEY = process.env.OPENAI_API_KEY;
-const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+const toolIdeas = [
+  {
+    name: 'Invoice Late Fee Calculator',
+    slug: 'invoice-late-fee-calculator',
+    description: 'Calculate overdue invoice charges and the total amount owed.',
+    target_user: 'Freelancers and small business owners',
+    problem_solved: 'Makes it easier to calculate late payment charges.',
+    inputs: [
+      'Original invoice amount',
+      'Annual late fee rate',
+      'Number of days overdue'
+    ],
+    outputs: [
+      'Late fee amount',
+      'Total amount owed'
+    ],
+    monetization_idea: 'Offer downloadable payment summaries as a premium feature.'
+  },
+  {
+    name: 'Meeting Cost Calculator',
+    slug: 'meeting-cost-calculator',
+    description: 'Estimate the staff cost of a business meeting.',
+    target_user: 'Managers and small business owners',
+    problem_solved: 'Shows how much employee time a meeting costs.',
+    inputs: [
+      'Number of attendees',
+      'Average hourly pay',
+      'Meeting duration in minutes'
+    ],
+    outputs: [
+      'Estimated total meeting cost',
+      'Cost per attendee'
+    ],
+    monetization_idea: 'Offer meeting cost reports and team comparisons as premium features.'
+  },
+  {
+    name: 'Freelance Hourly Rate Calculator',
+    slug: 'freelance-hourly-rate-calculator',
+    description: 'Estimate the hourly rate needed to meet an income goal.',
+    target_user: 'Freelancers and independent consultants',
+    problem_solved: 'Helps freelancers price their work around expenses and available hours.',
+    inputs: [
+      'Desired annual income',
+      'Annual business expenses',
+      'Billable hours per week',
+      'Working weeks per year'
+    ],
+    outputs: [
+      'Required hourly rate',
+      'Estimated annual revenue'
+    ],
+    monetization_idea: 'Offer downloadable pricing plans as a premium feature.'
+  }
+];
 
 async function main() {
-  if (!API_KEY) {
-    throw new Error('Missing OPENAI_API_KEY environment secret.');
-  }
-
-  const schema = {
-    type: 'object',
-    properties: {
-      name: { type: 'string' },
-      slug: { type: 'string' },
-      description: { type: 'string' },
-      target_user: { type: 'string' },
-      problem_solved: { type: 'string' },
-      inputs: {
-        type: 'array',
-        items: { type: 'string' }
-      },
-      outputs: {
-        type: 'array',
-        items: { type: 'string' }
-      },
-      monetization_idea: { type: 'string' }
-    },
-    required: [
-      'name',
-      'slug',
-      'description',
-      'target_user',
-      'problem_solved',
-      'inputs',
-      'outputs',
-      'monetization_idea'
-    ],
-    additionalProperties: false
-  };
-
-  console.log('Asking OpenAI to design one useful micro-tool...');
-
-  const response = await fetch(
-    'https://api.openai.com/v1/responses',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        instructions:
-          'Design one practical, small web tool for freelancers or small businesses. ' +
-          'Return a realistic tool concept, not a vague AI chatbot. ' +
-          'Choose a tool that can eventually run in a browser without a paid external API. ' +
-          'Use a short lowercase hyphen-separated slug. ' +
-          'Return only data matching the supplied schema.',
-        input:
-          'Propose one useful micro-SaaS tool idea that is different from a JSON formatter.',
-        text: {
-          format: {
-            type: 'json_schema',
-            name: 'micro_tool_specification',
-            strict: true,
-            schema
-          }
-        }
-      })
-    }
-  );
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(
-      `OpenAI API error (${response.status}): ` +
-      JSON.stringify(data.error || data)
-    );
-  }
-
-  const textOutput = (data.output || [])
-    .flatMap(item => item.content || [])
-    .find(item => item.type === 'output_text')?.text;
-
-  if (!textOutput) {
-    throw new Error('OpenAI returned no tool specification.');
-  }
-
-  const tool = JSON.parse(textOutput);
-
-  if (
-    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug) ||
-    tool.name.length < 3 ||
-    tool.description.length < 10 ||
-    tool.inputs.length === 0 ||
-    tool.outputs.length === 0
-  ) {
-    throw new Error('Generated tool specification failed validation.');
-  }
-
   const outputDirectory = path.join(
     process.cwd(),
     'specs',
@@ -110,30 +66,45 @@ async function main() {
 
   await fs.mkdir(outputDirectory, { recursive: true });
 
+  for (const tool of toolIdeas) {
     const outputPath = path.join(
-    outputDirectory,
-    `${tool.slug}.json`
-  );
-
-  try {
-    await fs.access(outputPath);
-    throw new Error(
-      `Tool "${tool.slug}" already exists. Run the generator again to propose a different tool.`
+      outputDirectory,
+      `${tool.slug}.json`
     );
-  } catch (error) {
-    if (error.code !== 'ENOENT') {
-      throw error;
+
+    try {
+      await fs.access(outputPath);
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error;
+      }
+
+      if (
+        !tool.name ||
+        !tool.description ||
+        !tool.inputs.length ||
+        !tool.outputs.length ||
+        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
+      ) {
+        throw new Error(`Invalid tool specification: ${tool.slug}`);
+      }
+
+      await fs.writeFile(
+        outputPath,
+        JSON.stringify(tool, null, 2) + '\n',
+        { flag: 'wx' }
+      );
+
+      console.log(`Tool specification created: ${tool.name}`);
+      console.log(`Saved to: ${outputPath}`);
+      return;
     }
   }
 
-  await fs.writeFile(
-    outputPath,
-    JSON.stringify(tool, null, 2) + '\n',
-    { flag: 'wx' }
+  throw new Error(
+    'All predefined tool specifications already exist. ' +
+    'Add another idea to the toolIdeas list.'
   );
-
-  console.log(`Tool specification saved: ${outputPath}`);
-  console.log(`Generated idea: ${tool.name}`);
 }
 
 main().catch(error => {
