@@ -2,9 +2,9 @@
 name: Autonomous Micro-SaaS Factory Pipeline
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch:
+     schedule:
+       - cron: '0 13 * * *'
+     workflow_dispatch:
 
 permissions:
   contents: read
