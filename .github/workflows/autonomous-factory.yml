@@ -2,9 +2,15 @@
 name: Autonomous Micro-SaaS Factory Pipeline
 
 on:
-     schedule:
-       - cron: '0 13 * * *'
-     workflow_dispatch:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+    inputs:
+      generate_tool:
+        description: 'Generate one AI tool specification for testing'
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -26,6 +32,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Generate AI Tool Specification
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_tool }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/ai-generate-tool.js
+
       - name: Verify Application Files
         run: |
           test -f app/layout.tsx
@@ -35,6 +47,7 @@ jobs:
           test -f components/ToolLayout.tsx
           test -f components/AdSlot.tsx
           test -f scripts/deploy-cloudflare.js
+          test -f scripts/ai-generate-tool.js
 
       - name: Build Website
         run: npm run build
