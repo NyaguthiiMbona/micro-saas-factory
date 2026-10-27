@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       generate_tool:
-        description: 'Generate one AI tool specification for testing'
+        description: 'Generate one tool specification using local templates'
         required: true
         type: boolean
         default: false
@@ -32,11 +32,21 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Generate AI Tool Specification
+      - name: Verify Generator Script
+        run: test -f scripts/ai-generate-tool.js
+
+      - name: Generate Tool Specification
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_tool }}
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node scripts/ai-generate-tool.js
+
+      - name: Save Generated Specification
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_tool }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-tool-specification
+          path: specs/generated/*.json
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Verify Application Files
         run: |
