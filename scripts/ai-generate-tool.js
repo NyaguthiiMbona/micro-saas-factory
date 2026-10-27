@@ -110,10 +110,21 @@ async function main() {
 
   await fs.mkdir(outputDirectory, { recursive: true });
 
-  const outputPath = path.join(
+    const outputPath = path.join(
     outputDirectory,
     `${tool.slug}.json`
   );
+
+  try {
+    await fs.access(outputPath);
+    throw new Error(
+      `Tool "${tool.slug}" already exists. Run the generator again to propose a different tool.`
+    );
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      throw error;
+    }
+  }
 
   await fs.writeFile(
     outputPath,
