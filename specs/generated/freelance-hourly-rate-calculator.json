@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "name": "Freelance Hourly Rate Calculator",
+  "slug": "freelance-hourly-rate-calculator",
+  "toolType": "freelance-hourly-rate-calculator",
+  "description": "Estimate a freelance hourly rate from an income target, expenses, working hours and billable time.",
+  "target_user": "Freelancers, consultants and independent professionals",
+  "problem_solved": "Helps freelancers estimate a rate that accounts for expenses and non-billable working time.",
+  "inputs": [
+    {
+      "id": "incomeTarget",
+      "label": "Desired annual income",
+      "type": "number",
+      "min": 0,
+      "step": 100,
+      "defaultValue": 40000
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Estimated annual business expenses",
+      "type": "number",
+      "min": 0,
+      "step": 100,
+      "defaultValue": 5000
+    },
+    {
+      "id": "workingWeeks",
+      "label": "Working weeks per year",
+      "type": "number",
+      "min": 1,
+      "max": 52,
+      "step": 1,
+      "defaultValue": 46
+    },
+    {
+      "id": "hoursPerWeek",
+      "label": "Working hours per week",
+      "type": "number",
+      "min": 1,
+      "step": 1,
+      "defaultValue": 40
+    },
+    {
+      "id": "billablePercentage",
+      "label": "Billable working time (%)",
+      "type": "number",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "defaultValue": 60
+    }
+  ],
+  "calculation": {
+    "kind": "freelance-hourly-rate",
+    "formula": "(incomeTarget + annualExpenses) / (workingWeeks * hoursPerWeek * (billablePercentage / 100))",
+    "outputs": [
+      {
+        "id": "hourlyRate",
+        "label": "Estimated minimum hourly rate"
+      }
+    ]
+  },
+  "monetization_idea": "Test demand for downloadable freelance pricing plans and rate-setting worksheets."
+}

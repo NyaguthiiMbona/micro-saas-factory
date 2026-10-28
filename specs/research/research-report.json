@@ -1,88 +1,231 @@
 {
-  "reportVersion": 1,
-  "generatedAt": "2026-10-28T09:21:56.342Z",
+  "reportVersion": 2,
+  "generatedAt": "2026-10-28T12:43:40.911Z",
   "status": "RESEARCH_REQUIRED",
+  "instructionsFile": "specs/research/research-agent-instructions.md",
+  "researchExecution": {
+    "completed": false,
+    "mode": "RESEARCH_PLAN_ONLY",
+    "webResearchPerformed": false,
+    "explanation": "This script prepares structured research plans. It does not independently access search engines, Google Trends, Search Console, or competitor websites.",
+    "nextRequirement": "Connect an actual research source or research-capable service before recording findings or assigning evidence-based scores."
+  },
   "scoringMethod": {
-    "description": "Scores must be supported by recorded evidence. Missing evidence is not treated as a zero-demand market.",
+    "scale": "0-5, or null when evidence is insufficient",
     "criteria": {
-      "demandEvidence": {
-        "weight": 30,
-        "description": "Evidence that people actively search for or need this solution."
-      },
-      "problemClarity": {
-        "weight": 20,
-        "description": "How clearly the tool solves a specific user problem."
-      },
-      "competitionGap": {
-        "weight": 20,
-        "description": "Evidence that existing alternatives leave a meaningful gap."
-      },
-      "monetizationPotential": {
+      "problemSeverity": {
         "weight": 15,
-        "description": "Evidence that the solution could support a viable business model."
+        "description": "Evidence that the target user experiences a meaningful problem."
+      },
+      "demandEvidence": {
+        "weight": 20,
+        "description": "Verified evidence of demand for a solution."
+      },
+      "competitionOpportunity": {
+        "weight": 15,
+        "description": "Evidence of competitor weaknesses or an underserved need."
+      },
+      "organicSearchOpportunity": {
+        "weight": 15,
+        "description": "Evidence that relevant searches could attract suitable users."
       },
       "buildFeasibility": {
         "weight": 15,
-        "description": "How practical it is to build and maintain the tool."
+        "description": "Practicality of building, testing, and maintaining the tool."
+      },
+      "monetizationPotential": {
+        "weight": 10,
+        "description": "Evidence supporting a plausible business model."
+      },
+      "operationalSustainability": {
+        "weight": 10,
+        "description": "Long-term affordability, reliability, privacy, and maintenance."
       }
     },
     "approvalThreshold": 70,
-    "minimumEvidenceSources": 3
+    "minimumEvidenceSources": 3,
+    "weightedScoreFormula": "Sum(score / 5 * criterion weight) for scored criteria only. A definitive total is permitted only when all criteria have sufficient evidence.",
+    "rules": [
+      "Never invent evidence or numerical metrics.",
+      "Missing evidence must remain null, not zero.",
+      "Do not calculate a definitive weighted score when any criterion is unscored.",
+      "A high score does not override serious legal, security, or feasibility risks.",
+      "A completed script run does not mean market research was completed.",
+      "A BUILD decision requires evidence and a documented validation rationale."
+    ]
   },
   "summary": {
-    "specificationsReviewed": 2,
+    "specificationsReviewed": 3,
     "researched": 0,
     "approved": 0,
-    "onHold": 2
+    "onHold": 3
   },
   "candidates": [
+    {
+      "name": "Freelance Hourly Rate Calculator",
+      "slug": "freelance-hourly-rate-calculator",
+      "specificationFile": "freelance-hourly-rate-calculator.json",
+      "targetUser": "Freelancers, consultants and independent professionals",
+      "problem": "Helps freelancers estimate a rate that accounts for expenses and non-billable working time.",
+      "decision": "INVESTIGATE",
+      "evidenceStatus": "NOT_RESEARCHED",
+      "confidence": "INSUFFICIENT_EVIDENCE",
+      "scores": {
+        "problemSeverity": null,
+        "demandEvidence": null,
+        "competitionOpportunity": null,
+        "organicSearchOpportunity": null,
+        "buildFeasibility": null,
+        "monetizationPotential": null,
+        "operationalSustainability": null
+      },
+      "weightedScore": null,
+      "evidence": [],
+      "competitorFindings": [],
+      "seoFindings": {
+        "primarySearchPhrase": null,
+        "supportingSearchPhrases": [],
+        "searchIntent": null,
+        "searchVolume": null,
+        "keywordDifficulty": null,
+        "geographicCoverage": null,
+        "findings": [],
+        "limitations": [
+          "No keyword research has been performed by this script."
+        ]
+      },
+      "feasibilityAssessment": {
+        "implementationComplexity": null,
+        "operatingCosts": [],
+        "technicalDependencies": [],
+        "privacyRisks": [],
+        "securityRisks": [],
+        "legalConsiderations": [],
+        "maintenanceRisks": []
+      },
+      "missingEvidence": [
+        "Problem evidence from relevant target users",
+        "Search demand and keyword evidence",
+        "Direct and indirect competitor comparison",
+        "Evidence of unmet needs or differentiation",
+        "Pricing and monetization evidence",
+        "Build complexity and maintenance assessment",
+        "Operating cost, privacy, security, and legal risk assessment"
+      ],
+      "researchPlan": {
+        "problemToInvestigate": "Helps freelancers estimate a rate that accounts for expenses and non-billable working time.",
+        "targetAudience": "Freelancers, consultants and independent professionals",
+        "initialSearchTerms": [
+          "Freelance Hourly Rate Calculator",
+          "Helps freelancers estimate a rate that accounts for expenses and non-billable working time.",
+          "Freelancers, consultants and independent professionals"
+        ],
+        "tasks": [
+          "Find credible evidence that the problem exists.",
+          "Investigate relevant search phrases and search intent.",
+          "Identify direct competitors, indirect alternatives, and free substitutes.",
+          "Record competitor features, pricing, and documented user complaints.",
+          "Investigate willingness to pay without assuming that search interest proves it.",
+          "Estimate build complexity, maintenance effort, and operating costs.",
+          "Identify privacy, security, and legal risks.",
+          "Record source URLs, retrieval dates, findings, and evidence quality.",
+          "Recommend the cheapest useful validation test."
+        ]
+      },
+      "validationPlan": {
+        "keyAssumptions": [
+          "The target audience experiences this problem.",
+          "Existing alternatives leave a meaningful unmet need.",
+          "The proposed tool can be built and maintained affordably.",
+          "There is a plausible route to attracting and retaining users."
+        ],
+        "recommendedNextTest": "Collect source-backed market and competitor evidence before deciding whether to build.",
+        "buildApprovalGranted": false
+      },
+      "explanation": "This report defines the research required for this candidate. It does not contain completed market research. Scores remain null until evidence is collected and assessed."
+    },
     {
       "name": "Invoice Late Fee Calculator",
       "slug": "invoice-late-fee-calculator",
       "specificationFile": "invoice-late-fee-calculator.json",
       "targetUser": "Freelancers and small business owners",
       "problem": "Makes it easier to estimate late payment charges.",
+      "decision": "INVESTIGATE",
+      "evidenceStatus": "NOT_RESEARCHED",
+      "confidence": "INSUFFICIENT_EVIDENCE",
       "scores": {
+        "problemSeverity": null,
         "demandEvidence": null,
-        "problemClarity": null,
-        "competitionGap": null,
+        "competitionOpportunity": null,
+        "organicSearchOpportunity": null,
+        "buildFeasibility": null,
         "monetizationPotential": null,
-        "buildFeasibility": null
+        "operationalSustainability": null
       },
       "weightedScore": null,
-      "evidenceStatus": "NOT_RESEARCHED",
-      "decision": "HOLD",
       "evidence": [],
+      "competitorFindings": [],
+      "seoFindings": {
+        "primarySearchPhrase": null,
+        "supportingSearchPhrases": [],
+        "searchIntent": null,
+        "searchVolume": null,
+        "keywordDifficulty": null,
+        "geographicCoverage": null,
+        "findings": [],
+        "limitations": [
+          "No keyword research has been performed by this script."
+        ]
+      },
+      "feasibilityAssessment": {
+        "implementationComplexity": null,
+        "operatingCosts": [],
+        "technicalDependencies": [],
+        "privacyRisks": [],
+        "securityRisks": [],
+        "legalConsiderations": [],
+        "maintenanceRisks": []
+      },
       "missingEvidence": [
+        "Problem evidence from relevant target users",
         "Search demand and keyword evidence",
-        "Competitor comparison",
-        "Evidence of unmet user needs",
-        "Evidence supporting monetization",
-        "Estimated build and maintenance effort"
+        "Direct and indirect competitor comparison",
+        "Evidence of unmet needs or differentiation",
+        "Pricing and monetization evidence",
+        "Build complexity and maintenance assessment",
+        "Operating cost, privacy, security, and legal risk assessment"
       ],
-      "explanation": "A specification exists, but no verified market research has been attached. No demand score has been invented.",
-      "criteria": {
-        "demandEvidence": {
-          "weight": 30,
-          "description": "Evidence that people actively search for or need this solution."
-        },
-        "problemClarity": {
-          "weight": 20,
-          "description": "How clearly the tool solves a specific user problem."
-        },
-        "competitionGap": {
-          "weight": 20,
-          "description": "Evidence that existing alternatives leave a meaningful gap."
-        },
-        "monetizationPotential": {
-          "weight": 15,
-          "description": "Evidence that the solution could support a viable business model."
-        },
-        "buildFeasibility": {
-          "weight": 15,
-          "description": "How practical it is to build and maintain the tool."
-        }
-      }
+      "researchPlan": {
+        "problemToInvestigate": "Makes it easier to estimate late payment charges.",
+        "targetAudience": "Freelancers and small business owners",
+        "initialSearchTerms": [
+          "Invoice Late Fee Calculator",
+          "Makes it easier to estimate late payment charges.",
+          "Freelancers and small business owners"
+        ],
+        "tasks": [
+          "Find credible evidence that the problem exists.",
+          "Investigate relevant search phrases and search intent.",
+          "Identify direct competitors, indirect alternatives, and free substitutes.",
+          "Record competitor features, pricing, and documented user complaints.",
+          "Investigate willingness to pay without assuming that search interest proves it.",
+          "Estimate build complexity, maintenance effort, and operating costs.",
+          "Identify privacy, security, and legal risks.",
+          "Record source URLs, retrieval dates, findings, and evidence quality.",
+          "Recommend the cheapest useful validation test."
+        ]
+      },
+      "validationPlan": {
+        "keyAssumptions": [
+          "The target audience experiences this problem.",
+          "Existing alternatives leave a meaningful unmet need.",
+          "The proposed tool can be built and maintained affordably.",
+          "There is a plausible route to attracting and retaining users."
+        ],
+        "recommendedNextTest": "Collect source-backed market and competitor evidence before deciding whether to build.",
+        "buildApprovalGranted": false
+      },
+      "explanation": "This report defines the research required for this candidate. It does not contain completed market research. Scores remain null until evidence is collected and assessed."
     },
     {
       "name": "Meeting Cost Calculator",
@@ -90,47 +233,82 @@
       "specificationFile": "meeting-cost-calculator.json",
       "targetUser": "Small business owners, managers and team leaders",
       "problem": "Helps teams understand how much paid staff time meetings consume.",
+      "decision": "INVESTIGATE",
+      "evidenceStatus": "NOT_RESEARCHED",
+      "confidence": "INSUFFICIENT_EVIDENCE",
       "scores": {
+        "problemSeverity": null,
         "demandEvidence": null,
-        "problemClarity": null,
-        "competitionGap": null,
+        "competitionOpportunity": null,
+        "organicSearchOpportunity": null,
+        "buildFeasibility": null,
         "monetizationPotential": null,
-        "buildFeasibility": null
+        "operationalSustainability": null
       },
       "weightedScore": null,
-      "evidenceStatus": "NOT_RESEARCHED",
-      "decision": "HOLD",
       "evidence": [],
+      "competitorFindings": [],
+      "seoFindings": {
+        "primarySearchPhrase": null,
+        "supportingSearchPhrases": [],
+        "searchIntent": null,
+        "searchVolume": null,
+        "keywordDifficulty": null,
+        "geographicCoverage": null,
+        "findings": [],
+        "limitations": [
+          "No keyword research has been performed by this script."
+        ]
+      },
+      "feasibilityAssessment": {
+        "implementationComplexity": null,
+        "operatingCosts": [],
+        "technicalDependencies": [],
+        "privacyRisks": [],
+        "securityRisks": [],
+        "legalConsiderations": [],
+        "maintenanceRisks": []
+      },
       "missingEvidence": [
+        "Problem evidence from relevant target users",
         "Search demand and keyword evidence",
-        "Competitor comparison",
-        "Evidence of unmet user needs",
-        "Evidence supporting monetization",
-        "Estimated build and maintenance effort"
+        "Direct and indirect competitor comparison",
+        "Evidence of unmet needs or differentiation",
+        "Pricing and monetization evidence",
+        "Build complexity and maintenance assessment",
+        "Operating cost, privacy, security, and legal risk assessment"
       ],
-      "explanation": "A specification exists, but no verified market research has been attached. No demand score has been invented.",
-      "criteria": {
-        "demandEvidence": {
-          "weight": 30,
-          "description": "Evidence that people actively search for or need this solution."
-        },
-        "problemClarity": {
-          "weight": 20,
-          "description": "How clearly the tool solves a specific user problem."
-        },
-        "competitionGap": {
-          "weight": 20,
-          "description": "Evidence that existing alternatives leave a meaningful gap."
-        },
-        "monetizationPotential": {
-          "weight": 15,
-          "description": "Evidence that the solution could support a viable business model."
-        },
-        "buildFeasibility": {
-          "weight": 15,
-          "description": "How practical it is to build and maintain the tool."
-        }
-      }
+      "researchPlan": {
+        "problemToInvestigate": "Helps teams understand how much paid staff time meetings consume.",
+        "targetAudience": "Small business owners, managers and team leaders",
+        "initialSearchTerms": [
+          "Meeting Cost Calculator",
+          "Helps teams understand how much paid staff time meetings consume.",
+          "Small business owners, managers and team leaders"
+        ],
+        "tasks": [
+          "Find credible evidence that the problem exists.",
+          "Investigate relevant search phrases and search intent.",
+          "Identify direct competitors, indirect alternatives, and free substitutes.",
+          "Record competitor features, pricing, and documented user complaints.",
+          "Investigate willingness to pay without assuming that search interest proves it.",
+          "Estimate build complexity, maintenance effort, and operating costs.",
+          "Identify privacy, security, and legal risks.",
+          "Record source URLs, retrieval dates, findings, and evidence quality.",
+          "Recommend the cheapest useful validation test."
+        ]
+      },
+      "validationPlan": {
+        "keyAssumptions": [
+          "The target audience experiences this problem.",
+          "Existing alternatives leave a meaningful unmet need.",
+          "The proposed tool can be built and maintained affordably.",
+          "There is a plausible route to attracting and retaining users."
+        ],
+        "recommendedNextTest": "Collect source-backed market and competitor evidence before deciding whether to build.",
+        "buildApprovalGranted": false
+      },
+      "explanation": "This report defines the research required for this candidate. It does not contain completed market research. Scores remain null until evidence is collected and assessed."
     }
   ]
 }
