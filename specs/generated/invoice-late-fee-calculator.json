@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "name": "Invoice Late Fee Calculator",
+  "slug": "invoice-late-fee-calculator",
+  "toolType": "invoice-late-fee-calculator",
+  "description": "Calculate an estimated late fee and total amount owed on an overdue invoice.",
+  "target_user": "Freelancers and small business owners",
+  "problem_solved": "Makes it easier to estimate late payment charges.",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "Original invoice amount",
+      "type": "number",
+      "min": 0.01,
+      "step": 0.01,
+      "defaultValue": 1000
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual late fee rate (%)",
+      "type": "number",
+      "min": 0,
+      "step": 0.01,
+      "defaultValue": 8
+    },
+    {
+      "id": "daysOverdue",
+      "label": "Days overdue",
+      "type": "number",
+      "min": 0,
+      "step": 1,
+      "defaultValue": 30
+    }
+  ],
+  "calculation": {
+    "kind": "simple-interest",
+    "formula": "amount * (annualRate / 100) * (daysOverdue / 365)",
+    "outputs": [
+      {
+        "id": "fee",
+        "label": "Estimated late fee"
+      },
+      {
+        "id": "total",
+        "label": "Total estimated amount owed"
+      }
+    ]
+  },
+  "monetization_idea": "Test demand for downloadable invoice payment summaries."
+}
