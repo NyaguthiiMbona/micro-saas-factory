@@ -44,6 +44,8 @@ jobs:
         run: node scripts/ai-generate-tool.js
 
       - name: Run Research Scoring Engine
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
         run: node scripts/research-tool-ideas.js
 
       - name: Validate Research Report
