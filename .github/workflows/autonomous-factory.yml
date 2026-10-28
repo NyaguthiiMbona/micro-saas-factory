@@ -34,22 +34,50 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Verify Generator Script
-        run: test -f scripts/ai-generate-tool.js
+      - name: Verify Required Scripts
+        run: |
+          test -f scripts/ai-generate-tool.js
+          test -f scripts/research-tool-ideas.js
 
       - name: Generate Tool Specification
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
         run: node scripts/ai-generate-tool.js
 
-      - name: Verify Generated Specifications
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
-        run: |
-          if [ ! -d specs/generated ] || ! find specs/generated -maxdepth 1 -type f -name '*.json' -print -quit | grep -q .; then
-            echo "ERROR: No generated specification JSON files found."
-            exit 1
-          fi
+      - name: Run Research Scoring Engine
+        run: node scripts/research-tool-ideas.js
 
-      - name: Save Generated Specification
+      - name: Validate Research Report
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const file = "specs/research/research-report.json";
+
+            if (!fs.existsSync(file)) {
+              throw new Error("Research report was not created.");
+            }
+
+            const report = JSON.parse(
+              fs.readFileSync(file, "utf8")
+            );
+
+            if (!Array.isArray(report.candidates)) {
+              throw new Error("Research candidates are missing.");
+            }
+
+            console.log("Research report is valid.");
+            console.log("Candidates reviewed:", report.candidates.length);
+            console.log("Status:", report.status);
+          '
+
+      - name: Save Research Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: tool-research-report
+          path: specs/research/research-report.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Save Generated Specifications
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
         uses: actions/upload-artifact@v4
         with:
@@ -58,17 +86,19 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Commit New Specifications
+      - name: Commit Research and Specifications
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add specs/generated/*.json
+          git add specs/research/research-report.json
 
           if git diff --cached --quiet; then
-            echo "No new specifications to commit."
+            echo "No new files or changes to commit."
           else
-            git commit -m "Add generated tool specification"
+            git commit -m "Update tool research report"
             git push
           fi
 
@@ -81,7 +111,6 @@ jobs:
           test -f components/ToolLayout.tsx
           test -f components/AdSlot.tsx
           test -f scripts/deploy-cloudflare.js
-          test -f scripts/ai-generate-tool.js
 
       - name: Build Website
         run: npm run build
