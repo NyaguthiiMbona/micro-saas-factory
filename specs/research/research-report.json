@@ -1,0 +1,136 @@
+{
+  "reportVersion": 1,
+  "generatedAt": "2026-10-28T09:21:56.342Z",
+  "status": "RESEARCH_REQUIRED",
+  "scoringMethod": {
+    "description": "Scores must be supported by recorded evidence. Missing evidence is not treated as a zero-demand market.",
+    "criteria": {
+      "demandEvidence": {
+        "weight": 30,
+        "description": "Evidence that people actively search for or need this solution."
+      },
+      "problemClarity": {
+        "weight": 20,
+        "description": "How clearly the tool solves a specific user problem."
+      },
+      "competitionGap": {
+        "weight": 20,
+        "description": "Evidence that existing alternatives leave a meaningful gap."
+      },
+      "monetizationPotential": {
+        "weight": 15,
+        "description": "Evidence that the solution could support a viable business model."
+      },
+      "buildFeasibility": {
+        "weight": 15,
+        "description": "How practical it is to build and maintain the tool."
+      }
+    },
+    "approvalThreshold": 70,
+    "minimumEvidenceSources": 3
+  },
+  "summary": {
+    "specificationsReviewed": 2,
+    "researched": 0,
+    "approved": 0,
+    "onHold": 2
+  },
+  "candidates": [
+    {
+      "name": "Invoice Late Fee Calculator",
+      "slug": "invoice-late-fee-calculator",
+      "specificationFile": "invoice-late-fee-calculator.json",
+      "targetUser": "Freelancers and small business owners",
+      "problem": "Makes it easier to estimate late payment charges.",
+      "scores": {
+        "demandEvidence": null,
+        "problemClarity": null,
+        "competitionGap": null,
+        "monetizationPotential": null,
+        "buildFeasibility": null
+      },
+      "weightedScore": null,
+      "evidenceStatus": "NOT_RESEARCHED",
+      "decision": "HOLD",
+      "evidence": [],
+      "missingEvidence": [
+        "Search demand and keyword evidence",
+        "Competitor comparison",
+        "Evidence of unmet user needs",
+        "Evidence supporting monetization",
+        "Estimated build and maintenance effort"
+      ],
+      "explanation": "A specification exists, but no verified market research has been attached. No demand score has been invented.",
+      "criteria": {
+        "demandEvidence": {
+          "weight": 30,
+          "description": "Evidence that people actively search for or need this solution."
+        },
+        "problemClarity": {
+          "weight": 20,
+          "description": "How clearly the tool solves a specific user problem."
+        },
+        "competitionGap": {
+          "weight": 20,
+          "description": "Evidence that existing alternatives leave a meaningful gap."
+        },
+        "monetizationPotential": {
+          "weight": 15,
+          "description": "Evidence that the solution could support a viable business model."
+        },
+        "buildFeasibility": {
+          "weight": 15,
+          "description": "How practical it is to build and maintain the tool."
+        }
+      }
+    },
+    {
+      "name": "Meeting Cost Calculator",
+      "slug": "meeting-cost-calculator",
+      "specificationFile": "meeting-cost-calculator.json",
+      "targetUser": "Small business owners, managers and team leaders",
+      "problem": "Helps teams understand how much paid staff time meetings consume.",
+      "scores": {
+        "demandEvidence": null,
+        "problemClarity": null,
+        "competitionGap": null,
+        "monetizationPotential": null,
+        "buildFeasibility": null
+      },
+      "weightedScore": null,
+      "evidenceStatus": "NOT_RESEARCHED",
+      "decision": "HOLD",
+      "evidence": [],
+      "missingEvidence": [
+        "Search demand and keyword evidence",
+        "Competitor comparison",
+        "Evidence of unmet user needs",
+        "Evidence supporting monetization",
+        "Estimated build and maintenance effort"
+      ],
+      "explanation": "A specification exists, but no verified market research has been attached. No demand score has been invented.",
+      "criteria": {
+        "demandEvidence": {
+          "weight": 30,
+          "description": "Evidence that people actively search for or need this solution."
+        },
+        "problemClarity": {
+          "weight": 20,
+          "description": "How clearly the tool solves a specific user problem."
+        },
+        "competitionGap": {
+          "weight": 20,
+          "description": "Evidence that existing alternatives leave a meaningful gap."
+        },
+        "monetizationPotential": {
+          "weight": 15,
+          "description": "Evidence that the solution could support a viable business model."
+        },
+        "buildFeasibility": {
+          "weight": 15,
+          "description": "How practical it is to build and maintain the tool."
+        }
+      }
+    }
+  ]
+}

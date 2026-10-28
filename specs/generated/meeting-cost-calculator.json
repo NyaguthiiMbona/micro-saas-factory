@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "Meeting Cost Calculator",
+  "slug": "meeting-cost-calculator",
+  "toolType": "meeting-cost-calculator",
+  "description": "Estimate the staff cost of a meeting using attendee count, hourly pay and meeting duration.",
+  "target_user": "Small business owners, managers and team leaders",
+  "problem_solved": "Helps teams understand how much paid staff time meetings consume.",
+  "inputs": [
+    {
+      "id": "attendees",
+      "label": "Number of attendees",
+      "type": "number",
+      "min": 1,
+      "step": 1,
+      "defaultValue": 5
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Average hourly cost per attendee",
+      "type": "number",
+      "min": 0,
+      "step": 0.01,
+      "defaultValue": 20
+    },
+    {
+      "id": "durationMinutes",
+      "label": "Meeting duration (minutes)",
+      "type": "number",
+      "min": 1,
+      "step": 1,
+      "defaultValue": 60
+    }
+  ],
+  "calculation": {
+    "kind": "meeting-cost",
+    "formula": "attendees * hourlyRate * (durationMinutes / 60)",
+    "outputs": [
+      {
+        "id": "totalCost",
+        "label": "Estimated meeting cost"
+      }
+    ]
+  },
+  "monetization_idea": "Test demand for team meeting reports and meeting-efficiency tools."
+}
