@@ -1,4 +1,4 @@
-
+```yaml
 name: Autonomous Micro-SaaS Factory Pipeline
 
 on:
@@ -36,11 +36,11 @@ jobs:
         run: test -f scripts/ai-generate-tool.js
 
       - name: Generate Tool Specification
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_tool }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
         run: node scripts/ai-generate-tool.js
 
       - name: Save Generated Specification
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.generate_tool }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.generate_tool) }}
         uses: actions/upload-artifact@v4
         with:
           name: generated-tool-specification
@@ -88,3 +88,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: node scripts/deploy-cloudflare.js
+```
