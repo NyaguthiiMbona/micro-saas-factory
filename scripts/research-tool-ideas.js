@@ -4,69 +4,51 @@ const path = require("node:path");
 
 const ROOT = process.cwd();
 
-const SPEC_DIRECTORY = path.join(
-  ROOT,
-  "specs",
-  "generated"
-);
-
-const REPORT_DIRECTORY = path.join(
-  ROOT,
-  "specs",
-  "research"
-);
-
-const REPORT_PATH = path.join(
-  REPORT_DIRECTORY,
-  "research-report.json"
-);
-
+const SPEC_DIRECTORY = path.join(ROOT, "specs", "generated");
+const REPORT_DIRECTORY = path.join(ROOT, "specs", "research");
+const REPORT_PATH = path.join(REPORT_DIRECTORY, "research-report.json");
 const INSTRUCTIONS_PATH = path.join(
   REPORT_DIRECTORY,
   "research-agent-instructions.md"
 );
 
-const FIRECRAWL_API_URL =
-  "https://api.firecrawl.dev/v2/search";
+const FIRECRAWL_SEARCH_URL = "https://api.firecrawl.dev/v2/search";
+const FIRECRAWL_SCRAPE_URL = "https://api.firecrawl.dev/v2/scrape";
 
 const RESULTS_PER_SEARCH = 5;
 const MAX_SEARCHES_PER_CANDIDATE = 3;
+const MAX_PAGES_TO_INSPECT_PER_CANDIDATE = 2;
+const MAX_PAGE_CONTENT_CHARS = 6000;
+const REQUEST_TIMEOUT_MS = 30000;
 
 const CRITERIA = {
   problemSeverity: {
     weight: 15,
-    description:
-      "Evidence that the target user experiences a meaningful problem."
+    description: "Evidence that the target user experiences a meaningful problem."
   },
   demandEvidence: {
     weight: 20,
-    description:
-      "Verified evidence of demand for a solution."
+    description: "Verified evidence of demand for a solution."
   },
   competitionOpportunity: {
     weight: 15,
-    description:
-      "Evidence of competitor weaknesses or an underserved need."
+    description: "Evidence of competitor weaknesses or an underserved need."
   },
   organicSearchOpportunity: {
     weight: 15,
-    description:
-      "Evidence that relevant searches could attract suitable users."
+    description: "Evidence that relevant searches could attract suitable users."
   },
   buildFeasibility: {
     weight: 15,
-    description:
-      "Practicality of building, testing, and maintaining the tool."
+    description: "Practicality of building, testing, and maintaining the tool."
   },
   monetizationPotential: {
     weight: 10,
-    description:
-      "Evidence supporting a plausible business model."
+    description: "Evidence supporting a plausible business model."
   },
   operationalSustainability: {
     weight: 10,
-    description:
-      "Long-term affordability, reliability, privacy, and maintenance."
+    description: "Long-term affordability, reliability, privacy, and maintenance."
   }
 };
 
@@ -93,24 +75,17 @@ function readSpecifications() {
     .sort();
 
   if (files.length === 0) {
-    throw new Error(
-      "No specification JSON files were found."
-    );
+    throw new Error("No specification JSON files were found.");
   }
 
   return files.map((file) => {
     const filePath = path.join(SPEC_DIRECTORY, file);
-
     let specification;
 
     try {
-      specification = JSON.parse(
-        fs.readFileSync(filePath, "utf8")
-      );
+      specification = JSON.parse(fs.readFileSync(filePath, "utf8"));
     } catch (error) {
-      throw new Error(
-        `Cannot read ${file}: ${error.message}`
-      );
+      throw new Error(`Cannot read ${file}: ${error.message}`);
     }
 
     if (
@@ -119,19 +94,32 @@ function readSpecifications() {
       !specification.name ||
       !specification.slug
     ) {
-      throw new Error(
-        `${file} must contain a valid name and slug.`
-      );
+      throw new Error(`${file} must contain a valid name and slug.`);
     }
 
     return { file, specification };
   });
 }
 
+function validateInstructions() {
+  if (!fs.existsSync(INSTRUCTIONS_PATH)) {
+    throw new Error(
+      "Research instructions file not found: " +
+      "specs/research/research-agent-instructions.md"
+    );
+  }
+
+  const instructions = fs.readFileSync(INSTRUCTIONS_PATH, "utf8").trim();
+
+  if (instructions.length < 100) {
+    throw new Error("The research instructions file is empty or too short.");
+  }
+}
+
 function createSearchQueries(spec) {
-  const name = spec.name;
-  const problem = spec.problem_solved;
-  const targetUser = spec.target_user;
+  const name = String(spec.name || "").trim();
+  const problem = String(spec.problem_solved || "").trim();
+  const targetUser = String(spec.target_user || "").trim();
 
   const queries = [
     `${name} alternatives competitors`,
@@ -144,50 +132,91 @@ function createSearchQueries(spec) {
   ];
 
   return [...new Set(
-    queries
-      .filter((query) => typeof query === "string")
-      .map((query) => query.trim())
-      .filter(Boolean)
+    queries.map((query) => query.trim()).filter(Boolean)
   )].slice(0, MAX_SEARCHES_PER_CANDIDATE);
 }
 
-async function searchWeb(query) {
+function normaliseUrl(rawUrl) {
+  if (typeof rawUrl !== "string" || !rawUrl.trim()) {
+    return null;
+  }
+
+  try {
+    const url = new URL(rawUrl);
+
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return null;
+    }
+
+    if (url.username || url.password) {
+      return null;
+    }
+
+    const hostname = url.hostname.toLowerCase();
+
+    if (
+      hostname === "localhost" ||
+      hostname === "127.0.0.1" ||
+      hostname === "::1" ||
+      hostname.endsWith(".localhost") ||
+      hostname.endsWith(".local") ||
+      hostname.startsWith("10.") ||
+      hostname.startsWith("192.168.") ||
+      hostname.startsWith("169.254.")
+    ) {
+      return null;
+    }
+
+    url.hash = "";
+
+    for (const key of [...url.searchParams.keys()]) {
+      if (
+        key.toLowerCase().startsWith("utm_") ||
+        ["fbclid", "gclid", "ref", "source"].includes(key.toLowerCase())
+      ) {
+        url.searchParams.delete(key);
+      }
+    }
+
+    if (url.pathname.length > 1) {
+      url.pathname = url.pathname.replace(/\/+$/, "");
+    }
+
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function getApiKey() {
   const apiKey = process.env.FIRECRAWL_API_KEY;
 
   if (!apiKey) {
-    const error = new Error(
-      "FIRECRAWL_API_KEY is not configured."
-    );
-
+    const error = new Error("FIRECRAWL_API_KEY is not configured.");
     error.stopResearch = true;
     throw error;
   }
 
-  const response = await fetch(FIRECRAWL_API_URL, {
+  return apiKey;
+}
+
+async function postToFirecrawl(endpoint, body) {
+  const apiKey = getApiKey();
+
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${apiKey}`,
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      query,
-      limit: RESULTS_PER_SEARCH
-    }),
-    signal: AbortSignal.timeout(30000)
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
   });
 
   if (!response.ok) {
-    const error = new Error(
-      `Firecrawl returned HTTP ${response.status}.`
-    );
+    const error = new Error(`Firecrawl returned HTTP ${response.status}.`);
 
-    error.stopResearch = [
-      401,
-      402,
-      403,
-      429
-    ].includes(response.status);
-
+    error.stopResearch = [401, 402, 403, 429].includes(response.status);
     throw error;
   }
 
@@ -195,17 +224,26 @@ async function searchWeb(query) {
 
   if (payload.success === false) {
     const error = new Error(
-      "Firecrawl reported that the search failed."
+      typeof payload.error === "string"
+        ? payload.error
+        : "Firecrawl reported that the request failed."
     );
 
     error.stopResearch = true;
     throw error;
   }
 
+  return payload;
+}
+
+async function searchWeb(query) {
+  const payload = await postToFirecrawl(FIRECRAWL_SEARCH_URL, {
+    query,
+    limit: RESULTS_PER_SEARCH
+  });
+
   const data = payload.data;
 
-  // Firecrawl v2 normally groups results under data.web.
-  // Also accept a direct array to handle compatible responses.
   const results = Array.isArray(data)
     ? data
     : Array.isArray(data?.web)
@@ -220,19 +258,101 @@ async function searchWeb(query) {
   };
 }
 
+async function scrapePage(url) {
+  const payload = await postToFirecrawl(FIRECRAWL_SCRAPE_URL, {
+    url,
+    formats: ["markdown"],
+    onlyMainContent: true,
+    timeout: REQUEST_TIMEOUT_MS
+  });
+
+  const data = payload.data || payload;
+  const metadata = data.metadata || {};
+
+  return {
+    markdown: typeof data.markdown === "string" ? data.markdown : "",
+    title: metadata.title || null,
+    description: metadata.description || null,
+    sourceUrl: metadata.sourceURL || metadata.url || url,
+    statusCode: Number.isFinite(metadata.statusCode)
+      ? metadata.statusCode
+      : null,
+    creditsUsed: Number.isFinite(metadata.creditsUsed)
+      ? metadata.creditsUsed
+      : Number.isFinite(payload.creditsUsed)
+        ? payload.creditsUsed
+        : null,
+    warning: data.warning || null
+  };
+}
+
 function normaliseResult(result, query, retrievedAt) {
+  const url = normaliseUrl(result.url);
+
+  if (!url) {
+    return null;
+  }
+
   return {
     type: "WEB_SEARCH_RESULT",
-    query,
     title: result.title || null,
-    url: result.url || null,
+    url,
     description: result.description || result.snippet || null,
+    matchedQueries: [query],
     retrievedAt,
     evidenceQuality: "LOW",
     limitations:
       "Search-result information only. The underlying page " +
-      "has not been independently inspected or verified."
+      "has not yet been independently inspected."
   };
+}
+
+function classifySource(title, description, content) {
+  const text = `${title || ""} ${description || ""} ${content || ""}`
+    .toLowerCase();
+
+  const discussionTerms = [
+    "reddit.com",
+    "forum",
+    "discussion",
+    "anyone know",
+    "what do you use",
+    "user review",
+    "customer review"
+  ];
+
+  const competitorTerms = [
+    "calculator",
+    "calculate",
+    "pricing",
+    "free tool",
+    "rate calculator",
+    "estimate your",
+    "compare rates"
+  ];
+
+  const alternativeTerms = [
+    "time tracking",
+    "invoicing software",
+    "project management",
+    "accounting software",
+    "alternative to",
+    "workflow"
+  ];
+
+  if (discussionTerms.some((term) => text.includes(term))) {
+    return "DISCUSSION_OR_FEEDBACK";
+  }
+
+  if (competitorTerms.some((term) => text.includes(term))) {
+    return "POTENTIAL_DIRECT_COMPETITOR";
+  }
+
+  if (alternativeTerms.some((term) => text.includes(term))) {
+    return "RELATED_ALTERNATIVE";
+  }
+
+  return "OTHER_OR_UNCLEAR";
 }
 
 function createCandidate(item) {
@@ -242,7 +362,6 @@ function createCandidate(item) {
     name: spec.name,
     slug: spec.slug,
     specificationFile: item.file,
-
     targetUser: spec.target_user || null,
     problem: spec.problem_solved || null,
 
@@ -263,6 +382,7 @@ function createCandidate(item) {
     weightedScore: null,
     evidence: [],
     competitorFindings: [],
+    sourceInspection: [],
 
     seoFindings: {
       primarySearchPhrase: null,
@@ -294,12 +414,9 @@ function createCandidate(item) {
     researchPlan: {
       problemToInvestigate:
         spec.problem_solved || "Clarify the problem being solved.",
-
       targetAudience:
         spec.target_user || "Identify a specific target audience.",
-
       initialSearchTerms: createSearchQueries(spec),
-
       tasks: [
         "Find credible evidence that the problem exists.",
         "Investigate search phrases and search intent.",
@@ -320,18 +437,17 @@ function createCandidate(item) {
         "The proposed tool can be built and maintained affordably.",
         "There is a plausible route to attracting and retaining users."
       ],
-
       recommendedNextTest:
-        "Inspect the collected sources and validate demand, competition, " +
+        "Inspect collected sources and validate demand, competition, " +
         "and willingness to pay before deciding whether to build.",
-
       buildApprovalGranted: false
     },
 
     searchExecution: {
       queriesAttempted: 0,
       successfulSearches: 0,
-      resultsCollected: 0,
+      rawResultsCollected: 0,
+      uniqueSourcesCollected: 0,
       errors: []
     },
 
@@ -341,32 +457,12 @@ function createCandidate(item) {
   };
 }
 
-function validateInstructions() {
-  if (!fs.existsSync(INSTRUCTIONS_PATH)) {
-    throw new Error(
-      "Research instructions file not found: " +
-      "specs/research/research-agent-instructions.md"
-    );
-  }
-
-  const instructions = fs.readFileSync(
-    INSTRUCTIONS_PATH,
-    "utf8"
-  ).trim();
-
-  if (instructions.length < 100) {
-    throw new Error(
-      "The research instructions file is empty or too short."
-    );
-  }
-}
-
 async function researchCandidate(candidate, state) {
+  const evidenceByUrl = new Map();
   const queries = candidate.researchPlan.initialSearchTerms;
-  const seenUrls = new Set();
 
   for (const query of queries) {
-    if (state.stopResearch) {
+    if (state.stopSearch) {
       break;
     }
 
@@ -382,81 +478,220 @@ async function researchCandidate(candidate, state) {
         state.reportedCreditsUsed += result.creditsUsed;
       }
 
-      for (const item of result.results) {
-        const evidence = normaliseResult(
-          item,
-          query,
-          retrievedAt
-        );
+      candidate.searchExecution.successfulSearches += 1;
+      candidate.searchExecution.rawResultsCollected += result.results.length;
 
-        // Keep evidence only when it has a usable source URL.
-        if (!evidence.url) {
+      for (const item of result.results) {
+        const evidence = normaliseResult(item, query, retrievedAt);
+
+        if (!evidence) {
           continue;
         }
 
-        candidate.evidence.push(evidence);
-        candidate.seoFindings.findings.push(evidence);
-        seenUrls.add(evidence.url);
+        const existing = evidenceByUrl.get(evidence.url);
+
+        if (existing) {
+          if (!existing.matchedQueries.includes(query)) {
+            existing.matchedQueries.push(query);
+          }
+
+          if (
+            (!existing.description || existing.description.length < 40) &&
+            evidence.description
+          ) {
+            existing.description = evidence.description;
+          }
+
+          if (!existing.title && evidence.title) {
+            existing.title = evidence.title;
+          }
+        } else {
+          evidenceByUrl.set(evidence.url, evidence);
+        }
       }
 
-      candidate.searchExecution.successfulSearches += 1;
-
-      candidate.searchExecution.resultsCollected =
-        candidate.evidence.length;
-
-      console.log(
-        `Search completed for "${candidate.name}".`
-      );
+      console.log(`Search completed for "${candidate.name}".`);
     } catch (error) {
       const message = error.name === "TimeoutError"
         ? "The search request timed out."
         : error.message;
 
-      candidate.searchExecution.errors.push({
+      const errorRecord = {
+        stage: "search",
         query,
         message,
         recordedAt: new Date().toISOString()
-      });
+      };
 
+      candidate.searchExecution.errors.push(errorRecord);
       state.errors.push({
         candidate: candidate.name,
-        query,
-        message
+        ...errorRecord
       });
 
-      console.error(
-        `Search failed for "${candidate.name}": ${message}`
-      );
+      console.error(`Search failed for "${candidate.name}": ${message}`);
 
       if (error.stopResearch) {
-        state.stopResearch = true;
+        state.stopSearch = true;
         state.stopReason = message;
       }
     }
   }
 
-  candidate.searchExecution.resultsCollected =
-    candidate.evidence.length;
+  candidate.evidence = [...evidenceByUrl.values()];
+  candidate.searchExecution.uniqueSourcesCollected = candidate.evidence.length;
 
-  candidate.uniqueSourceCount = seenUrls.size;
+  // Keep SEO findings separate from evidence instead of copying every
+  // source into two arrays. This prevents artificial report inflation.
+  candidate.seoFindings.findings = candidate.evidence.map((source) => ({
+    url: source.url,
+    title: source.title,
+    description: source.description,
+    matchedQueries: [...source.matchedQueries]
+  }));
+
+  const pagesToInspect = candidate.evidence
+    .filter((source) => source.url)
+    .slice(0, MAX_PAGES_TO_INSPECT_PER_CANDIDATE);
+
+  for (const source of pagesToInspect) {
+    if (state.stopInspection) {
+      break;
+    }
+
+    try {
+      const page = await scrapePage(source.url);
+      const inspectedAt = new Date().toISOString();
+
+      if (page.creditsUsed !== null) {
+        state.reportedCreditsUsed += page.creditsUsed;
+      }
+
+      const content = page.markdown.slice(0, MAX_PAGE_CONTENT_CHARS);
+      const classification = classifySource(
+        page.title || source.title,
+        page.description || source.description,
+        content
+      );
+
+      const inspection = {
+        url: source.url,
+        status: content
+          ? "INSPECTED"
+          : "NO_MARKDOWN_RETURNED",
+        inspectedAt,
+        pageTitle: page.title || source.title,
+        pageDescription: page.description || source.description,
+        httpStatusCode: page.statusCode,
+        classification,
+        contentLength: page.markdown.length,
+        contentTruncated: page.markdown.length > MAX_PAGE_CONTENT_CHARS,
+        contentExcerpt: content || null,
+        warning: page.warning,
+        limitations: [
+          "Classification uses simple keyword rules, not a full semantic assessment.",
+          "Page content may be incomplete, outdated, or promotional.",
+          "This inspection does not establish search volume or willingness to pay."
+        ]
+      };
+
+      candidate.sourceInspection.push(inspection);
+
+      source.pageInspection = {
+        status: inspection.status,
+        inspectedAt,
+        pageTitle: inspection.pageTitle,
+        httpStatusCode: inspection.httpStatusCode,
+        classification,
+        contentLength: inspection.contentLength,
+        warning: page.warning
+      };
+
+      source.evidenceQuality = content ? "PARTIAL_PAGE_INSPECTED" : "LOW";
+      source.limitations =
+        "Page content was retrieved, but its claims have not been " +
+        "independently verified and no market demand metrics were collected.";
+
+      if (
+        classification === "POTENTIAL_DIRECT_COMPETITOR" ||
+        classification === "RELATED_ALTERNATIVE"
+      ) {
+        candidate.competitorFindings.push({
+          name: inspection.pageTitle,
+          url: source.url,
+          classification,
+          basis: "Preliminary keyword classification of inspected page content.",
+          verified: false
+        });
+      }
+
+      state.pagesInspected += 1;
+
+      console.log(
+        `Inspected page for "${candidate.name}": ${source.url}`
+      );
+    } catch (error) {
+      const message = error.name === "TimeoutError"
+        ? "The page inspection timed out."
+        : error.message;
+
+      const errorRecord = {
+        stage: "page_inspection",
+        url: source.url,
+        message,
+        recordedAt: new Date().toISOString()
+      };
+
+      candidate.sourceInspection.push({
+        url: source.url,
+        status: "INSPECTION_FAILED",
+        inspectedAt: errorRecord.recordedAt,
+        classification: "UNCLASSIFIED",
+        error: message,
+        limitations: [
+          "The page could not be inspected during this run.",
+          "Inspection failure does not mean the source is invalid or the market lacks demand."
+        ]
+      });
+
+      candidate.searchExecution.errors.push(errorRecord);
+      state.errors.push({
+        candidate: candidate.name,
+        ...errorRecord
+      });
+
+      console.error(`Page inspection failed: ${source.url}: ${message}`);
+
+      if (error.stopResearch) {
+        state.stopInspection = true;
+        state.inspectionStopReason = message;
+      }
+    }
+  }
 
   if (candidate.evidence.length > 0) {
-    candidate.evidenceStatus = "PARTIAL_WEB_SEARCH";
+    candidate.evidenceStatus = candidate.sourceInspection.some(
+      (item) => item.status === "INSPECTED"
+    )
+      ? "SEARCH_AND_PARTIAL_PAGE_INSPECTION"
+      : "PARTIAL_WEB_SEARCH";
+
     candidate.confidence = "LOW";
+
     candidate.seoFindings.limitations.push(
-      "Results may be incomplete, duplicated across queries, " +
-      "outdated, or commercially biased."
+      "Search results may be incomplete, duplicated across queries, " +
+      "outdated, or commercially biased.",
+      "Only a limited number of pages are inspected per candidate."
     );
 
     candidate.explanation =
-      "Web search results have been collected. They have not yet " +
-      "been fully inspected or independently verified. All market " +
-      "scores remain null.";
+      "Unique search sources were collected and a limited number of pages " +
+      "were inspected. Preliminary classifications use keyword rules. " +
+      "Market scores remain null pending deeper evidence assessment.";
   } else if (candidate.searchExecution.errors.length > 0) {
     candidate.evidenceStatus = "SEARCH_FAILED";
     candidate.explanation =
-      "Search attempts failed or were stopped. No verified market " +
-      "conclusions can be drawn.";
+      "Search attempts failed or were stopped. No market conclusions can be drawn.";
   } else {
     candidate.evidenceStatus = "NO_RESULTS";
     candidate.explanation =
@@ -464,8 +699,7 @@ async function researchCandidate(candidate, state) {
       "This does not prove that demand is absent.";
   }
 
-  // Search results are not automatically classified as competitors.
-  candidate.competitorFindings = [];
+  candidate.uniqueSourceCount = candidate.evidence.length;
 }
 
 async function main() {
@@ -473,18 +707,19 @@ async function main() {
 
   const specifications = readSpecifications();
 
-  fs.mkdirSync(REPORT_DIRECTORY, {
-    recursive: true
-  });
+  fs.mkdirSync(REPORT_DIRECTORY, { recursive: true });
 
   const candidates = specifications.map(createCandidate);
 
   const state = {
     successfulSearches: 0,
+    pagesInspected: 0,
     reportedCreditsUsed: 0,
     errors: [],
-    stopResearch: false,
-    stopReason: null
+    stopSearch: false,
+    stopReason: null,
+    stopInspection: false,
+    inspectionStopReason: null
   };
 
   for (const candidate of candidates) {
@@ -495,49 +730,56 @@ async function main() {
     (candidate) => candidate.evidence.length > 0
   ).length;
 
+  const totalUniqueSources = candidates.reduce(
+    (total, candidate) => total + candidate.evidence.length,
+    0
+  );
+
   const report = {
-    reportVersion: 3,
+    reportVersion: 4,
     generatedAt: new Date().toISOString(),
 
     status: researchedCandidates > 0
       ? "PARTIAL_WEB_RESEARCH"
       : "RESEARCH_REQUIRED",
 
-    instructionsFile:
-      "specs/research/research-agent-instructions.md",
+    instructionsFile: "specs/research/research-agent-instructions.md",
 
     researchExecution: {
-      completed: false,
-      mode: "FIRECRAWL_WEB_SEARCH",
+      completed: true,
+      mode: "FIRECRAWL_SEARCH_AND_LIMITED_SCRAPE",
       webResearchPerformed: state.successfulSearches > 0,
 
       provider: "Firecrawl",
-      endpoint: FIRECRAWL_API_URL,
+      searchEndpoint: FIRECRAWL_SEARCH_URL,
+      scrapeEndpoint: FIRECRAWL_SCRAPE_URL,
 
       successfulSearches: state.successfulSearches,
-      resultsCollected: candidates.reduce(
-        (total, candidate) =>
-          total + candidate.evidence.length,
-        0
-      ),
+      uniqueSourcesCollected: totalUniqueSources,
+      pagesInspected: state.pagesInspected,
+      maxPagesToInspectPerCandidate: MAX_PAGES_TO_INSPECT_PER_CANDIDATE,
 
       reportedCreditsUsed: state.reportedCreditsUsed,
       reportedCreditsNote:
-        "Credit totals are included only when returned by the API. " +
-        "A missing total does not mean zero credits were used.",
+        "Includes credit totals reported by successful API responses. " +
+        "Missing credit values are not assumed to be zero.",
 
-      stoppedEarly: state.stopResearch,
-      stopReason: state.stopReason,
+      stoppedSearchEarly: state.stopSearch,
+      searchStopReason: state.stopReason,
+      stoppedInspectionEarly: state.stopInspection,
+      inspectionStopReason: state.inspectionStopReason,
+
       errors: state.errors,
 
       explanation:
-        "The script collects web-search results and source metadata. " +
-        "It does not yet verify full pages, measure actual search volume, " +
+        "The script collects unique web-search sources and inspects a limited " +
+        "number of pages. It applies basic keyword-based source classifications. " +
+        "It does not verify claims independently, measure actual search volume, " +
         "interview customers, or establish willingness to pay.",
 
       nextRequirement:
-        "Inspect source pages, gather independent evidence, and assess " +
-        "each scoring criterion before making build decisions."
+        "Assess source relevance, gather independent demand and pricing evidence, " +
+        "and review each scoring criterion before making build decisions."
     },
 
     scoringMethod: {
@@ -554,6 +796,7 @@ async function main() {
       rules: [
         "Never invent evidence or numerical metrics.",
         "Missing evidence must remain null, not zero.",
+        "Keyword classifications are preliminary and must not be treated as verified conclusions.",
         "Search-result snippets alone are insufficient for market approval.",
         "Do not calculate a definitive weighted score when any criterion is unscored.",
         "A high score does not override serious legal, security, or feasibility risks.",
@@ -566,6 +809,8 @@ async function main() {
     summary: {
       specificationsReviewed: candidates.length,
       researched: researchedCandidates,
+      uniqueSourcesCollected: totalUniqueSources,
+      pagesInspected: state.pagesInspected,
       approved: 0,
       onHold: candidates.length
     },
@@ -579,38 +824,23 @@ async function main() {
     "utf8"
   );
 
-  console.log(
-    `Specifications reviewed: ${candidates.length}`
-  );
+  console.log(`Specifications reviewed: ${candidates.length}`);
+  console.log(`Candidates with search evidence: ${researchedCandidates}`);
+  console.log(`Successful Firecrawl searches: ${state.successfulSearches}`);
+  console.log(`Unique sources collected: ${totalUniqueSources}`);
+  console.log(`Pages inspected: ${state.pagesInspected}`);
+  console.log(`Candidates approved for building: 0`);
+  console.log(`Reported Firecrawl credits used: ${state.reportedCreditsUsed}`);
+  console.log(`Research report saved to: ${REPORT_PATH}`);
 
-  console.log(
-    `Candidates with search evidence: ${researchedCandidates}`
-  );
-
-  console.log(
-    `Successful Firecrawl searches: ${state.successfulSearches}`
-  );
-
-  console.log(
-    `Candidates approved for building: 0`
-  );
-
-  console.log(
-    `Research report saved to: ${REPORT_PATH}`
-  );
-
-  if (state.stopResearch) {
+  if (state.errors.length > 0) {
     console.warn(
-      "Research stopped early. See researchExecution.errors in the report."
+      `Research completed with ${state.errors.length} error(s). See the report.`
     );
   }
 }
 
 main().catch((error) => {
-  console.error(
-    "Research preparation failed:",
-    error.message
-  );
-
+  console.error("Research preparation failed:", error.message);
   process.exitCode = 1;
 });
