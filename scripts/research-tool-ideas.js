@@ -26,6 +26,12 @@ const INSTRUCTIONS_PATH = path.join(
   "research-agent-instructions.md"
 );
 
+const FIRECRAWL_API_URL =
+  "https://api.firecrawl.dev/v2/search";
+
+const RESULTS_PER_SEARCH = 5;
+const MAX_SEARCHES_PER_CANDIDATE = 3;
+
 const CRITERIA = {
   problemSeverity: {
     weight: 15,
@@ -118,23 +124,119 @@ function readSpecifications() {
       );
     }
 
-    return {
-      file,
-      specification
-    };
+    return { file, specification };
   });
+}
+
+function createSearchQueries(spec) {
+  const name = spec.name;
+  const problem = spec.problem_solved;
+  const targetUser = spec.target_user;
+
+  const queries = [
+    `${name} alternatives competitors`,
+    problem
+      ? `${problem} tools solutions`
+      : `${name} user problems reviews`,
+    targetUser && problem
+      ? `${targetUser} ${problem} software`
+      : `${name} pricing reviews`
+  ];
+
+  return [...new Set(
+    queries
+      .filter((query) => typeof query === "string")
+      .map((query) => query.trim())
+      .filter(Boolean)
+  )].slice(0, MAX_SEARCHES_PER_CANDIDATE);
+}
+
+async function searchWeb(query) {
+  const apiKey = process.env.FIRECRAWL_API_KEY;
+
+  if (!apiKey) {
+    const error = new Error(
+      "FIRECRAWL_API_KEY is not configured."
+    );
+
+    error.stopResearch = true;
+    throw error;
+  }
+
+  const response = await fetch(FIRECRAWL_API_URL, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      query,
+      limit: RESULTS_PER_SEARCH
+    }),
+    signal: AbortSignal.timeout(30000)
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      `Firecrawl returned HTTP ${response.status}.`
+    );
+
+    error.stopResearch = [
+      401,
+      402,
+      403,
+      429
+    ].includes(response.status);
+
+    throw error;
+  }
+
+  const payload = await response.json();
+
+  if (payload.success === false) {
+    const error = new Error(
+      "Firecrawl reported that the search failed."
+    );
+
+    error.stopResearch = true;
+    throw error;
+  }
+
+  const data = payload.data;
+
+  // Firecrawl v2 normally groups results under data.web.
+  // Also accept a direct array to handle compatible responses.
+  const results = Array.isArray(data)
+    ? data
+    : Array.isArray(data?.web)
+      ? data.web
+      : [];
+
+  return {
+    results,
+    creditsUsed: Number.isFinite(payload.creditsUsed)
+      ? payload.creditsUsed
+      : null
+  };
+}
+
+function normaliseResult(result, query, retrievedAt) {
+  return {
+    type: "WEB_SEARCH_RESULT",
+    query,
+    title: result.title || null,
+    url: result.url || null,
+    description: result.description || result.snippet || null,
+    retrievedAt,
+    evidenceQuality: "LOW",
+    limitations:
+      "Search-result information only. The underlying page " +
+      "has not been independently inspected or verified."
+  };
 }
 
 function createCandidate(item) {
   const spec = item.specification;
-
-  const searchTerms = [
-    spec.name,
-    spec.problem_solved,
-    spec.target_user
-  ].filter(
-    (value) => typeof value === "string" && value.trim()
-  );
 
   return {
     name: spec.name,
@@ -159,9 +261,7 @@ function createCandidate(item) {
     },
 
     weightedScore: null,
-
     evidence: [],
-
     competitorFindings: [],
 
     seoFindings: {
@@ -173,7 +273,9 @@ function createCandidate(item) {
       geographicCoverage: null,
       findings: [],
       limitations: [
-        "No keyword research has been performed by this script."
+        "Search-result snippets do not establish keyword volume or difficulty.",
+        "No Google Search Console or Google Trends data has been collected.",
+        "Search results do not prove willingness to pay."
       ]
     },
 
@@ -196,14 +298,14 @@ function createCandidate(item) {
       targetAudience:
         spec.target_user || "Identify a specific target audience.",
 
-      initialSearchTerms: searchTerms,
+      initialSearchTerms: createSearchQueries(spec),
 
       tasks: [
         "Find credible evidence that the problem exists.",
-        "Investigate relevant search phrases and search intent.",
-        "Identify direct competitors, indirect alternatives, and free substitutes.",
-        "Record competitor features, pricing, and documented user complaints.",
-        "Investigate willingness to pay without assuming that search interest proves it.",
+        "Investigate search phrases and search intent.",
+        "Compare direct competitors, indirect alternatives, and free substitutes.",
+        "Inspect competitor features, pricing, and documented user complaints.",
+        "Investigate willingness to pay.",
         "Estimate build complexity, maintenance effort, and operating costs.",
         "Identify privacy, security, and legal risks.",
         "Record source URLs, retrieval dates, findings, and evidence quality.",
@@ -218,15 +320,24 @@ function createCandidate(item) {
         "The proposed tool can be built and maintained affordably.",
         "There is a plausible route to attracting and retaining users."
       ],
+
       recommendedNextTest:
-        "Collect source-backed market and competitor evidence before deciding whether to build.",
+        "Inspect the collected sources and validate demand, competition, " +
+        "and willingness to pay before deciding whether to build.",
+
       buildApprovalGranted: false
     },
 
+    searchExecution: {
+      queriesAttempted: 0,
+      successfulSearches: 0,
+      resultsCollected: 0,
+      errors: []
+    },
+
     explanation:
-      "This report defines the research required for this candidate. " +
-      "It does not contain completed market research. Scores remain null " +
-      "until evidence is collected and assessed."
+      "Search evidence is collected separately from market validation. " +
+      "Scores remain null until sufficient evidence is assessed."
   };
 }
 
@@ -248,11 +359,116 @@ function validateInstructions() {
       "The research instructions file is empty or too short."
     );
   }
-
-  return instructions;
 }
 
-function main() {
+async function researchCandidate(candidate, state) {
+  const queries = candidate.researchPlan.initialSearchTerms;
+  const seenUrls = new Set();
+
+  for (const query of queries) {
+    if (state.stopResearch) {
+      break;
+    }
+
+    candidate.searchExecution.queriesAttempted += 1;
+
+    try {
+      const result = await searchWeb(query);
+      const retrievedAt = new Date().toISOString();
+
+      state.successfulSearches += 1;
+
+      if (result.creditsUsed !== null) {
+        state.reportedCreditsUsed += result.creditsUsed;
+      }
+
+      for (const item of result.results) {
+        const evidence = normaliseResult(
+          item,
+          query,
+          retrievedAt
+        );
+
+        // Keep evidence only when it has a usable source URL.
+        if (!evidence.url) {
+          continue;
+        }
+
+        candidate.evidence.push(evidence);
+        candidate.seoFindings.findings.push(evidence);
+        seenUrls.add(evidence.url);
+      }
+
+      candidate.searchExecution.successfulSearches += 1;
+
+      candidate.searchExecution.resultsCollected =
+        candidate.evidence.length;
+
+      console.log(
+        `Search completed for "${candidate.name}".`
+      );
+    } catch (error) {
+      const message = error.name === "TimeoutError"
+        ? "The search request timed out."
+        : error.message;
+
+      candidate.searchExecution.errors.push({
+        query,
+        message,
+        recordedAt: new Date().toISOString()
+      });
+
+      state.errors.push({
+        candidate: candidate.name,
+        query,
+        message
+      });
+
+      console.error(
+        `Search failed for "${candidate.name}": ${message}`
+      );
+
+      if (error.stopResearch) {
+        state.stopResearch = true;
+        state.stopReason = message;
+      }
+    }
+  }
+
+  candidate.searchExecution.resultsCollected =
+    candidate.evidence.length;
+
+  candidate.uniqueSourceCount = seenUrls.size;
+
+  if (candidate.evidence.length > 0) {
+    candidate.evidenceStatus = "PARTIAL_WEB_SEARCH";
+    candidate.confidence = "LOW";
+    candidate.seoFindings.limitations.push(
+      "Results may be incomplete, duplicated across queries, " +
+      "outdated, or commercially biased."
+    );
+
+    candidate.explanation =
+      "Web search results have been collected. They have not yet " +
+      "been fully inspected or independently verified. All market " +
+      "scores remain null.";
+  } else if (candidate.searchExecution.errors.length > 0) {
+    candidate.evidenceStatus = "SEARCH_FAILED";
+    candidate.explanation =
+      "Search attempts failed or were stopped. No verified market " +
+      "conclusions can be drawn.";
+  } else {
+    candidate.evidenceStatus = "NO_RESULTS";
+    candidate.explanation =
+      "Search requests completed without usable source URLs. " +
+      "This does not prove that demand is absent.";
+  }
+
+  // Search results are not automatically classified as competitors.
+  candidate.competitorFindings = [];
+}
+
+async function main() {
   validateInstructions();
 
   const specifications = readSpecifications();
@@ -263,26 +479,65 @@ function main() {
 
   const candidates = specifications.map(createCandidate);
 
+  const state = {
+    successfulSearches: 0,
+    reportedCreditsUsed: 0,
+    errors: [],
+    stopResearch: false,
+    stopReason: null
+  };
+
+  for (const candidate of candidates) {
+    await researchCandidate(candidate, state);
+  }
+
+  const researchedCandidates = candidates.filter(
+    (candidate) => candidate.evidence.length > 0
+  ).length;
+
   const report = {
-    reportVersion: 2,
+    reportVersion: 3,
     generatedAt: new Date().toISOString(),
 
-    status: "RESEARCH_REQUIRED",
+    status: researchedCandidates > 0
+      ? "PARTIAL_WEB_RESEARCH"
+      : "RESEARCH_REQUIRED",
 
     instructionsFile:
       "specs/research/research-agent-instructions.md",
 
     researchExecution: {
       completed: false,
-      mode: "RESEARCH_PLAN_ONLY",
-      webResearchPerformed: false,
+      mode: "FIRECRAWL_WEB_SEARCH",
+      webResearchPerformed: state.successfulSearches > 0,
+
+      provider: "Firecrawl",
+      endpoint: FIRECRAWL_API_URL,
+
+      successfulSearches: state.successfulSearches,
+      resultsCollected: candidates.reduce(
+        (total, candidate) =>
+          total + candidate.evidence.length,
+        0
+      ),
+
+      reportedCreditsUsed: state.reportedCreditsUsed,
+      reportedCreditsNote:
+        "Credit totals are included only when returned by the API. " +
+        "A missing total does not mean zero credits were used.",
+
+      stoppedEarly: state.stopResearch,
+      stopReason: state.stopReason,
+      errors: state.errors,
+
       explanation:
-        "This script prepares structured research plans. " +
-        "It does not independently access search engines, " +
-        "Google Trends, Search Console, or competitor websites.",
+        "The script collects web-search results and source metadata. " +
+        "It does not yet verify full pages, measure actual search volume, " +
+        "interview customers, or establish willingness to pay.",
+
       nextRequirement:
-        "Connect an actual research source or research-capable service " +
-        "before recording findings or assigning evidence-based scores."
+        "Inspect source pages, gather independent evidence, and assess " +
+        "each scoring criterion before making build decisions."
     },
 
     scoringMethod: {
@@ -290,23 +545,27 @@ function main() {
       criteria: CRITERIA,
       approvalThreshold: 70,
       minimumEvidenceSources: 3,
+
       weightedScoreFormula:
         "Sum(score / 5 * criterion weight) for scored criteria only. " +
-        "A definitive total is permitted only when all criteria have " +
-        "sufficient evidence.",
+        "A definitive total is permitted only when every criterion " +
+        "has sufficient evidence.",
+
       rules: [
         "Never invent evidence or numerical metrics.",
         "Missing evidence must remain null, not zero.",
+        "Search-result snippets alone are insufficient for market approval.",
         "Do not calculate a definitive weighted score when any criterion is unscored.",
         "A high score does not override serious legal, security, or feasibility risks.",
-        "A completed script run does not mean market research was completed.",
-        "A BUILD decision requires evidence and a documented validation rationale."
+        "A successful API request does not mean market research is complete.",
+        "A BUILD decision requires verified evidence and documented validation.",
+        "Research failures must never be interpreted as evidence of no demand."
       ]
     },
 
     summary: {
       specificationsReviewed: candidates.length,
-      researched: 0,
+      researched: researchedCandidates,
       approved: 0,
       onHold: candidates.length
     },
@@ -321,29 +580,37 @@ function main() {
   );
 
   console.log(
-    `Prepared research plans for ${candidates.length} specification(s).`
+    `Specifications reviewed: ${candidates.length}`
   );
 
   console.log(
-    "Market research completed: no."
+    `Candidates with search evidence: ${researchedCandidates}`
   );
 
   console.log(
-    "Candidates approved for building: 0."
+    `Successful Firecrawl searches: ${state.successfulSearches}`
+  );
+
+  console.log(
+    `Candidates approved for building: 0`
   );
 
   console.log(
     `Research report saved to: ${REPORT_PATH}`
   );
+
+  if (state.stopResearch) {
+    console.warn(
+      "Research stopped early. See researchExecution.errors in the report."
+    );
+  }
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(
     "Research preparation failed:",
     error.message
   );
 
   process.exitCode = 1;
-}
+});
