@@ -1,1 +1,2 @@
-.gitignore
+# Research cache is managed by GitHub Actions
+specs/research/research-cache.json
