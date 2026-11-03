@@ -1,209 +1,344 @@
 
-# Product Strategy and Selection Policy
+# Product Strategy
 
 Version: 1.0
 
 ## 1. Mission
 
-The factory discovers, evaluates, builds and improves small software products that solve real, recurring problems for identifiable customers.
+The Micro-SaaS Factory exists to discover, evaluate, build and improve small software products that solve real, recurring customer problems.
 
-Its objective is to identify commercially viable opportunities, not simply generate large numbers of tools.
+The objective is commercial viability, not the production of large numbers of tools.
 
-Products should save customers time, reduce costs, increase revenue, improve decisions or simplify important business activities.
+The factory must identify problems before proposing products. It must establish who experiences the problem, how they currently solve it, what existing solutions fail to address and whether a better solution could generate revenue.
 
-## 2. Target Markets
+The factory must be willing to reject weak opportunities.
+
+## 2. Core Operating Principle
+
+We do not build software simply because we can.
+
+We build because:
+
+- A specific group of people experiences a recurring problem.
+- There is credible evidence that the problem exists.
+- Existing solutions leave a meaningful gap or create unnecessary friction.
+- A proposed product can solve the problem better in a measurable way.
+- There is a credible reason for customers to pay.
+- The product can be built and maintained within reasonable technical and financial limits.
+
+## 3. Problem-First Discovery
+
+Research must begin with customer problems, not predetermined software ideas.
+
+Investigate:
+
+- Repetitive administrative tasks.
+- Time-consuming manual processes.
+- Work currently managed through spreadsheets and disconnected applications.
+- Frequent calculation, tracking and reporting requirements.
+- Problems involving errors, delays, missed payments or lost opportunities.
+- Customer complaints about existing software.
+- Tasks for which individuals or businesses already pay for software, services or additional labour.
+
+Potential sources include:
+
+- Public online communities and discussion forums.
+- Reddit discussions.
+- Software review platforms.
+- Competitor websites and customer reviews.
+- Search queries and keyword research.
+- Industry publications and professional communities.
+- Public product feature requests and support discussions.
+
+Do not assume that a frequently discussed problem represents a commercially viable opportunity.
+
+## 4. Target Customers and Markets
 
 The factory must consider international markets.
 
-It must not assume that products should target Kenya, the United States, the United Kingdom or any other country by default.
+It must not automatically assume that Kenya, the United States or any other country is the primary market.
 
-For every opportunity, research should establish:
+For each opportunity, investigate:
 
-- Which countries have identifiable demand.
-- Who the potential customers are.
-- Which customer groups experience the problem most frequently.
-- Whether customers in those markets are willing to pay.
-- What local competitors and alternatives exist.
-- Whether language, currency, regulations or business practices affect the opportunity.
+- Specific customer groups and professional roles.
+- Relevant industries and business sizes.
+- Countries where the problem occurs.
+- Market-specific competitors.
+- Language requirements.
+- Payment preferences and purchasing behaviour.
+- Relevant regulatory or operational requirements.
 
-Market selection must be based on evidence.
+Potential customer groups include freelancers, consultants, agencies, small businesses and independent professionals.
 
-## 3. Preferred Product Opportunities
+These are starting points for research, not restrictions on discovery.
 
-Prioritise opportunities that:
+## 5. Problem Evaluation
 
-- Solve recurring rather than purely occasional problems.
-- Address a clearly identifiable customer need.
-- Replace repetitive manual work.
-- Combine multiple useful tasks into one workflow.
-- Help customers make better financial or business decisions.
-- Produce useful reports, documents or other practical outcomes.
-- Have potential for repeat usage.
-- Have a realistic monetisation opportunity.
+Every potential opportunity must investigate:
 
-Simple calculators and free utilities may still be considered as traffic acquisition tools, but should not automatically be treated as standalone subscription products.
+1. Who experiences the problem?
+2. How frequently does it occur?
+3. How much time, money or effort does it consume?
+4. What happens if the problem remains unresolved?
+5. How is the problem currently managed?
+6. What existing solutions are available?
+7. What do customers dislike about those solutions?
+8. Is there evidence that customers already spend money or resources addressing it?
+9. Is the problem important enough to justify adopting another product?
 
-## 4. AI Substitution Test
+Separate verified evidence from assumptions.
 
-Every product idea must be evaluated against general-purpose AI tools such as ChatGPT and Gemini.
+Do not invent customer complaints, market sizes, search volumes, prices or purchasing behaviour.
 
-Research must establish:
+When evidence is unavailable, explicitly identify the gap.
 
-- Whether a customer can achieve the same outcome with one simple AI prompt.
-- Whether a dedicated product offers greater convenience.
-- Whether it provides persistent records or saved information.
-- Whether it automates a recurring workflow.
-- Whether its calculations and outputs are consistent and verifiable.
-- Whether it integrates several tasks that would otherwise require separate steps.
+## 6. Competitor and Alternative Analysis
 
-Do not reject a product simply because AI can perform part of its functionality.
+Research direct competitors, indirect competitors and non-software alternatives.
 
-Identify the specific value that a dedicated product provides beyond a generic AI response.
+Investigate:
 
-## 5. Customer and Competitor Research
+- Product functionality.
+- Target customers.
+- Pricing and payment models.
+- Free and paid features.
+- Customer reviews and complaints.
+- Product limitations.
+- Ease of use.
+- Features customers repeatedly request.
 
-For every opportunity, investigate:
+Consider spreadsheets, manual processes, outsourcing and general AI assistants as competing alternatives.
 
-- Search demand and relevant search intent.
-- Customer discussions and recurring complaints.
-- Existing products and competing solutions.
-- Competitor pricing and monetisation models.
-- Features customers value.
-- Documented limitations and unmet needs.
-- Opportunities to provide a simpler, more useful or more affordable solution.
+The existence of competitors is not automatically a reason to reject an opportunity. It may demonstrate that customers already recognise the problem.
 
-Distinguish verified facts from assumptions.
+However, a proposed product must explain its meaningful differentiation.
 
-Never invent customer complaints, competitor weaknesses, search volumes or willingness-to-pay evidence.
+Do not claim that competitors lack a feature without verifying it.
 
-Paid competitors demonstrate that a market has commercial activity, but do not automatically prove that a new product can succeed.
+## 7. AI Substitution Test
 
-## 6. Internationalisation and Currency Support
+Every product opportunity must be evaluated against general-purpose AI assistants such as ChatGPT and Gemini.
 
-Products must be designed with international customers in mind.
+Investigate:
 
-Where monetary inputs or outputs are relevant:
+- Can a customer achieve the same outcome using one simple prompt?
+- Can an AI assistant complete the task reliably and repeatedly?
+- Does the customer need to manually supply information every time?
+- Would a dedicated product save time or reduce errors?
+- Does the proposed product provide persistent records, automation, integrations, structured workflows or repeatable reporting?
+- Why would a customer choose the dedicated product instead of an AI assistant?
 
-- Support an appropriate currency selection.
-- Use standard ISO 4217 currency codes.
-- Display the correct currency symbol and amount formatting.
-- Allow customers to select a currency manually.
-- Consider local currency defaults where reliable locale information is available.
-- Never assume all customers use the same currency.
+If a general AI assistant can provide essentially the same outcome with little effort, the product must demonstrate a meaningful additional advantage.
 
-Currency conversion must only be introduced when it is necessary for the product.
+Do not add features merely to make a product appear more sophisticated.
 
-Where conversion is required, use a reliable exchange-rate source and clearly display the exchange rate and date.
+## 8. Workflow and Product Opportunities
 
-Never silently mix currencies.
+Prioritise opportunities that solve recurring jobs rather than isolated calculations.
 
-The factory should also consider local date formats, time zones, languages and country-specific business requirements where relevant.
+Look for opportunities involving:
 
-International support must not introduce unnecessary complexity into products that do not need it.
+- Multiple connected tasks.
+- Repeated data entry or processing.
+- Tracking over time.
+- Automated calculations.
+- Document generation.
+- Reporting and analysis.
+- Reminders and follow-ups.
+- Record keeping.
+- Decisions based on accumulated information.
+- Coordination between people or applications.
 
-## 7. Monetisation
+Simple utilities may still be developed as free traffic-generating products where there is a credible acquisition or monetisation strategy.
 
-Investigate realistic revenue opportunities for each product.
+Do not automatically treat a simple utility as a subscription business.
 
-Potential models include:
+## 9. Commercial Viability and Monetisation
 
-- Free tools supported by advertising.
-- Freemium products.
-- One-time payments.
-- Paid downloadable reports or templates.
+Every promising opportunity must identify:
+
+- The likely paying customer.
+- The problem the customer is paying to solve.
+- The reason the proposed solution is worth paying for.
+- Existing spending on competing solutions or manual alternatives.
+- Potential acquisition channels.
+- Suitable pricing structures.
+- Expected recurring usage.
+- Estimated development, hosting and maintenance costs.
+
+Possible revenue models include:
+
+- Advertising.
+- Freemium.
+- One-time purchases.
+- Paid downloads and reports.
 - Monthly or annual subscriptions.
-- Business plans.
+- Business or team plans.
 
-Do not recommend subscriptions for products that customers are unlikely to use repeatedly.
+Subscriptions should only be proposed when recurring value and repeat usage justify them.
 
-Identify the paying customer, the value received and the reason they would pay instead of using a free alternative.
+Existing competitor pricing is market evidence, not proof that customers will purchase our product.
 
-## 8. Technical Feasibility
+Distinguish between evidence of existing market spending and evidence of willingness to pay for our specific proposed solution.
 
-Prioritise products that can be developed and maintained affordably.
+## 10. Internationalisation and Currency
 
-Consider:
+Products must be designed with relevant international customers in mind.
+
+Where financial values are involved:
+
+- Support appropriate currency selection.
+- Use recognised ISO 4217 currency codes.
+- Display currency symbols and amounts clearly.
+- Apply appropriate number and decimal formatting.
+- Never silently combine different currencies.
+- Do not assume that every customer uses USD.
+- Provide sensible defaults only where reliable location or locale information exists.
+
+Live foreign exchange conversion should only be introduced when it is genuinely required by the product.
+
+Consider relevant differences in dates, time zones, language, measurement units, taxation and regulations.
+
+Do not introduce unnecessary internationalisation complexity into products that do not require it.
+
+## 11. Technical Feasibility
+
+Every opportunity must be assessed against the factory's ability to build and maintain it affordably.
+
+Evaluate:
 
 - Development complexity.
-- Hosting and infrastructure costs.
-- External API dependencies.
+- Required technologies.
+- Hosting and infrastructure.
+- External APIs and their costs.
 - Data storage requirements.
-- Security and privacy.
-- Maintenance requirements.
-- Scalability.
+- Privacy and security considerations.
+- Maintenance burden.
+- Scalability requirements.
+- Dependencies on paid services.
 - Potential revenue relative to operating costs.
 
-Prefer lightweight solutions and browser-based processing where appropriate.
+Prefer lightweight, reliable solutions.
 
-Do not introduce paid services or unnecessary backend infrastructure without a clear justification.
+Prioritise browser-based processing where practical, particularly when customer information does not need to leave the device.
 
-## 9. Product Evaluation and Decisions
+Do not introduce databases, backends, paid APIs or frameworks unless the product genuinely requires them.
 
-Every researched opportunity must receive one of three decisions:
+## 12. Product Opportunity Decisions
 
-BUILD:
-There is sufficient evidence of demand, customer need, differentiation, feasibility and commercial potential.
+Every researched opportunity must receive one of three recommendations.
 
-VALIDATE:
-The opportunity is promising, but important evidence is missing or uncertain.
+### BUILD
 
-REJECT:
-The opportunity has insufficient demand, weak differentiation, poor feasibility or no credible commercial justification.
+Use when available evidence supports a real recurring problem, a meaningful product advantage, a credible commercial opportunity and manageable technical feasibility.
 
-Every recommendation must explain its reasoning and identify missing evidence.
+The recommendation must identify the smallest useful product that should be built first.
 
-Do not assign unsupported numerical scores or confidence levels.
+### VALIDATE
 
-## 10. Product Development Requirements
+Use when an opportunity appears promising but important assumptions remain unproven.
 
-Before development begins, an approved product must have:
+Specify what needs validation, what evidence is missing and the cheapest practical experiment to obtain it.
 
-- A clearly defined target customer.
-- A specific problem statement.
-- Supporting research evidence.
-- Competitor analysis.
-- A clear product differentiator.
-- A defined minimum viable product.
-- A proposed monetisation model.
-- A technical specification.
-- A customer acquisition strategy.
-- Measurable success criteria.
+Examples include customer interviews, landing-page tests, waitlists, demonstrations or manual pilot services.
 
-Build the smallest useful version that can test the central customer problem.
+### REJECT
 
-Avoid unnecessary features.
+Use when evidence indicates weak demand, inadequate differentiation, poor commercial prospects, excessive costs or unsuitable technical complexity.
 
-## 11. Performance Measurement
+Explain the evidence and reasoning behind rejection.
 
-After publication, measure actual product performance.
+Do not approve products simply to keep the automated pipeline busy.
 
-Where data is available, monitor:
+## 13. Minimum Product Opportunity Report
 
-- Search impressions.
-- Search clicks.
-- Website visitors.
-- Tool usage.
-- Repeat usage.
-- Downloads and registrations.
-- Conversions.
+Every researched opportunity must produce a structured report containing:
+
+1. Opportunity name.
+2. Problem description.
+3. Supporting evidence and source references.
+4. Target customer.
+5. Relevant countries and markets.
+6. Problem frequency and severity.
+7. Current customer solutions.
+8. Existing competitors and pricing.
+9. Customer complaints and unmet needs.
+10. AI substitution assessment.
+11. Proposed product and differentiation.
+12. Smallest useful MVP.
+13. Potential revenue model.
+14. Commercial assumptions and evidence gaps.
+15. Customer acquisition strategy.
+16. Technical feasibility and estimated operating costs.
+17. Risks and unresolved questions.
+18. BUILD, VALIDATE or REJECT recommendation.
+19. Supporting rationale.
+
+All factual claims must be traceable to their sources.
+
+Clearly distinguish observed evidence, analysis and assumptions.
+
+## 14. Development Principles
+
+When an opportunity is approved for development:
+
+- Build the smallest useful product first.
+- Solve the primary customer problem before adding secondary features.
+- Preserve working functionality.
+- Prefer simple architecture and low operating costs.
+- Include appropriate error handling and validation.
+- Consider accessibility and mobile usability.
+- Support relevant international requirements.
+- Test core functionality before deployment.
+- Avoid unnecessary dependencies.
+
+The factory must not build a large application before validating the core customer need.
+
+## 15. Performance Measurement
+
+Measure commercial performance rather than counting generated tools.
+
+Track available metrics such as:
+
+- Verified customer problems.
+- Research opportunities identified.
+- Opportunities validated.
+- Products approved for development.
+- Website impressions and clicks.
+- Unique visitors.
+- Actual tool usage.
+- Returning users.
+- Registrations and downloads.
+- Conversion rates.
+- Paying customers.
 - Revenue.
-- Operating costs.
+- Hosting, API and maintenance costs.
+- Product profitability.
 
-Use performance findings to improve existing products and inform future product selection.
+Use actual measurements wherever available.
 
-Do not confuse publication or successful deployment with commercial success.
+Do not fabricate missing analytics or revenue figures.
 
-## 12. Continuous Improvement
+## 16. Continuous Learning
 
-The factory must learn from research and product performance.
+The factory must use research findings and product performance to improve future decisions.
 
-It should be able to:
+It should:
 
-- Reject weak ideas.
-- Improve promising products.
-- Identify new customer needs.
-- Reassess competitors.
-- Change acquisition strategies.
-- Recommend discontinuing products that consistently fail to demonstrate value.
+- Revisit promising opportunities when new evidence becomes available.
+- Improve products that demonstrate meaningful usage.
+- Investigate why visitors do not convert.
+- Reassess pricing and acquisition strategies.
+- Identify products that should be discontinued.
+- Learn from rejected opportunities.
+- Avoid repeatedly generating substantially identical products without new evidence.
 
-The ultimate objective is to build a small portfolio of useful, commercially sustainable software products rather than a large collection of interchangeable utilities.
+Every completed research or product cycle should produce useful findings for subsequent cycles.
+
+## 17. Final Guiding Principle
+
+The factory's purpose is not to generate the greatest number of software tools.
+
+Its purpose is to discover valuable recurring problems, develop useful solutions, reach identifiable customers and build a sustainable portfolio of commercially viable digital products.
+
+Customer problems come first. Evidence comes before assumptions. Validation comes before unnecessary development. Commercial performance determines what deserves further investment.
