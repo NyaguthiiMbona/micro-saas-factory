@@ -1,4 +1,3 @@
-
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -7,6 +6,7 @@ const ROOT = process.cwd();
 const SPEC_DIRECTORY = path.join(ROOT, "specs", "generated");
 const REPORT_DIRECTORY = path.join(ROOT, "specs", "research");
 const REPORT_PATH = path.join(REPORT_DIRECTORY, "research-report.json");
+const CACHE_PATH = path.join(REPORT_DIRECTORY, "research-cache.json");
 const INSTRUCTIONS_PATH = path.join(
   REPORT_DIRECTORY,
   "research-agent-instructions.md"
@@ -20,6 +20,86 @@ const MAX_SEARCHES_PER_CANDIDATE = 3;
 const MAX_PAGES_TO_INSPECT_PER_CANDIDATE = 2;
 const MAX_PAGE_CONTENT_CHARS = 6000;
 const REQUEST_TIMEOUT_MS = 30000;
+const SEARCH_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const SCRAPE_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+let researchCache = { entries: {} };
+
+const cacheStats = {
+  searchHits: 0,
+  scrapeHits: 0,
+  freshSearchRequests: 0,
+  freshScrapeRequests: 0,
+  expiredEntriesRemoved: 0
+};
+
+function loadResearchCache() {
+  if (!fs.existsSync(CACHE_PATH)) {
+    researchCache = { entries: {} };
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(CACHE_PATH, "utf8"));
+
+    researchCache =
+      parsed && parsed.entries && typeof parsed.entries === "object"
+        ? parsed
+        : { entries: {} };
+  } catch (error) {
+    console.warn(
+      `Research cache could not be read; starting fresh: ${error.message}`
+    );
+
+    researchCache = { entries: {} };
+  }
+
+  const now = Date.now();
+
+  for (const [key, entry] of Object.entries(researchCache.entries)) {
+    if (
+      !entry ||
+      !Number.isFinite(entry.expiresAt) ||
+      entry.expiresAt <= now
+    ) {
+      delete researchCache.entries[key];
+      cacheStats.expiredEntriesRemoved += 1;
+    }
+  }
+}
+
+function getCachedValue(key) {
+  const entry = researchCache.entries[key];
+
+  if (
+    !entry ||
+    !Number.isFinite(entry.expiresAt) ||
+    entry.expiresAt <= Date.now()
+  ) {
+    if (entry) delete researchCache.entries[key];
+    return null;
+  }
+
+  return entry.value;
+}
+
+function setCachedValue(key, value, ttlMs) {
+  researchCache.entries[key] = {
+    savedAt: new Date().toISOString(),
+    expiresAt: Date.now() + ttlMs,
+    value
+  };
+}
+
+function saveResearchCache() {
+  fs.mkdirSync(REPORT_DIRECTORY, { recursive: true });
+
+  fs.writeFileSync(
+    CACHE_PATH,
+    `${JSON.stringify(researchCache, null, 2)}\n`,
+    "utf8"
+  );
+}
 
 const CRITERIA = {
   problemSeverity: {
@@ -252,6 +332,18 @@ async function postToFirecrawl(endpoint, body) {
 }
 
 async function searchWeb(query) {
+  const cacheKey = `search:${query.toLowerCase().trim()}`;
+  const cached = getCachedValue(cacheKey);
+
+  if (cached) {
+    cacheStats.searchHits += 1;
+
+    // Cached results consume no Firecrawl credits during this run.
+    return { ...cached, creditsUsed: null, fromCache: true };
+  }
+
+  cacheStats.freshSearchRequests += 1;
+
   const payload = await postToFirecrawl(FIRECRAWL_SEARCH_URL, {
     query,
     limit: RESULTS_PER_SEARCH
@@ -265,15 +357,31 @@ async function searchWeb(query) {
       ? data.web
       : [];
 
-  return {
+  const result = {
     results,
     creditsUsed: Number.isFinite(payload.creditsUsed)
       ? payload.creditsUsed
       : null
   };
+
+  setCachedValue(cacheKey, result, SEARCH_CACHE_TTL_MS);
+
+  return { ...result, fromCache: false };
 }
 
 async function scrapePage(url) {
+  const cacheKey = `scrape:${url}`;
+  const cached = getCachedValue(cacheKey);
+
+  if (cached) {
+    cacheStats.scrapeHits += 1;
+
+    // Cached page content does not incur a new scrape charge.
+    return { ...cached, creditsUsed: null, fromCache: true };
+  }
+
+  cacheStats.freshScrapeRequests += 1;
+
   const payload = await postToFirecrawl(FIRECRAWL_SCRAPE_URL, {
     url,
     formats: ["markdown"],
@@ -284,7 +392,7 @@ async function scrapePage(url) {
   const data = payload.data || payload;
   const metadata = data.metadata || {};
 
-  return {
+  const result = {
     markdown: typeof data.markdown === "string" ? data.markdown : "",
     title: metadata.title || null,
     description: metadata.description || null,
@@ -296,6 +404,10 @@ async function scrapePage(url) {
       : null,
     warning: data.warning || null
   };
+
+  setCachedValue(cacheKey, result, SCRAPE_CACHE_TTL_MS);
+
+  return { ...result, fromCache: false };
 }
 
 function normaliseResult(result, query, retrievedAt) {
@@ -327,7 +439,9 @@ function classifySource(title, description, content, url) {
   const hostAndPath = String(url || "").toLowerCase();
 
   const has = (terms, text = fullText) =>
-    terms.some((term) => text.includes(term));
+    (Array.isArray(terms) ? terms : [terms]).some((term) =>
+      text.includes(term)
+    );
 
   const discussionDomain =
     /(^|\.)reddit\.com\//.test(hostAndPath) ||
@@ -490,7 +604,9 @@ function classifySource(title, description, content, url) {
         "of the same problem, rather than necessarily being a direct competitor.",
       signals: [
         "broader_software_match",
-        hasProductSignals ? "product_capability_match" : "pricing_or_features_match"
+        hasProductSignals
+          ? "product_capability_match"
+          : "pricing_or_features_match"
       ]
     };
   }
@@ -671,6 +787,7 @@ async function researchCandidate(candidate, state) {
       const retrievedAt = new Date().toISOString();
 
       state.successfulSearches += 1;
+
       if (result.creditsUsed !== null) {
         state.reportedCreditsUsed += result.creditsUsed;
       }
@@ -680,6 +797,7 @@ async function researchCandidate(candidate, state) {
 
       for (const item of result.results) {
         const evidence = normaliseResult(item, query, retrievedAt);
+
         if (!evidence) continue;
 
         const existing = evidenceByUrl.get(evidence.url);
@@ -794,6 +912,7 @@ async function researchCandidate(candidate, state) {
       };
 
       source.evidenceQuality = content ? "PARTIAL_PAGE_INSPECTED" : "LOW";
+
       source.limitations =
         "Page content was retrieved, but its claims have not been independently " +
         "verified and no market demand metrics were collected.";
@@ -826,6 +945,7 @@ async function researchCandidate(candidate, state) {
       }
 
       state.pagesInspected += 1;
+
       console.log(`Inspected page for "${candidate.name}": ${source.url}`);
     } catch (error) {
       const message = error.name === "TimeoutError"
@@ -873,6 +993,7 @@ async function researchCandidate(candidate, state) {
       : "PARTIAL_WEB_SEARCH";
 
     candidate.confidence = "LOW";
+
     candidate.seoFindings.limitations.push(
       "Search results may be incomplete, duplicated, outdated, or commercially biased.",
       "Only a limited number of pages are inspected per candidate."
@@ -885,10 +1006,12 @@ async function researchCandidate(candidate, state) {
       "independent demand, pricing, and feasibility evidence.";
   } else if (candidate.searchExecution.errors.length > 0) {
     candidate.evidenceStatus = "SEARCH_FAILED";
+
     candidate.explanation =
       "Search attempts failed or were stopped. No market conclusions can be drawn.";
   } else {
     candidate.evidenceStatus = "NO_RESULTS";
+
     candidate.explanation =
       "Search requests completed without usable source URLs. " +
       "This does not prove that demand is absent.";
@@ -899,8 +1022,10 @@ async function researchCandidate(candidate, state) {
   // Do not repeat a source as multiple competitor findings if it matched
   // more than one search query.
   const seenCompetitors = new Set();
+
   candidate.competitorFindings = candidate.competitorFindings.filter((item) => {
     if (seenCompetitors.has(item.url)) return false;
+
     seenCompetitors.add(item.url);
     return true;
   });
@@ -929,9 +1054,11 @@ async function researchCandidate(candidate, state) {
 }
 
 async function main() {
+  loadResearchCache();
   validateInstructions();
 
   const specifications = readSpecifications();
+
   fs.mkdirSync(REPORT_DIRECTORY, { recursive: true });
 
   const candidates = specifications.map(createCandidate);
@@ -982,19 +1109,33 @@ async function main() {
       pagesInspected: state.pagesInspected,
       maxPagesToInspectPerCandidate: MAX_PAGES_TO_INSPECT_PER_CANDIDATE,
       reportedCreditsUsed: state.reportedCreditsUsed,
+
+      cache: {
+        searchCacheHits: cacheStats.searchHits,
+        scrapeCacheHits: cacheStats.scrapeHits,
+        freshSearchRequests: cacheStats.freshSearchRequests,
+        freshScrapeRequests: cacheStats.freshScrapeRequests,
+        expiredCacheEntriesRemoved: cacheStats.expiredEntriesRemoved,
+        cacheFile: CACHE_PATH,
+        crossRunPersistenceRequiresWorkflowCache: true
+      },
+
       reportedCreditsNote:
         "Includes credit totals reported by successful API responses. " +
         "Missing credit values are not assumed to be zero.",
+
       stoppedSearchEarly: state.stopSearch,
       searchStopReason: state.stopReason,
       stoppedInspectionEarly: state.stopInspection,
       inspectionStopReason: state.inspectionStopReason,
       errors: state.errors,
+
       explanation:
         "This report collects web-search sources and inspects a limited number " +
         "of pages. It applies rule-based classifications with reasons and signals. " +
         "It does not independently verify claims, measure actual search volume, " +
         "interview customers, or establish willingness to pay.",
+
       nextRequirement:
         "Review source relevance and gather independent demand, pricing, " +
         "competitor, feasibility, and customer-validation evidence."
@@ -1005,10 +1146,12 @@ async function main() {
       criteria: CRITERIA,
       approvalThreshold: 70,
       minimumEvidenceSources: 3,
+
       weightedScoreFormula:
         "Sum(score / 5 * criterion weight) for scored criteria only. " +
         "A definitive total is permitted only when every criterion " +
         "has sufficient evidence.",
+
       rules: [
         "Never invent evidence or numerical metrics.",
         "Missing evidence must remain null, not zero.",
@@ -1040,6 +1183,8 @@ async function main() {
     "utf8"
   );
 
+  saveResearchCache();
+
   console.log(`Specifications reviewed: ${candidates.length}`);
   console.log(`Candidates with search evidence: ${researchedCandidates}`);
   console.log(`Successful Firecrawl searches: ${state.successfulSearches}`);
@@ -1047,6 +1192,11 @@ async function main() {
   console.log(`Pages inspected: ${state.pagesInspected}`);
   console.log("Candidates approved for building: 0");
   console.log(`Reported Firecrawl credits used: ${state.reportedCreditsUsed}`);
+  console.log(`Search cache hits: ${cacheStats.searchHits}`);
+  console.log(`Page cache hits: ${cacheStats.scrapeHits}`);
+  console.log(`Fresh search requests: ${cacheStats.freshSearchRequests}`);
+  console.log(`Fresh page inspections: ${cacheStats.freshScrapeRequests}`);
+  console.log(`Research cache saved to: ${CACHE_PATH}`);
   console.log(`Research report saved to: ${REPORT_PATH}`);
 
   if (state.errors.length > 0) {
