@@ -1,6 +1,6 @@
 {
   "reportVersion": 5,
-  "generatedAt": "2026-11-18T21:04:35.815Z",
+  "generatedAt": "2026-11-19T21:09:44.900Z",
   "status": "PARTIAL_WEB_RESEARCH",
   "instructionsFile": "specs/research/research-agent-instructions.md",
   "researchExecution": {
@@ -11,16 +11,16 @@
     "searchEndpoint": "https://api.firecrawl.dev/v2/search",
     "scrapeEndpoint": "https://api.firecrawl.dev/v2/scrape",
     "successfulSearches": 9,
-    "uniqueSourcesCollected": 30,
+    "uniqueSourcesCollected": 29,
     "pagesInspected": 6,
     "maxPagesToInspectPerCandidate": 2,
-    "reportedCreditsUsed": 0,
+    "reportedCreditsUsed": 12,
     "cache": {
-      "searchCacheHits": 9,
-      "scrapeCacheHits": 6,
-      "freshSearchRequests": 0,
-      "freshScrapeRequests": 0,
-      "expiredCacheEntriesRemoved": 0,
+      "searchCacheHits": 0,
+      "scrapeCacheHits": 3,
+      "freshSearchRequests": 9,
+      "freshScrapeRequests": 3,
+      "expiredCacheEntriesRemoved": 9,
       "cacheFile": "/home/runner/work/micro-saas-factory/micro-saas-factory/specs/research/research-cache.json",
       "crossRunPersistenceRequiresWorkflowCache": true
     },
@@ -83,7 +83,7 @@
   "summary": {
     "specificationsReviewed": 3,
     "researched": 3,
-    "uniqueSourcesCollected": 30,
+    "uniqueSourcesCollected": 29,
     "pagesInspected": 6,
     "approved": 0,
     "onHold": 3
@@ -115,14 +115,15 @@
           "url": "https://www.upwork.com/tools/freelance-rate-calculator",
           "description": "Our freelance hourly rate calculator simplifies budgeting by using your inputs to generate a minimum hourly rate that supports your business and lifestyle goals ...",
           "matchedQueries": [
-            "\"Freelance Hourly Rate Calculator\" tool alternatives"
+            "\"Freelance Hourly Rate Calculator\" tool alternatives",
+            "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.808Z",
+          "retrievedAt": "2026-11-19T21:09:24.838Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.812Z",
+            "inspectedAt": "2026-11-19T21:09:28.359Z",
             "pageTitle": "Freelance Rate Calculator",
             "httpStatusCode": 200,
             "classification": "RELATED_ALTERNATIVE",
@@ -143,12 +144,12 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.808Z",
+          "retrievedAt": "2026-11-19T21:09:24.838Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.813Z",
+            "inspectedAt": "2026-11-19T21:09:28.360Z",
             "pageTitle": "Freelance Hourly Rate Calculator: How Much to Realistically Charge",
             "httpStatusCode": 200,
             "classification": "POTENTIAL_DIRECT_COMPETITOR",
@@ -170,31 +171,43 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.808Z",
+          "retrievedAt": "2026-11-19T21:09:24.838Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "How can I determine my hourly rate? : r/freelance",
-          "url": "https://www.reddit.com/r/freelance/comments/to72y9/how_can_i_determine_my_hourly_rate",
-          "description": "Hi everyone! I hope that all is well.\n\nMy question might be a common one although I'm still having a hard time finding the right answer.\n\nI graduated ...",
+          "title": "Freelance hourly rate calculator",
+          "url": "https://tillage.ai/tools/freelance-rate-calculator",
+          "description": "Turn your income goal, expenses and billable hours into your floor hourly rate and the rate to quote with a profit margin. Free, for freelancers and ...",
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.808Z",
+          "retrievedAt": "2026-11-19T21:09:24.838Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Freelance Hourly Rate Calculator | Free",
-          "url": "https://www.blazehive.io/calculator/freelance-hourly-rate-calculator",
-          "description": "# Freelance Hourly Rate Calculator\n## Frequently Asked Questions\nUse the [consulting rate calculator](https://www.blazehive.io/calculator/consulting-rate-calculator) if you're pricing strategic advisory work instead of deliverable-based freelance projects.\n\nFor value-based pricing on urgent projects, use the [freelance rate calculator](https://www.blazehive.io/calculator/freelance-rate-calculator) to estimate project fees that reflect the premium.\n\nA B2B SaaS copywriter with 5 years of experience commands $125-$175/hour. Use the [freelance rate calculator](https://www.blazehive.io/calculator/freelance-rate-calculator) to model both hourly and project-based pricing side by side.\n\n## Related free tools\n[Most popular\\\n\\\nFree Backlink Checker\\\n\\\nAudit any domain. Authority Score, referring domains, anchor text. No signup.](https://www.blazehive.io/tools/free-backlink-checker/) [Instant\\\n\\\nConsulting Rate Calculator\\\n\\\nSet your hourly or project rate based on costs, profit margin, and billable hours.](https://www.blazehive.io/calculator/consulting-rate-calculator/) [Instant\\\n\\\nFreelance Rate Calculator\\\n\\\nWork backward from your income goal to your hourly, daily, or project rate.](https://www.blazehive.io/calculator/freelance-rate-calculator/) [AI\\\n\\\nListicle Generator: Outlines With the Proof Already Assigned\\\n\\\nA full numbered outline - every item with a writer brief and the exact proof to go get.](https://www.blazehive.io/tools/listicle-generator/) [Live check\\\n\\\nPhone Number Extractor\\\n\\\nPull every phone number out of a webpage or pasted text — normalized, deduped, grouped by country.](https://www.blazehive.io/tools/phone-number-extractor/)\n\n[🇬🇧English](https://www.blazehive.io/calculator/freelance-hourly-rate-calculator/) [🇩🇪Deutsch](https://www.blazehive.io/de/calculator/freelance-hourly-rate-calculator/) [🇪🇸Español](https://www.blazehive.io/es/calculator/freelance-hourly-rate-calculator/) [🇫🇷Français](https://www.blazehive.io/fr/calculator/freelance-hourly-rate-calculator/) [🇮🇹Italiano](https://www.blazehive.io/it/calculator/freelance-hourly-rate-calculator/) [🇵🇹Português](https://www.blazehive.io/pt/calculator/freelance-hourly-rate-calculator/)\n\nBlazeHive.",
+          "title": "Freelance Hourly Rate Calculator: What Should I Charge?",
+          "url": "https://per.hr/tools/rate-calculator",
+          "description": "Work out your freelance hourly rate from the income you want, your time off, how much of your week is billable, your business costs and taxes.",
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.808Z",
+          "retrievedAt": "2026-11-19T21:09:24.838Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "Best Bookkeeping Software for Freelancers (2026)",
+          "url": "https://stephsbooks.com/blog/freelancer-bookkeeping-software",
+          "description": "Best bookkeeping software for freelancers compared: Wave, FreshBooks, QuickBooks, and Xero. Pricing, features, and which fits your workflow.",
+          "matchedQueries": [
+            "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
+          ],
+          "retrievedAt": "2026-11-19T21:09:28.358Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -202,59 +215,35 @@
           "type": "WEB_SEARCH_RESULT",
           "title": "Editorial Rates",
           "url": "https://www.the-efa.org/rates",
-          "description": "This tool helps you estimate the cost of hiring an editorial professional for your job. It is designed to give you an idea of what the cost of ...",
+          "description": "The EFA's rate chart represents median rate ranges for editorial services and helps you estimate the cost for your project.",
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.812Z",
+          "retrievedAt": "2026-11-19T21:09:28.358Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Independent contractor (self-employed) or employee?",
-          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee",
-          "description": "Learn how to determine whether a person providing a service to you is an employee or an independent contractor.",
+          "title": "Best Bank for Consultants | Novo",
+          "url": "https://www.novo.co/best-bank-for/consultants",
+          "description": "## What Should a Consultant Invoice Include?\n### Copy-ready consultant invoice template\n```\nINVOICE\n\nFrom:\n[Your Business Name, LLC]\n[Street Address]\n[City, State ZIP]\n[Email] | [Phone]\nEIN: [XX-XXXXXXX]\n\nBill To:\n[Client Company]\n[Attn: Name, Title]\n[Street Address]\n[City, State ZIP]\n\nInvoice #: 2025-014\nIssue Date: [Month DD, YYYY]\nDue Date: [Month DD, YYYY] (Net 15)\n\n------------------------------------------------------------\nDESCRIPTION                          HOURS   RATE     AMOUNT\n------------------------------------------------------------\nGo-to-market strategy audit            10    $200    $2,000\nStakeholder interviews (4 sessions)     6    $200    $1,200\nFinal readout deck + recommendations    4    $200      $800\n------------------------------------------------------------\n                                          Subtotal:  $4,000\n                                       Tax (0%):         $0\n                                          TOTAL DUE: $4,000\n------------------------------------------------------------\n\nPayment methods:\n- ACH (preferred)\n- Credit card\n- Wire: [routing] / [account]\n\nTerms: Net 15. A 1.5% monthly late fee applies after the due date.\n\nThank you. Please reference Invoice #2025-014 with payment.\n```",
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.812Z",
+          "retrievedAt": "2026-11-19T21:09:28.358Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "The Best Freelance Tools, Software, Apps and Services",
-          "url": "https://nation1099.com/freelance-tools",
-          "description": "The apps and software listed here help freelancers, consultants and other gig economy professionals run serious businesses.",
+          "title": "Freelance Day Rate Calculator for FS Consultants",
+          "url": "https://outsized.com/talent-rate-calculator",
+          "description": "Use our rate calculator to get market rates for independent consultants and freelance professionals across our key regions.",
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.812Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Tax Guide for Independent Contractors and Freelancers | CO",
-          "url": "https://www.uschamber.com/co/run/finance/independent-contractor-tax-resources",
-          "description": "From tax forms and deductions to deadlines and filing requirements, this guide covers what self-employed workers need to know.",
-          "matchedQueries": [
-            "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.812Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Tips to Reduce Self-Employment Taxes - TurboTax - Intuit",
-          "url": "https://turbotax.intuit.com/tax-tips/self-employment-taxes/a-freelancers-guide-to-taxes/L6ACNfKVW",
-          "description": "As a general rule of thumb, freelancers can write off many expenses including: business-related food; travel and lodging; office expenses ...",
-          "matchedQueries": [
-            "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.812Z",
+          "retrievedAt": "2026-11-19T21:09:28.358Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
@@ -288,7 +277,7 @@
         {
           "url": "https://www.upwork.com/tools/freelance-rate-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.812Z",
+          "inspectedAt": "2026-11-19T21:09:28.359Z",
           "pageTitle": "Freelance Rate Calculator",
           "pageDescription": "Use our handy freelance rate calculator to help you quickly determine a minimum hourly rate that may work for you based on your monthly expenses and desired number of working hours.",
           "httpStatusCode": 200,
@@ -312,7 +301,7 @@
         {
           "url": "https://www.memtime.com/freelance-hourly-rate-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.813Z",
+          "inspectedAt": "2026-11-19T21:09:28.360Z",
           "pageTitle": "Freelance Hourly Rate Calculator: How Much to Realistically Charge",
           "pageDescription": "Calculate how much to realistically charge per hour as a freelancer or consultant — based on your working time, time off, and business costs.",
           "httpStatusCode": 200,
@@ -348,7 +337,8 @@
             "title": "Freelance Rate Calculator",
             "description": "Use our handy freelance rate calculator to help you quickly determine a minimum hourly rate that may work for you based on your monthly expenses and desired number of working hours.",
             "matchedQueries": [
-              "\"Freelance Hourly Rate Calculator\" tool alternatives"
+              "\"Freelance Hourly Rate Calculator\" tool alternatives",
+              "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
             ],
             "sourceType": "POSSIBLE_SOFTWARE_ALTERNATIVE",
             "relevanceClassification": "RELATED_ALTERNATIVE",
@@ -428,11 +418,11 @@
         "queriesAttempted": 3,
         "successfulSearches": 3,
         "rawResultsCollected": 10,
-        "uniqueSourcesCollected": 10,
+        "uniqueSourcesCollected": 9,
         "errors": []
       },
       "explanation": "Unique search sources were collected and a limited number of pages were inspected. Source classifications include reasons and matching signals, but remain preliminary. Market scores remain null pending independent demand, pricing, and feasibility evidence.",
-      "uniqueSourceCount": 10
+      "uniqueSourceCount": 9
     },
     {
       "name": "Invoice Late Fee Calculator",
@@ -456,91 +446,90 @@
       "evidence": [
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Invoice Late Fee Calculator — Calculate Overdue Payment ...",
-          "url": "https://invoicelatefeecalculator.com/",
-          "description": "Invoice Late Fee Calculator. A free online tool designed for freelancers and small businesses to quickly calculate late payment interest and fees on overdue ...",
+          "title": "20 Free Business Tools and Calculators for Smarter Invoicing",
+          "url": "https://invopoint.com/blog/20-free-business-tools-and-calculators-for-smarter-invoicing",
+          "description": "The Invoice Late Fee Calculator helps estimate a late fee on an overdue invoice based on invoice amount, monthly late fee rate, and days overdue ...",
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:29.471Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.813Z",
-            "pageTitle": "Invoice Late Fee Calculator — Calculate Overdue Payment Interest",
+            "inspectedAt": "2026-11-19T21:09:35.478Z",
+            "pageTitle": "20 Free Business Tools & Calculators for SMB Invoicing | Invopoint",
             "httpStatusCode": 200,
-            "classification": "POTENTIAL_DIRECT_COMPETITOR",
-            "sourceType": "INTERACTIVE_TOOL",
-            "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
+            "classification": "INFORMATIONAL_CONTENT",
+            "sourceType": "ARTICLE_OR_GUIDE",
+            "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence.",
             "classificationSignals": [
-              "tool_title_match",
-              "tool_functionality_match"
+              "informational_url_path"
             ],
-            "contentLength": 8436,
+            "contentLength": 16675,
             "warning": null
           }
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Invoice Late Fee Calculator | Toolistri - Toolistri",
-          "url": "https://toolistri.com/calculators/business/invoice-late-fee-calculator",
-          "description": "Use this invoice late fee calculator to estimate flat late fees, monthly finance charges, annual interest on overdue invoices, grace periods, and the total ...",
+          "title": "Best Automated Invoice Chasing Software: 5 Tools Compared",
+          "url": "https://chaseai.app/best-invoice-chasing-software",
+          "description": "# Best Automated Invoice Chasing Software Compared\n## FAQ\n### Related tools and guides\n- [Late Payment Cost Calculator](https://chaseai.app/tools/late-payment-cost-calculator)\n- [Invoice Late Fee Calculator](https://chaseai.app/tools/invoice-late-fee-calculator)",
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:29.471Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.814Z",
-            "pageTitle": "Invoice Late Fee Calculator | Flat Fee, Monthly Finance Charge, and Annual Interest | Toolistri | Toolistri",
+            "inspectedAt": "2026-11-19T21:09:37.354Z",
+            "pageTitle": "Best Automated Invoice Chasing Software: 5 Tools Compared",
             "httpStatusCode": 200,
-            "classification": "POTENTIAL_DIRECT_COMPETITOR",
-            "sourceType": "INTERACTIVE_TOOL",
-            "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
+            "classification": "RELATED_ALTERNATIVE",
+            "sourceType": "SOFTWARE_PRODUCT",
+            "classificationReason": "The source appears to describe broader software that may solve part of the same problem, rather than necessarily being a direct competitor.",
             "classificationSignals": [
-              "tool_title_match",
-              "tool_functionality_match"
+              "broader_software_match",
+              "product_capability_match"
             ],
-            "contentLength": 9340,
+            "contentLength": 11277,
             "warning": null
           }
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Massachusetts Late Fee Calculator & Interest Rules (2026)",
-          "url": "https://www.booksmartools.com/massachusetts-late-fee-calculator.html",
-          "description": "The full invoice late fee calculator covers all 50 states in one place, with compounding options, grace periods and the statutory citation for each. Open ...",
-          "matchedQueries": [
-            "\"Invoice Late Fee Calculator\" tool alternatives"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Invoice Late Fee Calculator — Charge Overdue Interest",
-          "url": "https://freelancerforge.com/calculators/invoice-late-fee-calculator",
-          "description": "Invoice Late Fee Calculator. Work out exactly what a late-paying ... This tool is an estimate, not legal advice. Simple or compound ...",
-          "matchedQueries": [
-            "\"Invoice Late Fee Calculator\" tool alternatives"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Free Invoice Late Fee Calculator",
+          "title": "Free Invoice Late Fee Calculator - Interest, flat fee, grace period, and cap",
           "url": "https://miniwebtool.com/invoice-late-fee-calculator",
-          "description": "Invoice Late Fee Calculator. Calculate an overdue invoice charge from the balance, days late, grace period, and fee rules.",
+          "description": "MiniWebtool's Invoice Late Fee Calculator handles interest or a flat fee and an optional cap, showing both the added charge and total due. Need ...",
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:29.471Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "Contractor Guides, Tools and Comparisons",
+          "url": "https://www.businessgenieapp.com/resources",
+          "description": "Invoice late fee calculatorCalculatorThe late fee on an overdue invoice from its amount, a monthly rate and the days past due. The month. Maximizing cash ...",
+          "matchedQueries": [
+            "\"Invoice Late Fee Calculator\" tool alternatives"
+          ],
+          "retrievedAt": "2026-11-19T21:09:29.471Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "Free Late Payment Cost Calculator for Freelancers",
+          "url": "https://invoicenudgr.com/tools/late-payment-cost-calculator",
+          "description": "Invoice Late Fee Calculator: Works out the late fee and total now due on an overdue invoice from the terms you put on it, and shows what that ...",
+          "matchedQueries": [
+            "\"Invoice Late Fee Calculator\" tool alternatives"
+          ],
+          "retrievedAt": "2026-11-19T21:09:29.471Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -548,11 +537,11 @@
           "type": "WEB_SEARCH_RESULT",
           "title": "Best Free Accounting Software for Small Businesses in 2026",
           "url": "https://www.uschamber.com/co/run/finance/free-accounting-tools-for-small-businesses",
-          "description": "Compare the best free accounting software options for small businesses, including features, limitations, security, ...",
+          "description": "# Best **Free Accounting Software** for Small Businesses in 2026\nExplore the best free accounting tools for small business owners and freelancers.",
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:32.910Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -560,95 +549,82 @@
           "type": "WEB_SEARCH_RESULT",
           "title": "Wave: Small Business Software - Wave Financial",
           "url": "https://www.waveapps.com/",
-          "description": "Use simple workflows, reports and payment routines to prevent duplicate or late payments and stay on top of what your business owes.",
+          "description": "## Clear books.  Conﬁdent decisions.\nWave: Small Business Software\n\n# Clear books.  Conﬁdent decisions.\n## Built for small business owners like you\n### Freelancers\nPhotographer/Videographer\n\nPhotographer/Videographer\n\nPhotographer/Videographer\n\nPhotographer/Videographer",
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:32.910Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "10 Best Invoicing Software for Self Employed",
-          "url": "https://www.billdu.com/blog/best-invoicing-software-for-self-employed",
-          "description": "Compare 10 invoicing tools for freelancers, sole traders, and contractors—features, pricing approach, who it's best for, and which apps send ...",
+          "title": "Best Accounting Software for Freelancers in 2026: 7 Options ...",
+          "url": "https://cashflowy.ai/blog/freelance-accounting-software",
+          "description": "# Best Accounting Software for Freelancers in 2026: 7 Options Compared\n## How we evaluated freelance accounting software\nWe reviewed each tool’s current offering, keeping the needs of freelancers, independent contractors and one-person service businesses front of mind.",
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:32.910Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Publication 334 (2025), Tax Guide for Small Business",
-          "url": "https://www.irs.gov/publications/p334",
-          "description": "If your return shows that you owe tax, you must pay it by the due date of your return to avoid late-payment penalties and interest.",
+          "title": "Tax Season is tough for freelancers, but it doesn't have to be Watch to find ...",
+          "url": "https://www.facebook.com/upwork/videos/upwork-makes-tax-season-easier/1168023057970183",
+          "description": null,
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:32.910Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "FreshBooks vs Wave: Best Accounting Software For ...",
-          "url": "https://www.facebook.com/MerchantMaverick/videos/freshbooks-vs-wave-best-accounting-software-for-freelancers-small-businesses/1439816487889275",
-          "description": "Wave is a free choice for freelancers. It offers easy invoicing, expense tracking, and time management features.\" clear income reporting, ...",
+          "title": "Tax Prep Guide for Freelancers: 1099, W-2 & Small Business Filing",
+          "url": "https://ilovecreatives.com/resources/freelancer-tax-guide-1099-w2-filing?srsltid=AYCX9vLEhTVoa0nxK0x7apKO-6-OPrYttt4rfGHvxErmI8OiO6Im-UtR",
+          "description": "Tax season stress? This freelancer & small business tax guide simplifies 1099s, W-2s, deductions, and self-employment taxes.",
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.813Z",
+          "retrievedAt": "2026-11-19T21:09:32.910Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
       ],
       "competitorFindings": [
         {
-          "name": "Invoice Late Fee Calculator — Calculate Overdue Payment Interest",
-          "url": "https://invoicelatefeecalculator.com/",
-          "classification": "POTENTIAL_DIRECT_COMPETITOR",
-          "sourceType": "INTERACTIVE_TOOL",
-          "basis": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
+          "name": "Best Automated Invoice Chasing Software: 5 Tools Compared",
+          "url": "https://chaseai.app/best-invoice-chasing-software",
+          "classification": "RELATED_ALTERNATIVE",
+          "sourceType": "SOFTWARE_PRODUCT",
+          "basis": "The source appears to describe broader software that may solve part of the same problem, rather than necessarily being a direct competitor.",
           "signals": [
-            "tool_title_match",
-            "tool_functionality_match"
-          ],
-          "verified": false
-        },
-        {
-          "name": "Invoice Late Fee Calculator | Flat Fee, Monthly Finance Charge, and Annual Interest | Toolistri | Toolistri",
-          "url": "https://toolistri.com/calculators/business/invoice-late-fee-calculator",
-          "classification": "POTENTIAL_DIRECT_COMPETITOR",
-          "sourceType": "INTERACTIVE_TOOL",
-          "basis": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
-          "signals": [
-            "tool_title_match",
-            "tool_functionality_match"
+            "broader_software_match",
+            "product_capability_match"
           ],
           "verified": false
         }
       ],
       "sourceInspection": [
         {
-          "url": "https://invoicelatefeecalculator.com/",
+          "url": "https://invopoint.com/blog/20-free-business-tools-and-calculators-for-smarter-invoicing",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.813Z",
-          "pageTitle": "Invoice Late Fee Calculator — Calculate Overdue Payment Interest",
-          "pageDescription": "Calculate late payment fees and interest on overdue invoices. Includes UK, US & Australian statutory rates. Free tool for freelancers and small businesses.",
+          "inspectedAt": "2026-11-19T21:09:35.478Z",
+          "pageTitle": "20 Free Business Tools & Calculators for SMB Invoicing | Invopoint",
+          "pageDescription": "Use 20 free business calculators for invoicing, VAT, tax, margins, cash flow, due dates, payment fees, and SMB billing decisions.",
           "httpStatusCode": 200,
-          "classification": "POTENTIAL_DIRECT_COMPETITOR",
-          "sourceType": "INTERACTIVE_TOOL",
-          "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
+          "classification": "INFORMATIONAL_CONTENT",
+          "sourceType": "ARTICLE_OR_GUIDE",
+          "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence.",
           "classificationSignals": [
-            "tool_title_match",
-            "tool_functionality_match"
+            "informational_url_path"
           ],
-          "contentLength": 8436,
+          "contentLength": 16675,
           "contentTruncated": true,
-          "contentExcerpt": "# Calculate your late payment fees\n\nInput your invoice details below to calculate the interest and late fees you are owed. Supported natively for statutory regulations in multiple countries.\n\n## Invoice Details\n\nEnter your invoice information to calculate late fees\n\nSelect Jurisdiction (Statutory Rates)\n\n🇬🇧 United Kingdom🇺🇸 United States🇦🇺 Australia\n\nCurrencyGBP (£)USD ($)EUR (€)AUD (A$)\n\nOriginal Invoice Amount\n\nInvoice Due Date\n\nDate of Payment\n\nLate Fee TypeStatutory RateFlat % of InvoiceDaily %Monthly %\n\nLate Fee Rate (%)\n\n**Note — US rates:** late fees in the United States vary by state and require a contract clause. We use 1.5%/month (18%/year) as a widely-accepted commercial default. Always confirm against your state's usury cap.\n\n\n## Calculation Results\n\nLate fee breakdown and total amount due\n\nReady to calculate\n\nEnter your invoice amount and dates to see the late fee breakdown instantly.\n\nDays Overdue\n\n0\n\nDaily Accrual\n\n$0.00\n\nOriginal Invoice:\n\nLate Fee:\n\nTotal Amount Due:\n\n**Calculation Breakdown:**\n\n## Payment Timeline\n\nVisual representation of the overdue period\n\nPrevious\n\n### Month Year\n\nNext\n\nSun\n\nMon\n\nTue\n\nWed\n\nThu\n\nFri\n\nSat\n\n## Demand Letter Generator\n\nProfessional late payment demand letter template\n\n**Need to request payment?**\n\nWe'll automatically generate a formal demand letter using your invoice calculations that you can copy and send to your client.\n\nGenerate Demand Letter\n\nCopy to ClipboardHide Letter\n\n## Practical guide: overdue invoice interest and how this tool works\n\nLate payment interest is meant to reflect the cost of waiting for money you were entitled to on the due date. This calculator helps you turn dates, principal, and a chosen rate into a clear number you can put in front of a client or your own records. It is built for transparency: you see days overdue, daily accrual, and a written breakdown string that matches the math.\n\n**What the math assumes.** Amounts here use **simple interest** on the original invoice total for the overdue window (from the day after the due date through the payment date you enter). Many statutory schemes and commercial invoices are quoted on that basis for straightforward debts. If your contract says interest compounds, accrues only on business days, or uses a different day-count convention, your real-world figure can differ—use this page as a structured estimate, then confirm against your paperwork or a qualified adviser.\n\n### Choosing a fee type in the calculator\n\nEach option maps to a different way clients encounter late charges in the wild:\n\n- **Statutory rate** — Annual percentage applied pro rata over the exact number of calendar days overdue (÷ 365). Use the country chips for presets; you can still override the percentage if your reference rate changed.\n- **Flat % of invoice** — One-time charge as a slice of the face amount, regardless of how long payment was late. Useful when your terms say “X% after Y days” as a single administrative fee.\n- **Daily %** — The rate field is interpreted as a percent of principal _per day_ overdue. Common when agreements spell out a daily figure instead of an annual APR.\n- **Monthly %** — The rate field is a percent per month; the tool approximates duration in months as days ÷ 30 for a practical running total. Compare that shortcut to your contract if it defines a “month” differently.\n\n### United Kingdom: statutory interest in context\n\nThe Late Payment of Commercial Debts (Interest) Act 1998 is aimed primarily at **business-to-business** debts on commercial contracts, not every consumer scenario. The headline formula most people quote is **8% per year plus the Bank of England base rate**, with the combined figure expressed as a simple annual rate and applied across the late period. The preset in this tool reflects a commonly cited total when the base rate is 5.25%; official tables and announcements change over time, so if your dispute spans a rate change, you may need to split periods or verify the rate that applied on each segment.\n\nCreditors in scope may also have rights to **reasonable recovery costs** (including tiered fixed sums by debt size in many cases). Those add-ons are not modeled in the interest-only fields above—track them separately in your ledger and correspondence.\n\n### United States: contract first, then caps\n\nUnlike the UK statutory B2B framework, U.S. practice usually starts with **what you and the customer signed**: explicit late-fee or interest language on the quote, master services agreement, or invoice terms. Courts and regulators care whether the charge was disclosed, agreed, and not out of line with state **usury** or consumer-protection rules. The default U.S. preset here (18% per year, expressed as 1.5% per month in the interface note) is a widely used commercial shorthand—treat it as a starting point, not a 50-state guarantee.\n\n### Australia: verify state limits and your agreement\n\nAustralian businesses often rely on contract clauses and, where applicable, **penalty interest** regimes that vary by state and by whether the debtor is a consumer or a business. The Australia preset uses a **10% per annum** simple rate as a practical ceiling-style reference used in many commercial discussions; your agreement, industry, or state law may prescribe something else. Always align the percentage with current local rules before issuing a final demand.\n\n### Operational checklist before you rely on a number\n\n1. Match the **currency** to the invoice and the bank account you expect to receive.\n2. Confirm whether the due date excludes weekends/public holidays in your terms; this tool counts **calendar days** between the two dates you enter.\n3. Keep a PDF or email trail of the original invoice, reminders, and any promise-to-pay messages.\n4. If you use the demand letter block, replace every bracketed placeholder and attach your calculation screenshot or the breakdown text for consistency.\n\n### Freelancers and small teams: setting terms clients actually read\n\nPut payment du",
+          "contentExcerpt": "[![image](https://invopoint.com/storage/logo/logo-2.png)](https://invopoint.com/)\n\n- [Menu](https://invopoint.com/blog/20-free-business-tools-and-calculators-for-smarter-invoicing#tab-menu)\n\n## 20 Free Business Tools and Calculators for Smarter Invoicing\n\n[News](https://invopoint.com/blog/news) [Release](https://invopoint.com/blog/release) [Updates](https://invopoint.com/blog/updates) [News & Events](https://invopoint.com/blog/news-and-events) [UK](https://invopoint.com/blog/uk) [USA](https://invopoint.com/blog/usa)\n\nJul 09, 202633 mins read\n\nExplore Invopoint free tools for invoicing, pricing, tax, VAT, cash flow, payment fees, due dates, and SMB billing decisions.\n\n# 20 Free Business Tools and Calculators for Smarter Invoicing\n\n![1-3.png](https://invopoint.com/storage/1-3.png)\n\nSmall businesses do not need more complicated finance software. They need faster answers, clearer invoices, better payment tracking, and practical tools that help them make decisions before money is lost. That is why Invopoint launched a complete collection of [free business tools and calculators](https://invopoint.com/free-business-tools) for SMBs, freelancers, consultants, agencies, and B2B service providers across the USA, UK, and Europe.\n\nThe goal is simple: help businesses calculate pricing, tax, VAT, margins, fees, due dates, cash flow, and payment terms before creating an invoice. Once the number is clear, businesses can move directly into professional billing with the [free online invoice generator](https://invopoint.com/free-invoice) and manage the full invoicing workflow inside Invopoint.\n\n## Why Free Business Calculators Matter Before Invoicing\n\nAn invoice is not just a document. It is the final output of several financial decisions. Before a business sends an invoice, it usually needs to know what to charge, which tax or VAT rate applies, whether the price is profitable, when payment is due, whether a discount still makes sense, and how much will be received after payment processing fees.\n\nMany small businesses still calculate these numbers manually in spreadsheets, emails, notes, or mental math. That creates risk. A wrong tax amount, weak margin, unclear due date, or underestimated card fee can reduce profit and damage cash flow. Invopoint free tools solve this problem by giving business owners fast, browser-based calculators for everyday financial decisions.\n\n## Start With the Free Invoice Generator\n\nIf you already know the amount you need to charge, you can start immediately with the [free online invoice generator](https://invopoint.com/free-invoice). It helps you create a clear, professional invoice for clients without unnecessary complexity. A strong invoice should include customer details, invoice items, payment terms, due date, tax information, total amount due, and a simple structure that makes payment easier for the client.\n\nInvopoint is built for businesses that want faster invoicing, better payment visibility, and cleaner billing operations. The free tools support the decisions around the invoice. The invoice generator helps turn those decisions into a professional billing document.\n\n## Tax, VAT, and Invoice Amount Calculators\n\nTax and VAT calculations are among the most common invoicing problems for SMBs. The [Sales Tax Calculator](https://invopoint.com/sales-tax-calculator) helps businesses calculate sales tax on a price and understand the tax amount and total amount due. This is useful for US businesses and any company that needs to show sales tax clearly before sending an invoice or quote.\n\nThe [VAT Calculator](https://invopoint.com/vat-calculator) helps UK and European businesses add or remove VAT from a price. It shows the net amount, VAT amount, and gross total. This is especially useful for service providers, consultants, agencies, and B2B businesses that need clear VAT breakdowns on invoices.\n\nThe [Percentage Calculator](https://invopoint.com/percentage-calculator) gives quick answers for percentage-based calculations used in tax, discounts, commission, pricing checks, and fee splits. It is a simple but useful tool for everyday finance decisions.\n\n## Pricing and Profitability Calculators\n\nRevenue does not automatically mean profit. That is why Invopoint includes calculators focused on pricing, margin, markup, and break-even analysis.\n\nThe [Profit Margin Calculator](https://invopoint.com/profit-margin-calculator) helps businesses understand how much profit remains after costs. This is useful before quoting a project, selling a product, or accepting a new client deal. The [Markup Calculator](https://invopoint.com/markup-calculator) helps convert cost into a selling price by adding a markup percentage. This is important because markup and margin are not the same thing.\n\nThe [Break-Even Calculator](https://invopoint.com/break-even-calculator) helps estimate how many units, projects, or billable jobs are needed to cover fixed costs. For small businesses, this is useful when testing whether a pricing model is realistic.\n\nThe [Discount Calculator](https://invopoint.com/discount-calculator) helps calculate the final price after applying a discount. This is useful for early payment discounts, client negotiations, seasonal offers, and service packages. A discount should never be guessed. It should be checked against margin and cash flow.\n\n## Freelancer, Consultant, and Agency Billing Tools\n\nFreelancers and consultants often underprice their services because they do not separate working hours from billable hours. Invopoint free tools help service businesses calculate rates and invoice totals more accurately.\n\nThe [Hourly Rate Calculator](https://invopoint.com/hourly-rate-calculator) helps freelancers and consultants calculate the hourly rate they should charge based on income goals, business expenses, billable hours, and working weeks. The [Billable Hours Calculator](https://invopoint.com/billable-hours-calculator) converts hours worked and hourly rate into an invoice-ready total, with optio",
           "warning": null,
           "limitations": [
             "Classification is rule-based and is not a full semantic assessment.",
@@ -658,22 +634,22 @@
           ]
         },
         {
-          "url": "https://toolistri.com/calculators/business/invoice-late-fee-calculator",
+          "url": "https://chaseai.app/best-invoice-chasing-software",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.814Z",
-          "pageTitle": "Invoice Late Fee Calculator | Flat Fee, Monthly Finance Charge, and Annual Interest | Toolistri | Toolistri",
-          "pageDescription": "Use this invoice late fee calculator to estimate flat late fees, monthly finance charges, annual interest on overdue invoices, grace periods, and the total amount now due in one practical business dashboard.",
+          "inspectedAt": "2026-11-19T21:09:37.354Z",
+          "pageTitle": "Best Automated Invoice Chasing Software: 5 Tools Compared",
+          "pageDescription": "Compare invoice chasing software by price, integrations, automation and ideal user. Includes ChaseAI, Chaser, Paidnice, Satago and manual options.",
           "httpStatusCode": 200,
-          "classification": "POTENTIAL_DIRECT_COMPETITOR",
-          "sourceType": "INTERACTIVE_TOOL",
-          "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor.",
+          "classification": "RELATED_ALTERNATIVE",
+          "sourceType": "SOFTWARE_PRODUCT",
+          "classificationReason": "The source appears to describe broader software that may solve part of the same problem, rather than necessarily being a direct competitor.",
           "classificationSignals": [
-            "tool_title_match",
-            "tool_functionality_match"
+            "broader_software_match",
+            "product_capability_match"
           ],
-          "contentLength": 9340,
+          "contentLength": 11277,
           "contentTruncated": true,
-          "contentExcerpt": "Business calculator\n\n# Invoice Late Fee Calculator\n\nEstimate flat late fees, monthly finance charges, or annual interest on overdue invoices in one calm, practical layout. Compare the late fee amount, total amount now due, and how much extra the invoice costs after being overdue for a given number of days.\n\nEditor\n\n## Invoice late fee assumptions\n\nEstimate practical flat late fees, monthly finance charges, or annual interest on overdue invoices in the same calm Toolistri business-calculator layout.\n\nReset\n\n### Inputs\n\nKeep the overdue balance, overdue timing, and fee method visible immediately so the calculator stays quick to use.\n\nInvoice amount\n\nUse the overdue invoice amount or unpaid balance the late fee applies to.\n\nInvoice amount\n$\nEnter the unpaid invoice balance that is now past due.\n\nOverdue timing\n\nThis first version uses days overdue only so the estimate stays fast, simple, and easy to scan.\n\nDays overdue\n\nIf overdue days are 0, the calculator shows that no late fee is currently due.\n\nLate fee method\n\nChoose the fee method used in your payment terms or the invoice scenario you want to compare.\n\nFlat fee\n\nApply one fixed late fee once the invoice is past any grace period.\n\nMonthly percentage\n\nApply a monthly finance charge to the overdue balance and prorate it daily in this version.\n\nAnnual interest\n\nApply simple interest to the overdue balance using the annual rate and the overdue days.\n\nFee amount or rate\n\nEnter the setting used by the selected late-fee method. The other method settings stay in the background for the comparison card.\n\nMonthly late rate\n%\nThis version prorates the monthly rate daily using a 30-day month.\n\nThis calculator estimates late-fee math only. It does not tell you whether a fee is legal, enforceable, or correctly disclosed.\n\n### Advanced options\n\nUse a grace period or fee cap when you want the estimate to match your payment terms more closely.\n\nShow advanced options\n\nNo grace period or cap is affecting the current example.\n\nGrace period\n\nGrace periods delay when the fee starts.Apply a max late fee capUseful when your terms limit the total late charge even if the overdue period is long.\n\nResults\n\n## Estimated invoice late fee results\n\nReview the late fee amount, total amount due, and a clean breakdown of how the calculator applied your overdue days, grace period, and fee method.\n\nLate fee amount\n\n$54.00\n\nThis estimate adds $54.00 to a $2,400.00 overdue balance, bringing the total amount now due to $2,454.00.\n\nTotal amount due\n\n$2,454.00\n\nOverdue days\n\n45\n\nFee-eligible days\n\n45\n\nOriginal invoice amount\n\n$2,400.00\n\nThe overdue balance the late fee or finance charge is applied to.\n\nOverdue days\n\n45\n\nTotal days the invoice is currently past due.\n\nLate fee method\n\nMonthly percentage\n\nThe overdue balance is charged a monthly late rate with no grace period, prorated daily using a 30-day month.\n\nConfigured fee setting\n\n1.5%\n\nMonthly finance charge prorated daily using a 30-day month.\n\nGrace period\n\nNone\n\nGrace periods delay when the fee starts.\n\nFee-eligible days\n\n45\n\nOverdue days remaining after the grace period is removed.\n\nEffective late fee %\n\n2.25%\n\nLate fee amount as a share of the original invoice.\n\nTotal amount due\n\n$2,454.00\n\nOriginal invoice amount plus the modeled late fee.\n\n### Late fee breakdown\n\nUse this breakdown to understand exactly how the calculator handled overdue days, grace period, the selected fee method, and the final total due.\n\n| Measure | Value |\n| --- | --- |\n| Original invoice amount | $2,400.00 |\n| Overdue days | 45 |\n| Grace period | No grace period |\n| Fee-eligible overdue days | 45 |\n| Late fee method | Monthly percentage |\n| Monthly late rate | 1.5% |\n| Time basis used | Daily proration from a 30-day month |\n| Raw late fee before cap | $54.00 |\n| Calculated late fee | $54.00 |\n| Effective late fee % | 2.25% |\n| Total amount due | $2,454.00 |\n\n### Method comparison\n\nCompare the same overdue invoice under all three fee methods using the current stored flat fee, monthly rate, annual rate, grace period, and optional cap.\n\nFlat fee\n\nOne-time fee of $35.00\n\n$35.00\n\nMonthly percentage\n\n1.5% per month, prorated daily\n\n$54.00\n\nAnnual interest\n\n18% APR, simple interest\n\n$53.26\n\nSelected total due$2,454.00\n\n### Practical note\n\nThis page estimates late-fee math, not whether a charge is enforceable.\n\nBusinesses should disclose late fees and payment terms clearly in invoices or contracts whenever possible. Local law, contract wording, notice requirements, and industry rules can all affect whether a fee is enforceable, even when the math is straightforward.\n\nHow it works\n\n## How this invoice late fee calculator works\n\nThis calculator estimates common invoice late fee methods in a practical business workflow. It helps you compare flat fees, monthly percentage charges, and annual interest on overdue balances while keeping the assumptions easy to understand.\n\n### How this invoice late fee calculator works\n\nEnter the overdue invoice amount, the number of days overdue, and the late-fee method you want to use. The calculator then estimates the late fee amount, total amount now due, effective fee percentage, and a clean breakdown of the fee math.\n\n### Common late fee methods\n\nBusinesses often use a one-time flat late fee, a monthly percentage finance charge, or annual interest on overdue balances. This calculator supports all three so you can compare common payment-term approaches in one consistent layout.\n\n### Flat fees vs monthly percentage fees vs annual interest\n\nA flat fee adds the same charge once the invoice becomes fee-eligible. A monthly percentage fee scales with the balance and, in this version, is prorated daily from a 30-day month. Annual interest uses simple interest across the overdue period with a 365-day year.\n\n### Why payment terms and disclosure matter\n\nA late fee is easier to explain and enforce when the payment terms are disclosed clearly in the invoice or contract. The math can be simple, but unclear terms can create disputes ev",
+          "contentExcerpt": "# Best Automated Invoice Chasing Software Compared\n\nFive tools compared by pricing, integrations, automation and the user each is actually built for:\nChaseAI, Paidnice, Chaser, Satago, and a manual option for very low volumes.\n\n**Disclosure:** this comparison is written by the founder of\nChaseAI, which is on the list. It aims to point you to the right tool for your setup - even when\nthat tool is not ours.\n\nPricing and features last verified: July 28, 2026\n\n[Best for freelancersChaseAI](https://chaseai.app/best-invoice-chasing-software#chaseai) [Best for small businessesChaseAI or Paidnice](https://chaseai.app/best-invoice-chasing-software#paidnice) [Best for accounting integrationsChaser](https://chaseai.app/best-invoice-chasing-software#chaser) [Best for AI-assisted message creationChaseAI](https://chaseai.app/best-invoice-chasing-software#chaseai) [Best manual / low-cost optionFree templates](https://chaseai.app/best-invoice-chasing-software#manual)\n\n## Quick comparison table\n\n| Tool | Best for | Starting price | Accounting software needed | Key strength |\n| --- | --- | --- | --- | --- |\n| **ChaseAI** | Freelancers, small agencies, no-code setup | $9/mo (14-day trial) | ❌ No - works from PDF | AI writes the emails |\n| **Paidnice** | Xero/QB users needing late fee automation | $39/mo | ✅ Xero or QB required | Rules engine + late fees |\n| **Chaser** | SMB/mid-market finance teams | $49/mo | ✅ Xero, QB, or Sage | Full AR workflow + credit checks |\n| **Satago** | UK businesses needing credit + finance | £83/mo (~$105) | ✅ 300+ integrations | Experian credit data + invoice finance |\n| **Manual + templates** | Fewer than 3-4 invoices/month | $0 | ❌ N/A | Full control, no cost |\n\n## Detailed criteria comparison\n\nPrices and features change; unverifiable items are marked \"check current vendor pricing\" and every\nvendor is linked in the sources section at the bottom.\n\n| Criteria | ChaseAI | Paidnice | Chaser | Satago | Manual |\n| --- | --- | --- | --- | --- | --- |\n| Pricing (entry) | $9/mo | ~$39/mo | $49/mo | £83/mo | $0 |\n| Free trial | ✅ 14 days | ✅ Trial | ✅ Trial | ⚠️ Limited free plan | - |\n| Accounting software required | ❌ No | ✅ Xero/QB | ✅ Xero/QB/Sage | ✅ Yes (300+ options) | ❌ No |\n| Reminder automation | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ❌ Manual |\n| AI writing support | ✅ Writes from your invoice | ⚠️ Template-first | ⚠️ Templates + AI optimization | ⚠️ Template-based | ❌ You write it |\n| Custom sequences | ✅ Yes | ✅ Rules engine | ✅ Yes | ✅ Yes | ⚠️ DIY |\n| Payment links / portal | ⚠️ Links in emails | ✅ Portal + plans | ✅ Payment portal | ✅ Portal | ⚠️ DIY |\n| Reporting | ⚠️ Basic tracking | ✅ Yes | ✅ AR dashboards + forecasting | ✅ Credit insights | ❌ None |\n| Ease of setup | ~5 minutes | Configuration required | 30-60 minutes | Integration setup | None |\n| Best-fit customer | Freelancers, small agencies | Xero/QB SMBs | Finance teams, 100+ invoices | UK credit control | <3-4 invoices/month |\n\n### Try ChaseAI free for 14 days - no accounting software required\n\nGenerate your first invoice chasing sequence in under 5 minutes, or start from templates.\n\n[Start free trial →](https://app.chaseai.app/) [See Pricing](https://chaseai.app/pricing)\n\n## 1\\. ChaseAI - Best for freelancers and small businesses\n\n**Who it's for:** Freelancers, consultants, small agencies, and service businesses that don't use Xero or QuickBooks, or\ndon't want to connect accounting software.\n\n**How it works:** Upload invoice PDF → AI extracts key details → generates a 5-7 step sequence → you review and approve.\n\n**Pricing:**\n\n- Starter: $9/month with a 14-day free trial (unlimited invoices, 50 sequence generations/month)\n- Pro: $19/month (unlimited everything)\n\n**Pros:**\n\n- No Xero/QuickBooks required\n- Choose AI-generated sequences or start from ready-made templates\n- 14-day free trial on Starter\n- Setup in ~5 minutes\n- Lowest entry cost in this category\n\n**Cons:**\n\n- No Xero/QuickBooks sync\n- No credit checks or bureau risk scoring\n- No late fee enforcement automation\n- No client payment portal\n- No SMS or phone follow-up\n\n**Verdict:** Best fit for small-volume users who want something that works immediately without integration overhead.\n\n[Start ChaseAI free trial →](https://app.chaseai.app/)\n\n## 2\\. Paidnice - Best for Xero/QuickBooks users needing late fee automation\n\n**Who it's for:** SMBs on Xero or QuickBooks Online that want rules-driven AR automation and automatic fee enforcement.\n\n**Pricing:** Free trial, Essentials (~$39/month), Pro (~$69/month).\n\n**Pros:**\n\n- 2026 Xero Global Small Business App of the Year\n- Strong late fee and compounding interest automation\n- Rules engine by client type\n- Payment plans and client portal support\n\n**Cons:**\n\n- Requires Xero or QuickBooks Online\n- Template-first writing approach\n- Configuration learning curve\n\n**Verdict:** Best choice when late-fee automation is your top requirement and you're already on Xero/QB. See the full [ChaseAI vs Paidnice comparison](https://chaseai.app/vs/paidnice).\n\n## 3\\. Chaser - Best for mid-market finance teams and accounting integrations\n\n**Who it's for:** SMB and mid-market teams with higher invoice volume, dedicated AR staff, and existing accounting\nintegrations.\n\n**Pricing:** $49/month (50 invoices), $129/month (150), $369/month (400).\n\n**Pros:**\n\n- Deepest end-to-end AR feature set in this list\n- Debtor prioritization and payment prediction\n- Credit checks, auto-call, payment portal, forecasting\n\n**Cons:**\n\n- Significantly higher cost at volume\n- Requires accounting software integration\n- Often overkill for freelancers\n\n**Verdict:** Strong enterprise-leaning AR platform; expensive but justified for larger finance operations. See the full [Chaser pricing comparison](https://chaseai.app/vs/chaser).\n\n## 4\\. Satago - Best for UK businesses needing credit data + financing\n\n**Who it's for:** UK businesses that want chasing, Experian credit checks, and invoice finance in one workflow.\n\n**Pricing:** Standard free (limited), Desktop £83/month ",
           "warning": null,
           "limitations": [
             "Classification is rule-based and is not a full semantic assessment.",
@@ -692,26 +668,26 @@
         "geographicCoverage": null,
         "findings": [
           {
-            "url": "https://invoicelatefeecalculator.com/",
-            "title": "Invoice Late Fee Calculator — Calculate Overdue Payment Interest",
-            "description": "Calculate late payment fees and interest on overdue invoices. Includes UK, US & Australian statutory rates. Free tool for freelancers and small businesses.",
+            "url": "https://invopoint.com/blog/20-free-business-tools-and-calculators-for-smarter-invoicing",
+            "title": "20 Free Business Tools & Calculators for SMB Invoicing | Invopoint",
+            "description": "Use 20 free business calculators for invoicing, VAT, tax, margins, cash flow, due dates, payment fees, and SMB billing decisions.",
             "matchedQueries": [
               "\"Invoice Late Fee Calculator\" tool alternatives"
             ],
-            "sourceType": "INTERACTIVE_TOOL",
-            "relevanceClassification": "POTENTIAL_DIRECT_COMPETITOR",
-            "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor."
+            "sourceType": "ARTICLE_OR_GUIDE",
+            "relevanceClassification": "INFORMATIONAL_CONTENT",
+            "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence."
           },
           {
-            "url": "https://toolistri.com/calculators/business/invoice-late-fee-calculator",
-            "title": "Invoice Late Fee Calculator | Flat Fee, Monthly Finance Charge, and Annual Interest | Toolistri | Toolistri",
-            "description": "Use this invoice late fee calculator to estimate flat late fees, monthly finance charges, annual interest on overdue invoices, grace periods, and the total amount now due in one practical business dashboard.",
+            "url": "https://chaseai.app/best-invoice-chasing-software",
+            "title": "Best Automated Invoice Chasing Software: 5 Tools Compared",
+            "description": "Compare invoice chasing software by price, integrations, automation and ideal user. Includes ChaseAI, Chaser, Paidnice, Satago and manual options.",
             "matchedQueries": [
               "\"Invoice Late Fee Calculator\" tool alternatives"
             ],
-            "sourceType": "INTERACTIVE_TOOL",
-            "relevanceClassification": "POTENTIAL_DIRECT_COMPETITOR",
-            "classificationReason": "The page title suggests a tool and the inspected content contains calculation or input/output signals. Verify the live functionality and feature overlap before calling it a direct competitor."
+            "sourceType": "SOFTWARE_PRODUCT",
+            "relevanceClassification": "RELATED_ALTERNATIVE",
+            "classificationReason": "The source appears to describe broader software that may solve part of the same problem, rather than necessarily being a direct competitor."
           }
         ],
         "limitations": [
@@ -739,8 +715,7 @@
         "Pricing and monetization evidence",
         "Build complexity and maintenance assessment",
         "Operating cost, privacy, security, and legal risk assessment",
-        "Manual verification of inspected sources and competitor functionality",
-        "Documented feature-by-feature comparison against potential direct competitors"
+        "Manual verification of inspected sources and competitor functionality"
       ],
       "researchPlan": {
         "problemToInvestigate": "Makes it easier to estimate late payment charges.",
@@ -804,44 +779,18 @@
       "evidence": [
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "10 Best Meeting Cost Calculator Alternatives in 2026 [Free ...",
-          "url": "https://www.meetingtoll.com/blog/meeting-cost-calculator-alternatives",
-          "description": "Compare the top meeting cost calculator alternatives for 2025. Find free and paid tools to track meeting expenses across Zoom, Google Meet, and Teams.",
-          "matchedQueries": [
-            "\"Meeting Cost Calculator\" tool alternatives"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
-          "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
-          "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
-          "pageInspection": {
-            "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.815Z",
-            "pageTitle": "10 Best Meeting Cost Calculator Alternatives in 2026 [Free + Paid]",
-            "httpStatusCode": 200,
-            "classification": "INFORMATIONAL_CONTENT",
-            "sourceType": "ARTICLE_OR_GUIDE",
-            "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence.",
-            "classificationSignals": [
-              "informational_url_path"
-            ],
-            "contentLength": 14802,
-            "warning": null
-          }
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
           "title": "Top 10 Meeting Cost Calculator Alternatives & Competitors",
           "url": "https://www.g2.com/products/meeting-cost-calculator/competitors/alternatives",
-          "description": "# Top 10 Meeting Cost Calculator Alternatives & Competitors\nThe best overall alternative to Meeting Cost Calculator is [EverAfter](https://www.g2.com/products/everafter/reviews), rated ~4.6 stars on G2 from 159+ reviewers. Other well-known alternatives to Meeting Cost Calculator are:\n\nBased on G2 review data, Meeting Cost Calculator is most commonly used in industries like [Other Collaboration Software](https://www.g2.com/categories/other-collaboration), [Client Portal Software](https://www.g2.com/categories/client-portal), [Business Instant Messaging Software](https://www.g2.com/categories/business-instant-messaging).\n\n## Best Paid & Free Alternatives to Meeting Cost Calculator\n- Zeplin\n- Zenzap\n- Peeklogic Connector for Salesforce and Jira\n- MyChat\n- MightyText\n- AnywhereWorks\n- Juma\n\n## Top 10 Alternatives to Meeting Cost Calculator Recently Reviewed By G2 Community\nZenzap is the first platform to combine simple, easy-to-use chat with productivity tools to help you get things done.\n\nZenzap is the first platform to combine simple, easy-to-use chat with productivity tools to help you get things done.\n\nBridge the distance between your agile teams with AnywhereWorks.\n\nBridge the distance between your agile teams with AnywhereWorks.\n\nIn the form of a web platform used as an alternative or a complementary tool, You will have access to a unique space gathering built-in communication and collaborative features (Chating, Asynchronous voice and video messages, real-time video meeting spaces, personal and shared calendar, an organization task manager, and an acces to emails) as well as the ability to synchronize with most of the used apps to bring all your data from everywhere on any device.\n\nIn the form of a web platform used as an alternative or a complementary tool, You will have access to a unique space gathering built-in communication and collaborative features (Chating, Asynchronous voice and video messages, real-time video meeting spaces, personal and shared calendar, an organization task manager, and an acces to emails) as well as the ability to synchronize with most of the used apps to bring all your data from everywhere on any device.",
+          "description": "# Top 10 Meeting Cost Calculator Alternatives & Competitors\nThe best overall alternative to Meeting Cost Calculator is [EverAfter](https://www.g2.com/products/everafter/reviews), rated ~4.6 stars on G2 from 159+ reviewers. Other well-known alternatives to Meeting Cost Calculator are:\n\nBased on G2 review data, Meeting Cost Calculator is most commonly used in industries like [Other Collaboration Software](https://www.g2.com/categories/other-collaboration), [Client Portal Software](https://www.g2.com/categories/client-portal), [Business Instant Messaging Software](https://www.g2.com/categories/business-instant-messaging).\n\n## Best Paid & Free Alternatives to Meeting Cost Calculator\n- Zeplin\n- Zenzap\n- Peeklogic Connector for Salesforce and Jira\n- MyChat\n- MightyText\n- AnywhereWorks\n- Juma\n\n## Top 10 Alternatives to Meeting Cost Calculator Recently Reviewed By G2 Community\nZenzap is the first platform to combine simple, easy-to-use chat with productivity tools to help you get things done.\n\nZenzap is the first platform to combine simple, easy-to-use chat with productivity tools to help you get things done.\n\nBridge the distance between your agile teams with AnywhereWorks.\n\nBridge the distance between your agile teams with AnywhereWorks.\n\nA flexible messenger that integrates with email and lets you store and share files easily.\n\nA flexible messenger that integrates with email and lets you store and share files easily.",
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:38.500Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-18T21:04:35.815Z",
+            "inspectedAt": "2026-11-19T21:09:42.498Z",
             "pageTitle": "Top 10 Meeting Cost Calculator Alternatives & Competitors in 2026 | G2",
             "httpStatusCode": 200,
             "classification": "RELATED_ALTERNATIVE",
@@ -857,61 +806,63 @@
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Meeting Cost Calculator Alternatives | MeetingMeter ROI Tool",
-          "url": "https://meetingmeter.org/meeting-cost-calculator-alternatives",
-          "description": "Stop wasting budget on unproductive syncs. Compare the best meeting cost calculator alternatives and use MeetingMeter to reclaim your team's productivity.",
+          "title": "Calwise vs. Meeting Cost Tool Alternatives",
+          "url": "https://calwise.io/alternatives",
+          "description": "The Only Meeting Cost Calculator That Works Automatically. No manual input. No one-time estimates. Calwise tracks every meeting, every time — free for up to ...",
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:38.500Z",
+          "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
+          "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
+          "pageInspection": {
+            "status": "INSPECTED",
+            "inspectedAt": "2026-11-19T21:09:44.900Z",
+            "pageTitle": "Meeting Cost Calculator Alternatives — Compare Calwise vs. Fellow.ai, MeetingKing & More",
+            "httpStatusCode": 200,
+            "classification": "RELATED_ALTERNATIVE",
+            "sourceType": "POSSIBLE_SOFTWARE_ALTERNATIVE",
+            "classificationReason": "Some software or product signals are present, but the available evidence is not enough to confirm direct feature overlap.",
+            "classificationSignals": [
+              "product_capability_match"
+            ],
+            "contentLength": 7061,
+            "warning": null
+          }
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "6 Best Meeting Cost Tools in 2026",
+          "url": "https://www.flowtrace.co/collaboration-blog/best-meeting-cost-tools",
+          "description": "Calwise is useful for organizations that want more detail than a manual meeting cost calculator. Instead of entering attendee count and duration by hand, teams ...",
+          "matchedQueries": [
+            "\"Meeting Cost Calculator\" tool alternatives"
+          ],
+          "retrievedAt": "2026-11-19T21:09:38.500Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "7 Best Free Meeting Cost Calculators Compared [2026]",
+          "title": "Best meeting cost tracking tools, compared - Hourari",
+          "url": "https://www.hourari.com/compare/best-meeting-cost-tools",
+          "description": "Fellow: the meeting cost calculator · Reclaim: pricing · Reclaim: people analytics · Omni Calculator: meeting cost · Koalendar: meeting cost ...",
+          "matchedQueries": [
+            "\"Meeting Cost Calculator\" tool alternatives"
+          ],
+          "retrievedAt": "2026-11-19T21:09:38.500Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "7 Best Free Meeting Cost Calculators Compared [2026] - MeetingToll",
           "url": "https://www.meetingtoll.com/guides/meeting-costs/meeting-cost-calculators-compared",
-          "description": "Compare 7 free meeting cost calculators side-by-side. From HBR's simple tool to MeetingToll's real-time tracker, find which calculator fits your needs.",
+          "description": "The best meeting cost calculator depends on your use case. MeetingToll offers the most comprehensive free solution with real-time tracking during Zoom, Google ...",
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Meeting Cost Calculator — See How Much Your Meetings Really Cost",
-          "url": "https://thatmeetingcost.com/",
-          "description": "Free real-time meeting cost calculator with AI email alternatives. See the dollar cost of your meetings tick up live. Used by teams at Fortune 500 companies.",
-          "matchedQueries": [
-            "\"Meeting Cost Calculator\" tool alternatives"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "Time Tracking Software for Small Businesses",
-          "url": "https://www.hivedesk.com/blog/time-tracking/time-tracking-software-small-business",
-          "description": "How to choose time tracking software for small businesses — features that matter, pricing evaluation, and tools that fit small teams.",
-          "matchedQueries": [
-            "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
-          "evidenceQuality": "LOW",
-          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
-        },
-        {
-          "type": "WEB_SEARCH_RESULT",
-          "title": "AI in the workplace: A report for 2025",
-          "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
-          "description": "[Skip to main content](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work#skipToMain)\n\n![Ask McKinsey chat bubbles](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA4NSA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF8zMTVfNjQ1KSI+CjxwYXRoIGQ9Ik01NS40MzUgMjAuMTg3N0M2Ny44NzcgMjAuMTg3NyA3OCAyOC42MzQ0IDc4IDM5LjAxOUM3Ny45Mjk0IDQzLjUzNTUgNzYuMDk0NCA0Ny44MDM2IDcyLjgzNzcgNTEuMDE4M0w3Mi4zNzg5IDUxLjQ3MDVMNzMuOTQ2OCA2MC41NDgyTDY0LjE3MTYgNTYuNDczOUw2My43MTc5IDU2LjYyNzlDNjEuMjA3MyA1Ny40Nzc2IDU4LjM0MzggNTcuOTI0OCA1NS40NCA1Ny45MjQ4QzQyLjk5OCA1Ny45MjQ4IDMyLjg3NSA0OS40NDMyIDMyLjg3NSAzOS4wMTlDMzIuODc1IDI4LjU5NDcgNDIuOTkzIDIwLjE4NzcgNTUuNDM1IDIwLjE4NzdaIiBmaWxsPSIjMjI1MUZGIiBzdHJva2U9IiMyMjUxRkYiLz4KPHBhdGggZD0iTTY0LjkxNzYgMzYuODI5OUM2My42NzM5IDM2LjgzIDYyLjY1MyAzNy44MjU4IDYyLjY1MyAzOS4wNjkyQzYyLjY1MzEgNDAuMzEyNCA2My42NzQgNDEuMzA4MyA2NC45MTc2IDQxLjMwODRDNjYuMTYxMyA0MS4zMDg0IDY3LjE4MjEgNDAuMzEyNSA2Ny4xODIzIDM5LjA2OTJDNjcuMTgyMyAzNy44MjU4IDY2LjE2MTQgMzYuODI5OSA2NC45MTc2IDM2LjgyOTlaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTUuNDM1MSAzNi44M0M1NC4xOTE0IDM2LjgzMDEgNTMuMTcwNCAzNy44MjU5IDUzLjE3MDQgMzkuMDY5M0M1My4xNzA1IDQwLjMxMjUgNTQuMTkxNSA0MS4zMDg0IDU1LjQzNTEgNDEuMzA4NUM1Ni42Nzg3IDQxLjMwODUgNTcuNjk5NiA0MC4zMTI2IDU3LjY5OTcgMzkuMDY5M0M1Ny42OTk3IDM3LjgyNTkgNTYuNjc4OCAzNi44MyA1NS40MzUxIDM2LjgzWiIgZmlsbD0id2hpdGUiIHN0cm9rZT0id2hpdGUiLz4KPHBhdGggZD0iTTQ1Ljk1MjUgMzYuODNDNDQuNzA4OCAzNi44MzAxIDQzLjY4NzkgMzcuODI1OSA0My42ODc5IDM5LjA2OTNDNDMuNjg4IDQwLjMxMjUgNDQuNzA4OSA0MS4zMDg0IDQ1Ljk1MjUgNDEuMzA4NUM0Ny4xOTYyIDQxLjMwODUgNDguMjE3IDQwLjMxMjYgNDguMjE3MiAzOS4wNjkzQzQ4LjIxNzIgMzcuODI1OSA0Ny4xOTYzIDM2LjgzIDQ1Ljk1MjUgMzYuODNaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMzAuNjU3IDIuMzc1MDZDMTYuMTY1NCAyLjM3NTA2IDQuMzc0ODggMTIuMjEzMiA0LjM3NDg4IDI0LjMwODRDNC40NTcwOCAyOS41Njg5IDYuNTk0NDEgMzQuNTQwMSAxMC4zODc2IDM4LjI4NDRMMTAuOTIxOSAzOC44MTFMOS4wOTU4IDQ5LjM4NDJMMjAuNDgxMiA0NC42Mzg3TDIxLjAwOTcgNDQuODE4MUMyMy45MzM4IDQ1LjgwNzcgMjcuMjY5IDQ2LjMyODUgMzAuNjUxMSA0Ni4zMjg1QzQ1LjE0MjcgNDYuMzI4NSA1Ni45MzMzIDM2LjQ0OTkgNTYuOTMzMyAyNC4zMDg0QzU2LjkzMzMgMTIuMTY2OSA0NS4xNDg2IDIuMzc1MDYgMzAuNjU3IDIuMzc1MDZaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNS44Njk0NSA1NC42MjVMOC4zNDE0NyA0MC4zMDE4QzQuMzM2OTEgMzYuMDk0NSAyLjA4ODAyIDMwLjYzNzMgMS45OTk5NCAyNC44NTAxQzEuOTk5OTQgMTEuMTM0NSAxNS4xMDU4IDMuMDUxNzZlLTA1IDMxLjIxOCAzLjA1MTc2ZS0wNUM0Ny4zMzAyIDMuMDUxNzZlLTA1IDYwLjQzNiAxMS4xMzQ1IDYwLjQzNiAyNC44MjY5QzYwLjQzNiAzOC41MTk0IDQ3LjMzMDIgNDkuNzQwNyAzMS4yMTggNDkuNzQwN0MyNy43MTg0IDQ5Ljc0MDcgMjQuMjU5OSA0OS4yMjU2IDIxLjE2NTUgNDguMjQ3Nkw1Ljg2OTQ1IDU0LjYyNVpNMzEuMjE4IDIuODkzNjFDMTYuNzI2NCAyLjg5MzYxIDQuOTM1ODMgMTIuNzMxOCA0LjkzNTgzIDI0LjgyNjlDNS4wMTgwNCAzMC4wODc1IDcuMTU1MzcgMzUuMDU4NiAxMC45NDg1IDM4LjgwMjlMMTEuNDgyOSAzOS4zMjk2TDkuNjU2NzUgNDkuOTAyN0wyMS4wNDIyIDQ1LjE1NzJMMjEuNTcwNiA0NS4zMzY2QzI0LjQ5NDggNDYuMzI2MiAyNy44Mjk5IDQ2Ljg0NzEgMzEuMjEyMSA0Ni44NDcxQzQ1LjcwMzcgNDYuODQ3MSA1Ny40OTQyIDM2Ljk2ODQgNTcuNDk0MiAyNC44MjY5QzU3LjQ5NDIgMTIuNjg1NSA0NS43MDk1IDIuODkzNjEgMzEuMjE4IDIuODkzNjFaIiBmaWxsPSIjMjI1MUZGIi8+CjxwYXRoIGQ9Ik0yMC4xNzI5IDIyLjM1OTNDMjEuNTc3MSAyMi4zNTkzIDIyLjcyODUgMjMuNDgzMSAyMi43Mjg1IDI0Ljg4NDdDMjIuNzI4NSAyNi4yODYzIDIxLjU3NzEgMjcuNDEwMSAyMC4xNzI5IDI3LjQxMDFDMTguNzY4OCAyNy40MDk4IDE3LjYxODIgMjYuMjg2MSAxNy42MTgyIDI0Ljg4NDdDMTcuNjE4MiAyMy40ODMzIDE4Ljc2ODggMjIuMzU5NSAyMC4xNzI5IDIyLjM1OTNaIiBmaWxsPSIjMjI1MUZGIiBzdHJva2U9IiMyMjUxRkYiLz4KPHBhdGggZD0iTTMxLjIxNzcgMjIuMzU5M0MzMi42MjE5IDIyLjM1OTMgMzMuNzczMyAyMy40ODMyIDMzLjc3MzMgMjQuODg0N0MzMy43NzMzIDI2LjI4NjQgMzIuNjIxOSAyNy40MTAxIDMxLjIxNzcgMjcuNDEwMUMyOS44MTM2IDI3LjQwOTkgMjguNjYzIDI2LjI4NjIgMjguNjYzIDI0Ljg4NDdDMjguNjYzIDIzLjQ4MzMgMjkuODEzNiAyMi4zNTk2IDMxLjIxNzcgMjIuMzU5M1oiIGZpbGw9IiMyMjUxRkYiIHN0cm9rZT0iIzIyNTFGRiIvPgo8cGF0aCBkPSJNNDIuMjYyMyAyMi4zNTkzQzQzLjY2NjYgMjIuMzU5MyA0NC44MTc5IDIzLjQ4MzIgNDQuODE4IDI0Ljg4NDdDNDQuODE4IDI2LjI4NjQgNDMuNjY2NiAyNy40MTAxIDQyLjI2MjMgMjcuNDEwMUM0MC44NTgyIDI3LjQwOTkgMzkuNzA3NiAyNi4yODYyIDM5LjcwNzYgMjQuODg0N0MzOS43MDc3IDIzLjQ4MzMgNDAuODU4MyAyMi4zNTk2IDQyLjI2MjMgMjIuMzU5M1oiIGZpbGw9IiMyMjUxRkYiIHN0cm9rZT0iIzIyNTFGRiIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfMzE1XzY0NSIgeD0iLTYuMTAzNTJlLTA1IiB5PSIzLjA1MTc2ZS0wNSIgd2lkdGg9Ijg0LjUwMDEiIGhlaWdodD0iNjkuMzU5OCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR4PSIyIiBkeT0iNCIvPgo8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIyIi8+CjxmZUNvbXBvc2l0ZSBpbjI9ImhhcmRBbHBoYSIgb3BlcmF0b3I9Im91dCIvPgo8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4yIDAiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJlZmZlY3QxX2Ryb3BTaGFkb3dfMzE1XzY0NSIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18zMTVfNjQ1IiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=)\n\n![Ask McKinsey AI Chatbot](data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjIwMiIgaGVpZ2h0PSIxMjgiIHZpZXdCb3g9IjAgMCAyMDIgMTI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8Zm9yZWlnbk9iamVjdCB4PSItMTMiIHk9Ii0xNy4yMTk4IiB3aWR0aD0iMjI4IiBoZWlnaHQ9IjE1NCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImJhY2tkcm9wLWZpbHRlcjpibHVyKDEyLjVweCk7Y2xpcC1wYXRoOnVybCgjYmdibHVyXzBfMjY1XzIwMV9jbGlwX3BhdGgpO2hlaWdodDoxMDAlO3dpZHRoOjEwMCUiPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9kXzI2NV8yMDEpIiBkYXRhLWZpZ21hLWJnLWJsdXItcmFkaXVzPSIyNSI+CjxwYXRoIGQ9Ik0xMiAyMy43ODAyQzEyIDE0Ljk0MzYgMTkuMTYzNCA3Ljc4MDE1IDI4IDcuNzgwMTVIMTkwVjExMS43OEgyOEMxOS4xNjM0IDExMS43OCAxMiAxMDQuNjE3IDEyIDk1Ljc4MDJWMjMuNzgwMloiIGZpbGw9InVybCgjcGFpbnQwX3JhZGlhbF8yNjVfMjAxKSIvPgo8L2c+CjxwYXRoIGQ9Ik0xNDAuMzc3IDYyLjU0MDFDMTQwLjE2NCA2Mi4xNDAxIDEzOC45OSA2MC45NjY4IDEzOC42NyA2MC45NjY4SDEzOC4yOTdWNjAuMDA2OEgxNDUuOTc3VjYwLjk2NjhIMTQ1LjMxQzE0NC45NjQgNjAuOTY2OCAxNDQuMTkgNjIuMDA2OCAxNDQuMTkgNjIuNDg2OEwxNDYuODg0IDY4LjM4MDFMMTQ5LjU1IDYyLjQ4NjhDMTQ5LjU3NyA2MS45ODAxIDE0OC43NzcgNjAuOTY2OCAxNDguNDMgNjAuOTY2OEgxNDcuNzY0VjYwLjAwNjhIMTUzLjAxN1Y2MC45NjY4SDE1Mi42MTdDMTUyLjMyNCA2MC45NjY4IDE1MS4zMzcgNjIuMDYwMSAxNTEuMDcgNjIuNDg2OEwxNDYuNTEgNzIuMTkzNUwxNDMuMDk3IDc5LjI2MDFMMTQxLjU3NyA3OC41NDAxTDE0NS4xNSA3MS44MjAxTDE0MC4zNzcgNjIuNTQwMVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMjkuNzQ3IDY2LjAwNjhDMTI5LjggNjguMzAwMiAxMzEuMjEzIDcwLjU2NjggMTMzLjY5MyA3MC41NjY4QzEzNS43NDcgNzAuNTY2OCAxMzYuNjI3IDY5LjcxMzUgMTM3LjQ1MyA2OC4yNzM1SDEzOC40NEMxMzcuNDggNzEuMjA2OCAxMzUuNjY3IDczLjA3MzUgMTMyLjY4IDczLjA3MzVDMTI4LjU3MyA3My4wNzM1IDEyNi40NCA2OS45ODAyIDEyNi40NCA2Ni40MzM1QzEyNi40NCA2Mi42MjAyIDEyOSA1OS42ODY4IDEzMi42OCA1OS43MTM1QzEzNi4wNjcgNTkuNzQwMiAxMzcuNTMzIDYyLjMwMDIgMTM3LjcyIDY0LjQwNjhMMTM3LjggNjUuMzY2OEwxMjkuNzQ3IDY2LjAwNjhaTTEzNC42MjcgNjQuNDA2OEMxMzQuODY3IDYyLjU5MzUgMTM0LjUyIDYwLjkxMzUgMTMyLjYgNjAuOTEzNUMxMzAuMzMzIDYwLjkxMzUgMTI5LjY0IDYyLjkxMzUgMTI5LjY5MyA2NC44MDY4TDEzNC42MjcgNjQuNDA2OFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMTYuMDc0IDY4LjM1MzVDMTE2LjA3NCA2OS4yMDY4IDExOC4xMDEgNzEuNzQwMiAxMjAuNzE0IDcxLjc0MDJDMTIxLjg4OCA3MS43NDAyIDEyMi42NjEgNzEuMjMzNSAxMjIuNjYxIDcwLjMwMDJDMTIyLjY2MSA2OS4zMTM1IDEyMS43MDEgNjguNzUzNSAxMjAuNzY4IDY4LjQwNjhDMTE5Ljc4MSA2OC4wMzM1IDExOC45ODEgNjcuNjg2OCAxMTcuOTY4IDY3LjIwNjhDMTE2LjIwOCA2Ni4zODAyIDExNS4xNjggNjUuMTUzNSAxMTUuMTY4IDYzLjUwMDJDMTE1LjE2OCA2MS4xNTM1IDExNi44NDggNTkuNzEzNSAxMTkuMzgxIDU5LjcxMzVDMTIwLjc5NCA1OS43MTM1IDEyMS44MzQgNjAuMzUzNSAxMjIuNjg4IDYwLjM1MzVDMTIzLjAwOCA2MC4zNTM1IDEyMy4yNzQgNjAuMjIwMiAxMjMuNDA4IDYwLjAwNjhIMTI0LjIwOFY2My45ODAySDEyMy4zNTRDMTIzLjM1NCA2My4yMDY4IDEyMS41NDEgNjAuODg2OCAxMTkuMjQ4IDYwLjg4NjhDMTE4LjA3NCA2MC44ODY4IDExNy40NjEgNjEuNDQ2OCAxMTcuNDYxIDYyLjMyNjhDMTE3LjQ2MSA2My4yNjAyIDExOC40MjEgNjMuNjg2OCAxMTkuMzgxIDY0LjExMzVDMTIwLjM0MSA2NC41NDAyIDEyMS4wODggNjQuODYwMiAxMjIuMTAxIDY1LjI2MDJDMTIzLjY3NCA2NS44NzM1IDEyNS4xMTQgNjcuMjMzNSAxMjUuMTE0IDY5LjE1MzVDMTI1LjExNCA3MS41ODAyIDEyMy4zMjggNzMuMDczNSAxMjAuNjA4IDczLjA3MzVDMTE5LjAwOCA3My4wNzM1IDExNy42NzQgNzIuMzI2OCAxMTYuODQ4IDcyLjMyNjhDMTE2LjUyOCA3Mi4zMjY4IDExNi4yMDggNzIuNTQwMiAxMTYuMDIxIDcyLjc4MDJIMTE1LjIyMVY2OC4zNTM1SDExNi4wNzRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNOTguMzkyMiA2MC4wMDY4SDEwMy4yNzJMMTAzLjcyNiA2Mi41OTM1QzEwNC44MTkgNjEuMzY2OCAxMDYuMjU5IDU5LjcxMzUgMTA4LjQ5OSA1OS43MTM1QzExMC41NzkgNTkuNzEzNSAxMTIuMDk5IDYxLjUwMDIgMTEyLjA5OSA2My41MDAyVjcwLjM1MzVDMTEyLjA5OSA3MC43ODAyIDExMy4wODYgNzEuODIwMiAxMTMuNDMyIDcxLjgyMDJIMTEzLjk2NlY3Mi43ODAySDEwNi43MzlWNzEuODIwMkgxMDcuMjcyQzEwNy42NDYgNzEuODIwMiAxMDguNjg2IDcwLjc4MDIgMTA4LjY4NiA3MC4zNTM1VjYzLjgyMDJDMTA4LjY4NiA2Mi43ODAyIDEwOC4xMjYgNjIuMTEzNSAxMDcuMTY2IDYyLjExMzVDMTA1Ljg1OSA2Mi4xMTM1IDEwMy43NTIgNjMuNTUzNSAxMDMuNzUyIDY0LjM4MDJWNzAuMzUzNUMxMDMuNzUyIDcwLjc4MDIgMTA0LjczOSA3MS44MjAyIDEwNS4wODYgNzEuODIwMkgxMDUuNjE5VjcyLjc4MDJIOTguMzkyMlY3MS44MjAySDk4LjkyNTVDOTkuMjk4OSA3MS44MjAyIDEwMC4zMzkgNzAuNzgwMiAxMDAuMzM5IDcwLjM1MzVWNjIuNDMzNUMxMDAuMzM5IDYyLjAwNjggOTkuMjk4OSA2MC45NjY4IDk4LjkyNTUgNjAuOTY2OEg5OC4zOTIyVjYwLjAwNjhaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNOTEuODEyMyA1NS40NDY4QzkxLjgxMjMgNTQuMjQ2OCA5Mi42NjU3IDUzLjUwMDIgOTMuODEyMyA1My41MDAyQzk0Ljk1OSA1My41MDAyIDk1Ljc4NTcgNTQuMjQ2OCA5NS43ODU3IDU1LjQ0NjhDOTUuNzg1NyA1Ni42NDY4IDk0Ljk1OSA1Ny40MjAyIDkzLjgxMjMgNTcuNDIwMkM5Mi42NjU3IDU3LjQyMDIgOTEuODEyMyA1Ni42NDY4IDkxLjgxMjMgNTUuNDQ2OFpNOTUuNTk5IDcwLjM1MzVDOTUuNTk5IDcwLjc4MDIgOTYuNzE5IDcxLjgyMDIgOTcuMDY1NyA3MS44MjAySDk3LjU5OVY3Mi43ODAySDkwLjE4NTdWNzEuODIwMkg5MC43MTlDOTEuMDkyMyA3MS44MjAyIDkyLjE4NTcgNzAuNzgwMiA5Mi4xODU3IDcwLjM1MzVWNjIuNDMzNUM5Mi4xODU3IDYyLjAzMzUgOTEuMDkyMyA2MC45NjY4IDkwLjcxOSA2MC45NjY4SDkwLjE4NTdWNjAuMDA2OEg5NS41OTlWNzAuMzUzNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik03MC4wODczIDcyLjc4MDJWNzEuODIwMkg3MC44ODczQzcxLjI2MDcgNzEuODIwMiA3Mi4zNTQgNzAuNjQ2OCA3Mi4zNTQgNzAuMjIwMlY1NS45MjY4QzcyLjM1NCA1NS41MjY4IDcxLjIzNCA1NC4zMjY4IDcwLjg2MDcgNTQuMzI2OEg3MC4wNjA3VjUzLjM2NjhINzguNTQwN1Y1NC4zMjY4SDc3Ljc2NzNDNzcuMzY3MyA1NC4zMjY4IDc2LjI0NzMgNTUuNTI2OCA3Ni4yNDczIDU1LjkyNjhWNjMuMjA2OEw4Mi41NjczIDU2LjE5MzVDODIuODYwNyA1NS44NDY4IDgxLjc0MDcgNTQuMzI2OCA4MS4zNjczIDU0LjMyNjhIODAuNTQwN1Y1My4zNjY4SDg4LjAzNFY1NC4zMjY4SDg3LjU1NEM4Ny4xNTQgNTQuMzI2OCA4NC43ODA3IDU2LjAzMzUgODQuNTY3MyA1Ni4zMDAyTDc5LjkyNzMgNjEuMjA2OEw4Ni41OTQgNzAuMDYwMkM4Ni44ODczIDcwLjQ4NjggODguNTY3MyA3MS43OTM1IDg4Ljk0MDcgNzEuNzkzNUg4OS41MjczVjcyLjc4MDJIODMuNTAwN0w3Ny40NDczIDYzLjg0NjhMNzYuMjQ3MyA2NS4xMjY4VjcwLjIyMDJDNzYuMjQ3MyA3MC42NDY4IDc3LjI4NzMgNzEuODIwMiA3Ny42ODczIDcxLjgyMDJINzguNDYwN1Y3Mi43ODAySDcwLjA4NzNaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNjMuMzkzOCA2MC45NDAxQzYxLjI4NzEgNjAuOTQwMSA2MC4yNzM4IDYzLjA0NjggNjAuMjczOCA2NS45NTM1QzYwLjI3MzggNjguNjIwMSA2MS43OTM4IDcwLjU2NjggNjQuMzI3MSA3MC41NjY4QzY2LjY3MzggNzAuNTY2OCA2Ny41ODA0IDY5LjUwMDEgNjguMzI3MSA2OC4wNjAxSDY5LjMxMzhDNjguNDYwNCA3MS4yMDY4IDY2LjUxMzggNzMuMDczNSA2My4zNDA0IDczLjA3MzVDNTkuNzkzOCA3My4wNzM1IDU3LjI2MDQgNzAuMjIwMSA1Ny4yNjA0IDY2LjcwMDFDNTcuMjYwNCA2Mi40MzM1IDYwLjA2MDQgNTkuNjg2OCA2My43MTM4IDU5LjcxMzVDNjYuMTQwNCA1OS43NDAxIDY3LjYwNzEgNjEuMDIwMSA2OC4yNzM4IDYxLjYzMzVMNjYuMzI3MSA2NC42NzM1TDY1LjM0MDQgNjQuNzUzNUM2NS43OTM4IDYyLjI0NjggNjUuMTAwNCA2MC45NDAxIDYzLjM5MzggNjAuOTQwMVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zNS40NTMzIDU2Ljk5MzVWNzAuMjIwMkMzNS40NTMzIDcwLjU5MzUgMzYuNjI2NyA3MS44MjAyIDM2LjkyIDcxLjgyMDJIMzcuODhWNzIuNzgwMkgzMS41MzMzVjcxLjgyMDJIMzIuMzg2N0MzMi42NTMzIDcxLjgyMDIgMzMuODUzMyA3MC41OTM1IDMzLjg1MzMgNzAuMjIwMlY1NS45NTM1QzMzLjg1MzMgNTUuNTUzNSAzMi42MjY3IDU0LjM1MzUgMzIuMzMzMyA1NC4zNTM1SDMxLjUzMzNWNTMuMzY2OEgzNy45ODY3TDQzLjggNjYuNjQ2OEg0My45Nkw0OS44IDUzLjM2NjhINTYuMDY2N1Y1NC4zNTM1SDU1LjI2NjdDNTQuOTQ2NyA1NC4zNTM1IDUzLjc0NjcgNTUuNjA2OCA1My43NDY3IDU1Ljk1MzVWNzAuMjIwMkM1My43NDY3IDcwLjU5MzUgNTQuODkzMyA3MS44MjAyIDU1LjIxMzMgNzEuODIwMkg1Ni4wMTMzVjcyLjc4MDJINDcuNDUzM1Y3MS44MjAySDQ4LjQxMzNDNDguNzMzMyA3MS44MjAyIDQ5Ljg1MzMgNzAuNTkzNSA0OS44NTMzIDcwLjIyMDJWNTYuOTkzNUw0Mi42OCA3My4zMTM1TDM1LjQ1MzMgNTYuOTkzNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik03MS43NTgxIDM2Ljk5MzVMNzYuMTA0OCA0MS45ODAyQzc2LjM5ODEgNDIuMzI2OCA3Ny42NzgxIDQzLjgyMDIgNzcuOTQ0OCA0My44MjAySDc4LjUwNDhWNDQuNzgwMkg3My44MTE0QzczLjgxMTQgNDQuNzgwMiA3My4wMzgxIDQzLjkyNjggNjkuMzg0OCAzOS4wNzM1TDY4LjUwNDggMzkuODczNVY0Mi4zNTM1QzY4LjUwNDggNDIuNzgwMiA2OS40OTE0IDQzLjgyMDIgNjkuODM4MSA0My44MjAySDcwLjIzODFWNDQuNzgwMkg2My4wOTE0VjQzLjgyMDJINjMuNjI0OEM2My45OTgxIDQzLjgyMDIgNjUuMDkxNCA0Mi43ODAyIDY1LjA5MTQgNDIuMzUzNVYyNy42NjAyQzY1LjA5MTQgMjcuMjYwMiA2My45OTgxIDI2LjMyNjggNjMuNjc4MSAyNi4zMjY4SDYzLjA5MTRWMjUuMzY2OEM2NS44MzgxIDI0Ljg4NjggNjguNTA0OCAyNC4yMjAyIDY4LjUwNDggMjQuMjIwMlYzOC40ODY4TDcyLjE1ODEgMzQuOTEzNUM3Mi41MzE0IDM0LjUxMzUgNzEuODM4MSAzMi45NDAyIDcxLjM4NDggMzIuOTQwMkg3MC43NzE0VjMyLjAwNjhINzcuNjI0OFYzMi45NDAySDc3LjA2NDhDNzYuNzQ0OCAzMi45NDAyIDc0LjQ1MTQgMzQuNTkzNSA3NC4wNTE0IDM0Ljk2NjhMNzEuNzU4MSAzNi45OTM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUyLjk5MjQgNDAuMzUzNUM1Mi45OTI0IDQxLjIwNjggNTUuMDE5IDQzLjc0MDEgNTcuNjMyNCA0My43NDAxQzU4LjgwNTcgNDMuNzQwMSA1OS41NzkgNDMuMjMzNSA1OS41NzkgNDIuMzAwMUM1OS41NzkgNDEuMzEzNSA1OC42MTkgNDAuNzUzNSA1Ny42ODU3IDQwLjQwNjhDNTYuNjk5IDQwLjAzMzUgNTUuODk5IDM5LjY4NjggNTQuODg1NyAzOS4yMDY4QzUzLjEyNTcgMzguMzgwMSA1Mi4wODU3IDM3LjE1MzUgNTIuMDg1NyAzNS41MDAxQzUyLjA4NTcgMzMuMTUzNSA1My43NjU3IDMxLjcxMzUgNTYuMjk5IDMxLjcxMzVDNTcuNzEyNCAzMS43MTM1IDU4Ljc1MjQgMzIuMzUzNSA1OS42MDU3IDMyLjM1MzVDNTkuOTI1NyAzMi4zNTM1IDYwLjE5MjQgMzIuMjIwMSA2MC4zMjU3IDMyLjAwNjhINjEuMTI1N1YzNS45ODAxSDYwLjI3MjRDNjAuMjcyNCAzNS4yMDY4IDU4LjQ1OSAzMi44ODY4IDU2LjE2NTcgMzIuODg2OEM1NC45OTI0IDMyLjg4NjggNTQuMzc5IDMzLjQ0NjggNTQuMzc5IDM0LjMyNjhDNTQuMzc5IDM1LjI2MDEgNTUuMzM5IDM1LjY4NjggNTYuMjk5IDM2LjExMzVDNTcuMjU5IDM2LjU0MDEgNTguMDA1NyAzNi44NjAxIDU5LjAxOSAzNy4yNjAxQzYwLjU5MjQgMzcuODczNSA2Mi4wMzI0IDM5LjIzMzUgNjIuMDMyNCA0MS4xNTM1QzYyLjAzMjQgNDMuNTgwMSA2MC4yNDU3IDQ1LjA3MzUgNTcuNTI1NyA0NS4wNzM1QzU1LjkyNTcgNDUuMDczNSA1NC41OTI0IDQ0LjMyNjggNTMuNzY1NyA0NC4zMjY4QzUzLjQ0NTcgNDQuMzI2OCA1My4xMjU3IDQ0LjU0MDEgNTIuOTM5IDQ0Ljc4MDFINTIuMTM5VjQwLjM1MzVINTIuOTkyNFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik00Mi44OTMzIDM4Ljc4MDFIMzYuNzA2N0wzNS40MjY3IDQyLjAzMzVDMzUuNTA2NyA0Mi40ODY4IDM2LjM2IDQzLjc5MzUgMzYuNzYgNDMuNzkzNUgzNy42NjY3VjQ0Ljc4MDFIMzEuMjY2N1Y0My43OTM1SDMxLjYxMzNDMzEuOTg2NyA0My43NjY4IDMzLjQ1MzMgNDIuNTEzNSAzMy43NDY3IDQyLjAzMzVMNDAuMjggMjUuOTUzNUw0MS44OCAyNS4wMjAxTDQ4LjUyIDQyLjA2MDFDNDguODQgNDIuNDg2OCA1MC4xNDY3IDQzLjc5MzUgNTAuNTIgNDMuNzkzNUg1MC44OTMzVjQ0Ljc4MDFINDEuNjkzM1Y0My43OTM1SDQyLjYyNjdDNDMuMDI2NyA0My43NjY4IDQ0LjA2NjcgNDIuNTEzNSA0NC4wNjY3IDQyLjA2MDFMNDIuODkzMyAzOC43ODAxWk0zNy4yOTMzIDM3LjI2MDFINDIuMzZMMzkuOTg2NyAzMC40NjAxTDM3LjI5MzMgMzcuMjYwMVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04OC4xNjM0IDMwLjAwOTRMODYuNzg3OSAyOS41NTQ3TDg2LjMyOTQgMjguMTkwN0M4Ni4xODAyIDI3Ljc1IDg1LjQ0NTEgMjcuNzUgODUuMjk1OSAyOC4xOTA3TDg0LjgzNzMgMjkuNTU0N0w4My40NjE4IDMwLjAwOTRDODMuMjM5NyAzMC4wODI5IDgzLjA4OTQgMzAuMjg5MiA4My4wODk0IDMwLjUyMTRDODMuMDg5NCAzMC43NTM2IDgzLjIzOTcgMzAuOTU5OSA4My40NjE4IDMxLjAzMzNMODQuODM3MyAzMS40ODhMODUuMjk1OSAzMi44NTIxQzg1LjM2OTkgMzMuMDcyNCA4NS41NzkgMzMuMjIxNSA4NS44MTMyIDMzLjIyMTVDODYuMDQ3MyAzMy4yMjE1IDg2LjI1NTMgMzMuMDcyNCA4Ni4zMzA1IDMyLjg1MjFMODYuNzg5IDMxLjQ4OEw4OC4xNjQ1IDMxLjAzMzNDODguMzg2NyAzMC45NTk5IDg4LjUzNyAzMC43NTM2IDg4LjUzNyAzMC41MjE0Qzg4LjUzNyAzMC4yODkyIDg4LjM4NTYgMzAuMDgyOSA4OC4xNjM0IDMwLjAwOTRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNOTIuMzUgMjkuMjQzNEM5Mi41NTc0IDI5LjI0MzUgOTIuNzQzOSAyOS4zNyA5Mi44MjA3IDI5LjU2MjdMOTQuODIwNyAzNC41ODEzTDk5Ljg4NjEgMzYuNTY4NkMxMDAuMDggMzYuNjQ0NyAxMDAuMjA4IDM2LjgzMTggMTAwLjIwOCAzNy4wNDAzQzEwMC4yMDggMzcuMjQ4OCAxMDAuMDggMzcuNDM2OCA5OS44ODYxIDM3LjUxMjlMOTQuODIwNyAzOS40OTgzTDkyLjgyMDcgNDQuNTE4OEM5Mi43NDM4IDQ0LjcxMTMgOTIuNTU3MyA0NC44MzggOTIuMzUgNDQuODM4MUM5Mi4xNDI2IDQ0LjgzODEgOTEuOTU2MiA0NC43MTEzIDkxLjg3OTMgNDQuNTE4OEw4OS44NzYzIDM5LjQ5NzNMODQuODEyOSAzNy41MTI5Qzg0LjYxODggMzcuNDM2NyA4NC40OTE2IDM3LjI0ODcgODQuNDkxNiAzNy4wNDAzQzg0LjQ5MTcgMzYuODMxOSA4NC42MTkgMzYuNjQ0OCA4NC44MTI5IDM2LjU2ODZMODkuODc2MyAzNC41ODIyTDkxLjg3OTMgMjkuNTYyN0w5MS45MTI1IDI5LjQ5MzRDOTIuMDAyNSAyOS4zNCA5Mi4xNjg0IDI5LjI0MzQgOTIuMzUgMjkuMjQzNFpNOTAuNzM3NyAzNS4xNjIzQzkwLjY4NTggMzUuMjkyNSA5MC41ODIgMzUuMzk1MyA5MC40NTE1IDM1LjQ0NjVMODYuMzg3MSAzNy4wNDAzTDkwLjQ1MTUgMzguNjM1TDkwLjU0NDMgMzguNjgxOUM5MC42MzA4IDM4LjczODUgOTAuNjk4OCAzOC44MjE2IDkwLjczNzcgMzguOTE5Mkw5Mi4zNDkgNDIuOTYxMkw5My45NjEzIDM4LjkxOTJMOTQuMDA5MiAzOC44MjY0Qzk0LjA2NjMgMzguNzQwMiA5NC4xNDk2IDM4LjY3MzMgOTQuMjQ3NCAzOC42MzVMOTguMzExOSAzNy4wNDAzTDk0LjI0NzQgMzUuNDQ2NUM5NC4xMTcgMzUuMzk1NCA5NC4wMTMyIDM1LjI5MjQgOTMuOTYxMyAzNS4xNjIzTDkyLjM0OSAzMS4xMTg0TDkwLjczNzcgMzUuMTYyM1oiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMDEuNzg1IDg1Ljk4MDhMMTAxLjc4NSA4NC45NDI1TDEwOC41MjEgODQuOTQyNUwxMDguNTIxIDg1Ljk4MDhMMTA1LjczOSA4NS45ODA4TDEwNS43MzkgOTMuOTk0NUwxMDQuNTY3IDkzLjk5NDVMMTA0LjU2NyA4NS45ODA4TDEwMS43ODUgODUuOTgwOFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik05Mi43MTIzIDg5LjQ2OUM5Mi43MTIzIDg2LjY2MDIgOTQuMjU2NCA4NC43ODMzIDk2Ljc1OSA4NC43ODMzQzk5LjI2MTYgODQuNzgzMyAxMDAuNzkyIDg2LjY2MDIgMTAwLjc5MiA4OS40NjlDMTAwLjc5MiA5Mi4yNTExIDk5LjMxNDkgOTQuMTU0NyA5Ni43NTkgOTQuMTU0N0M5NC4yMDMyIDk0LjE1NDcgOTIuNzEyMyA5Mi4yNTExIDkyLjcxMjMgODkuNDY5Wk05My45NzY5IDg5LjQ2OUM5My45NzY5IDkxLjY1MjEgOTUuMDU1MSA5My4xMDMxIDk2Ljc1OSA5My4xMDMxQzk4LjQ2MjkgOTMuMTAzMSA5OS41Mjc5IDkxLjY1MjEgOTkuNTI3OSA4OS40NjlDOTkuNTI3OSA4Ny4yODU5IDk4LjQ2MjkgODUuODIxNiA5Ni43NTkgODUuODIxNkM5NS4wNDE4IDg1LjgyMTYgOTMuOTc2OSA4Ny4yODU5IDkzLjk3NjkgODkuNDY5WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTg3LjYxNDQgOTMuOTk0NUw4My45NTM3IDkzLjk5NDVMODMuOTUzNyA4NC45NDI1TDg3LjQyODEgODQuOTQyNUM4OC4yOCA4NC45NDI1IDg4LjgxMjUgODUuMDA5MSA4OS4yNzg0IDg1LjE5NTVDOTAuMDYzOCA4NS41MjgyIDkwLjY0OTUgODYuMjYwNCA5MC42NDk1IDg3LjI3MjFDOTAuNjQ5NSA4OC4yMTcyIDkwLjExNyA4OC45MjI3IDg5LjI2NTEgODkuMjE1NkM5MC4yNzY4IDg5LjUwODQgOTAuOTQyNCA5MC4zMDcxIDkwLjk0MjQgOTEuNDM4NkM5MC45NDI0IDkyLjQzNyA5MC40NzY1IDkzLjE5NTggODkuNzE3NyA5My42MDg0Qzg5LjI2NTEgOTMuODQ4IDg4Ljc1OTIgOTMuOTk0NSA4Ny42MTQ0IDkzLjk5NDVaTTg1LjExMTkgODkuODAxM0w4NS4xMTE5IDkyLjk1NjJMODcuNDY4IDkyLjk1NjJDODguODEyNSA5Mi45NTYyIDg5Ljc0NDMgOTIuNjM2NyA4OS43NDQzIDkxLjM3MjFDODkuNzQ0MyA5MC4wOTQyIDg4LjcxOTMgODkuODAxMyA4Ny40NTQ3IDg5LjgwMTNMODUuMTExOSA4OS44MDEzWk04OS40NTE1IDg3LjQwNTJDODkuNDUxNSA4Ni40MjAxIDg4Ljg3OTEgODUuOTgwOCA4Ny4zMzQ5IDg1Ljk4MDhMODUuMTExOSA4NS45ODA4TDg1LjExMTkgODguODE2Mkw4Ny4zMzQ5IDg4LjgxNjJDODguNzQ1OSA4OC44MTYyIDg5LjQ1MTUgODguNDU2OCA4OS40NTE1IDg3LjQwNTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNzUuMzQzOCA4NS45ODA4TDc1LjM0MzggODQuOTQyNUw4Mi4wNzk1IDg0Ljk0MjVMODIuMDc5NSA4NS45ODA4TDc5LjI5NzMgODUuOTgwOEw3OS4yOTczIDkzLjk5NDVMNzguMTI1OSA5My45OTQ1TDc4LjEyNTkgODUuOTgwOEw3NS4zNDM4IDg1Ljk4MDhaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNjkuNDY2NCA5MS41MzE4TDY4LjU4NzggOTMuOTk0NUw2Ny4zNzY1IDkzLjk5NDVMNzAuNzMxIDg0Ljk0MjVMNzIuMDA4OSA4NC45NDI1TDc1LjMzNjggOTMuOTk0NUw3NC4wODU1IDkzLjk5NDVMNzMuMjA3IDkxLjUzMThMNjkuNDY2NCA5MS41MzE4Wk03Mi44MzQyIDkwLjUwNjhMNzEuODQ5MiA4Ny42NTgxQzcxLjYzNjIgODcuMDU5MSA3MS40MzY1IDg2LjQzMzQgNzEuMzQzMyA4Ni4xMDA2TDcxLjMzIDg2LjEwMDZDNzEuMjM2OCA4Ni40MjAxIDcxLjAzNzIgODcuMDU5MSA3MC43OTc2IDg3LjcxMTRMNjkuODEyNSA5MC41MDY4TDcyLjgzNDIgOTAuNTA2OFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik02NC40NTAxIDg5Ljg0MTJMNTkuNjk3OCA4OS44NDEyTDU5LjY5NzggOTMuOTk0NUw1OC41MjY0IDkzLjk5NDVMNTguNTI2NCA4NC45NDI1TDU5LjY5NzggODQuOTQyNUw1OS42OTc4IDg4Ljc4OTZMNjQuNDUwMSA4OC43ODk2TDY0LjQ1MDEgODQuOTQyNUw2NS42MjE1IDg0Ljk0MjVMNjUuNjIxNSA5My45OTQ1TDY0LjQ1MDEgOTMuOTk0NUw2NC40NTAxIDg5Ljg0MTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTYuNDA5IDg3LjA4NjJMNTUuMzU3NCA4Ny41OTIxQzU0Ljk1OCA4Ni41NDA0IDU0LjE0NiA4NS44MjE2IDUyLjg5NDcgODUuODIxNkM1MS4wNzEgODUuODIxNiA1MC4wNTkzIDg3LjM1MjQgNTAuMDU5MyA4OS40NTU3QzUwLjA1OTMgOTEuNjEyMiA1MS4wNzEgOTMuMTAzMSA1Mi45MDggOTMuMTAzMUM1NC4yMzkyIDkzLjEwMzEgNTUuMDI0NiA5Mi4zMDQ0IDU1LjM3MDcgOTEuMjI2MUw1Ni40ODg5IDkxLjYxMjJDNTYuMDg5NSA5Mi44NTAyIDU1LjAxMTMgOTQuMTU0NyA1Mi44ODE0IDk0LjE1NDdDNTAuMjQ1NyA5NC4xNTQ3IDQ4LjgwOCA5Mi4yNTExIDQ4LjgwOCA4OS40NjlDNDguODA4IDg2LjcwMDIgNTAuMzM4OSA4NC43ODMzIDUyLjkwOCA4NC43ODMzQzU0Ljg2NDkgODQuNzgzMyA1NS45OTYzIDg1Ljk0MTQgNTYuNDA5IDg3LjA4NjJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDIuOTAyMiA4NC45NDI1TDQyLjkwMjIgOTMuOTk0NUw0MS43MzA4IDkzLjk5NDVMNDEuNzMwOCA4NC45NDI1TDQyLjkwMjIgODQuOTQyNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zNC4wODk5IDkxLjUzMThMMzMuMjExNCA5My45OTQ1TDMyIDkzLjk5NDVMMzUuMzU0NSA4NC45NDI1TDM2LjYzMjUgODQuOTQyNUwzOS45NjA0IDkzLjk5NDVMMzguNzA5MSA5My45OTQ1TDM3LjgzMDUgOTEuNTMxOEwzNC4wODk5IDkxLjUzMThaTTM3LjQ1NzggOTAuNTA2OEwzNi40NzI3IDg3LjY1ODFDMzYuMjU5NyA4Ny4wNTkxIDM2LjA2MDEgODYuNDMzNCAzNS45NjY5IDg2LjEwMDZMMzUuOTUzNiA4Ni4xMDA2QzM1Ljg2MDQgODYuNDIwMSAzNS42NjA3IDg3LjA1OTEgMzUuNDIxMSA4Ny43MTE0TDM0LjQzNiA5MC41MDY4TDM3LjQ1NzggOTAuNTA2OFoiIGZpbGw9IndoaXRlIi8+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfMjY1XzIwMSIgeD0iLTEzIiB5PSItMTcuMjE5OCIgd2lkdGg9IjIyOCIgaGVpZ2h0PSIxNTQiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMTI3IDAiIHJlc3VsdD0iaGFyZEFscGhhIi8+CjxmZU9mZnNldCBkeT0iNCIvPgo8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1LjgiLz4KPGZlQ29tcG9zaXRlIGluMj0iaGFyZEFscGhhIiBvcGVyYXRvcj0ib3V0Ii8+CjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjI1IDAiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJlZmZlY3QxX2Ryb3BTaGFkb3dfMjY1XzIwMSIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18yNjVfMjAxIiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8Y2xpcFBhdGggaWQ9ImJnYmx1cl8wXzI2NV8yMDFfY2xpcF9wYXRoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyAxNy4yMTk4KSI+PHBhdGggZD0iTTEyIDIzLjc4MDJDMTIgMTQuOTQzNiAxOS4xNjM0IDcuNzgwMTUgMjggNy43ODAxNUgxOTBWMTExLjc4SDI4QzE5LjE2MzQgMTExLjc4IDEyIDEwNC42MTcgMTIgOTUuNzgwMlYyMy43ODAyWiIvPgo8L2NsaXBQYXRoPjxyYWRpYWxHcmFkaWVudCBpZD0icGFpbnQwX3JhZGlhbF8yNjVfMjAxIiBjeD0iMCIgY3k9IjAiIHI9IjEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDE5MCA3Ljc4MDE1KSByb3RhdGUoMTQ5LjcwNCkgc2NhbGUoMjA2LjE1NSAxNzkuNTkzKSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwMEE5RkEiLz4KPHN0b3Agb2Zmc2V0PSIwLjE5MTQzNCIgc3RvcC1jb2xvcj0iIzAwQTlGQSIvPgo8c3RvcCBvZmZzZXQ9IjAuNTg3ODIyIiBzdG9wLWNvbG9yPSIjMjI1MUZGIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA0MkE3NiIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=)\n\n![Ask McKinsey Close icon](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAzNCAyOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMEgzNFYyNEMzNCAyNi43NjE0IDMxLjc2MTQgMjkgMjkgMjlINUMyLjIzODU4IDI5IDAgMjYuNzYxNCAwIDI0VjBaIiBmaWxsPSJ1cmwoI3BhaW50MF9yYWRpYWxfNzI4XzE2NCkiLz4KPHBhdGggZD0iTTE3IDE0LjI5MjlMMjIuMTQ2NCA5LjE0NjQ1QzIyLjM0MTcgOC45NTExOCAyMi42NTgzIDguOTUxMTggMjIuODUzNiA5LjE0NjQ1QzIzLjA0ODggOS4zNDE3MSAyMy4wNDg4IDkuNjU4MjkgMjIuODUzNiA5Ljg1MzU1TDE3LjcwNzEgMTVMMjIuODUzNiAyMC4xNDY0QzIzLjA0ODggMjAuMzQxNyAyMy4wNDg4IDIwLjY1ODMgMjIuODUzNiAyMC44NTM2QzIyLjY1ODMgMjEuMDQ4OCAyMi4zNDE3IDIxLjA0ODggMjIuMTQ2NCAyMC44NTM2TDE3IDE1LjcwNzFMMTEuODUzNiAyMC44NTM2QzExLjY1ODMgMjEuMDQ4OCAxMS4zNDE3IDIxLjA0ODggMTEuMTQ2NCAyMC44NTM2QzEwLjk1MTIgMjAuNjU4MyAxMC45NTEyIDIwLjM0MTcgMTEuMTQ2NCAyMC4xNDY0TDE2LjI5MjkgMTVMMTEuMTQ2NCA5Ljg1MzU1QzEwLjk1MTIgOS42NTgyOSAxMC45NTEyIDkuMzQxNzEgMTEuMTQ2NCA5LjE0NjQ1QzExLjM0MTcgOC45NTExOCAxMS42NTgzIDguOTUxMTggMTEuODUzNiA5LjE0NjQ1TDE3IDE0LjI5MjlaIiBmaWxsPSIjMDUxQzJDIi8+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9InBhaW50MF9yYWRpYWxfNzI4XzE2NCIgY3g9IjAiIGN5PSIwIiByPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0zNCAyOSAtMzQgLTI5IDM0IDApIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IndoaXRlIi8+CjxzdG9wIG9mZnNldD0iMC4xIiBzdG9wLWNvbG9yPSJ3aGl0ZSIvPgo8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI0NDRjJGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNDQ0UxRkYiLz4KPC9yYWRpYWxHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K)\n\nShare\n\n[Print](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work#/print)\n\nDownload\n\n[Save](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work#/save)\n\nSummarize\n\n# Superagency in the workplace: Empowering people to unlock AI’s full potential\n## Global perspectives on training\n### C-suite leaders can help millennials lead the way\nTwo-thirds of managers say they field questions from their team about how to use AI tools at least once a week, and a similar percentage say they recommend AI tools to their teams to solve problems (Exhibit 5).\n\n![Two-thirds of managers regularly act as sounding boards for their teams on gen AI.](https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency_ex5.svgz?cq=50&cpy=Center)\n\nThe first donut chart indicates that 68 percent of managers report recommending a gen AI tool to solve a team member's challenge in the past month. The second donut chart shows that 86 percent of managers who recommended a gen AI tool report that the tool was successful in resolving the team member’s challenge.",
-          "matchedQueries": [
-            "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
-          ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:38.500Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -919,35 +870,59 @@
           "type": "WEB_SEARCH_RESULT",
           "title": "Non-invasive employee monitoring for business owners",
           "url": "https://www.worktime.com/employee-monitoring-business-owners",
-          "description": "Non-invasive employee monitoring for business owners - WorkTime. Monitor and improve employee attendance, active time, productivity, and more! Try 14 days free.",
+          "description": "Employee monitoring software for small business: WorkTime is non-invasive, with productivity analytics, attendance, and remote tracking.",
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:42.497Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Business management software for small businesses in 2026",
-          "url": "https://www.zoom.com/en/blog/business-management-software-for-small-businesses",
-          "description": "# Business management software for small businesses in 2026\nShare this post\n\n![Copy Link](https://media.zoom.com/images/assets/sharing-url.svg/Zz1lNDY0MWNiNjJjYTkxMWVlOTZmNWI2NzQ3MGJjNDU5Mw==)![Copy Link](https://media.zoom.com/images/assets/sharing-url-hover.svg/Zz1lNDcyNDc2ZTJjYTkxMWVlYjZkMzNhNjg1MTY3NzEwZg==) URL Copied! [![Facebook](https://media.zoom.com/images/assets/sharing-facebook.svg/Zz1lM2M0MmY1ODJjYTkxMWVlYWU2MjllYTE3NDgyMWY3OA==)![Facebook](https://media.zoom.com/images/assets/sharing-facebook-hover.svg/Zz1lM2NjZGQ4ODJjYTkxMWVlOWI1NGI2NWEwNWU3ZWM5Nw==)](https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.zoom.com%2fen%2fblog%2fbusiness-management-software-for-small-businesses%2f)[![Twitter](https://media.zoom.com/images/assets/twitter+logo.svg/Zz02MDUxZmQ3MDNjNjMxMWVlYjc3MGJhMTY4NWI1MzkzNg==)![Twitter](https://media.zoom.com/images/assets/Twitter+logo+hover.svg/Zz03NWZjOGFkMjNjNjMxMWVlYWQ2OWU2YjVkYTM5MzJmNQ==)](https://twitter.com/intent/tweet?text=Business+management+software+for+small+businesses&url=https%3a%2f%2fwww.zoom.com%2fen%2fblog%2fbusiness-management-software-for-small-businesses%2f)[![LinkedIn](https://media.zoom.com/images/assets/sharing-linkedin.svg/Zz1lM2VkYzk4YTJjYTkxMWVlYjViYzhhZjhiMGViNjVkNQ==)![LinkedIn](https://media.zoom.com/images/assets/sharing-linkedin-hover.svg/Zz1lNDgwMmY4YzJjYTkxMWVlOTkyZmE2NmEzNjQ5MTEyMw==)](https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3a%2f%2fwww.zoom.com%2fen%2fblog%2fbusiness-management-software-for-small-businesses%2f&title=Business+management+software+for+small+businesses&source=https%3a%2f%2fwww.zoom.com%2fen%2fblog%2fbusiness-management-software-for-small-businesses%2f)[![Email](https://media.zoom.com/images/assets/sharing-email.svg/Zz1lM2RkOWJhMDJjYTkxMWVlYTBhN2I2NWEwNWU3ZWM5Nw==)![Email](https://media.zoom.com/images/assets/sharing-email-hover.svg/Zz1lM2NmMzk2NjJjYTkxMWVlOGI2YjllYTE3NDgyMWY3OA==)](mailto:?&subject=Business%20management%20software%20for%20small%20businesses%20in%202026&body=Business%20management%20software%20for%20small%20businesses%20in%202026%0D%0A%0D%0Ahttps://www.zoom.com/en/blog/business-management-software-for-small-businesses/%0A%0A)\n\n![Sara Staffaroni](https://media.zoom.com/images/assets/Sara+Staffaroni/Zz1hMGVlYzk0MmEzODQxMWVmYTcwMmE2OTNhMDk0ZTcyZg==)\n\nSara Staffaroni\n\nProduct Marketing Manager\n\nMost teams try to patch this together with a mix of standalone apps: one for invoicing, another for project tracking, a third for chat, and yet another for video calls. Business management software exists to fix exactly this. It brings your core workflows into a connected platform so you spend less time managing tools and more time growing your business.\n\nBring your whole business together with connected tools\n\n[Try Bonsai free](https://www.zoom.com/en/products/bonsai/)\n\n## Key features to look for in business management software\n### Communication and collaboration tools\nThis is the feature category many business management platforms underserve. Look for platforms that include built-in video meetings, chat, and document collaboration, or that integrate tightly with tools you already use.\n\n### Mobile access and remote-work support\nSmall business owners don't work from one desk.\n\n## How to choose the right business management software\n**How large is your team, and how do you work?**\n\n**What tools are you already using — and do you actually need them?**\n\nMany small businesses are paying for five tools when two good ones, well integrated, would cover the same ground at a lower cost.\n\n**How much setup can your team realistically handle?**\n\nA tool that works for two people should still work when you're at 15.\n\n## Conclusion\nWith Zoom Workplace handling communication and collaboration, and Bonsai by Zoom managing your client operations and finances, small businesses have a path to doing exactly that.",
+          "title": "Project time tracking: a complete guide for small businesses",
+          "url": "https://www.zoom.com/en/blog/project-time-tracking",
+          "description": "Learn to manage project time tracking to support productivity and profits. Get practical tips and tools, including how Bonsai simplifies ...",
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:42.497Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
         {
           "type": "WEB_SEARCH_RESULT",
-          "title": "Can my boss see who I have teams meetings with?",
+          "title": "AI in the workplace: A report for 2025",
+          "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+          "description": "# Superagency in the workplace: Empowering people to unlock AI’s full potential\n## Global perspectives on training\n### C-suite leaders can help millennials lead the way\nTwo-thirds of managers say they field questions from their team about how to use AI tools at least once a week, and a similar percentage say they recommend AI tools to their teams to solve problems (Exhibit 5).\n\n![Two-thirds of managers regularly act as sounding boards for their teams on gen AI.](https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency_ex5.svgz?cq=50&cpy=Center)\n\nThe first donut chart indicates that 68 percent of managers report recommending a gen AI tool to solve a team member's challenge in the past month. The second donut chart shows that 86 percent of managers who recommended a gen AI tool report that the tool was successful in resolving the team member’s challenge.\n\n## Delivering speed and safety\n### Employees trust business leaders to get it right\nThe remaining squares are light gray.\n\nSidebar",
+          "matchedQueries": [
+            "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
+          ],
+          "retrievedAt": "2026-11-19T21:09:42.497Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "Can my boss see who I have teams meetings with? : r/MicrosoftTeams",
           "url": "https://www.reddit.com/r/MicrosoftTeams/comments/1j5q1d8/can_my_boss_see_who_i_have_teams_meetings_with",
-          "description": "An admin with access to the Teams admin center can see your meetings and calls. They would be able to see the participants.",
+          "description": "If your boss isn't a Teams admin they would not be able to see this. They'd have to work with someone that does have access.",
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-18T21:04:35.815Z",
+          "retrievedAt": "2026-11-19T21:09:42.497Z",
+          "evidenceQuality": "LOW",
+          "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
+        },
+        {
+          "type": "WEB_SEARCH_RESULT",
+          "title": "How to Improve Employee Engagement in the Workplace",
+          "url": "https://www.gallup.com/workplace/285674/improve-employee-engagement-workplace.aspx",
+          "description": "# What Is Employee Engagement, and How Do You Improve It?\n## How Should Organizations Measure Employee Engagement?\n- helps managers structure coaching conversations and performance reviews\n\n### Q01 **I know what is expected of me at work.**\nHelping employees understand what their organization, leaders and managers expect from them requires more than someone telling them what to do.\n\n### Q02 **I have the materials and equipment I need to do my work right.**\nThe most effective managers don't assume what their team needs.\n\n## What Is Gallup's Employee Engagement Model?\nTeamwork",
+          "matchedQueries": [
+            "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
+          ],
+          "retrievedAt": "2026-11-19T21:09:42.497Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
@@ -964,37 +939,24 @@
             "pricing_or_features_match"
           ],
           "verified": false
+        },
+        {
+          "name": "Meeting Cost Calculator Alternatives — Compare Calwise vs. Fellow.ai, MeetingKing & More",
+          "url": "https://calwise.io/alternatives",
+          "classification": "RELATED_ALTERNATIVE",
+          "sourceType": "POSSIBLE_SOFTWARE_ALTERNATIVE",
+          "basis": "Some software or product signals are present, but the available evidence is not enough to confirm direct feature overlap.",
+          "signals": [
+            "product_capability_match"
+          ],
+          "verified": false
         }
       ],
       "sourceInspection": [
         {
-          "url": "https://www.meetingtoll.com/blog/meeting-cost-calculator-alternatives",
-          "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.815Z",
-          "pageTitle": "10 Best Meeting Cost Calculator Alternatives in 2026 [Free + Paid]",
-          "pageDescription": "Compare the top meeting cost calculator alternatives for 2025. Find free and paid tools to track meeting expenses across Zoom, Google Meet, and Teams.",
-          "httpStatusCode": 200,
-          "classification": "INFORMATIONAL_CONTENT",
-          "sourceType": "ARTICLE_OR_GUIDE",
-          "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence.",
-          "classificationSignals": [
-            "informational_url_path"
-          ],
-          "contentLength": 14802,
-          "contentTruncated": true,
-          "contentExcerpt": "[![MeetingToll Logo](https://www.meetingtoll.com/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75)](https://www.meetingtoll.com/)\n\nToggle theme\n\nToggle theme\n\n[Sign In](https://www.meetingtoll.com/auth/sign-in) [Sign Up](https://www.meetingtoll.com/auth/sign-up)\n\nDec 23, 2025\n\n# 10 Best Meeting Cost Calculator Alternatives in 2026 \\[Free + Paid\\]\n\nCompare the top meeting cost calculator alternatives for 2025. Find free and paid tools to track meeting expenses across Zoom, Google Meet, and Teams.\n\n![Cover Image for 10 Best Meeting Cost Calculator Alternatives in 2026 [Free + Paid]](https://www.meetingtoll.com/_next/image?url=%2Fimages%2Fposts%2Fbest-meeting-cost-calculator-alternatives.jpg&w=3840&q=75)\n\nLooking for a meeting cost calculator? You have more options than ever in 2025. From simple Chrome extensions to comprehensive analytics platforms, meeting cost tools help teams understand and reduce the hidden expense of meetings.\n\nThis guide compares the 10 best meeting cost calculator alternatives, including free options, to help you find the right solution for your team.\n\n## Quick Comparison: Meeting Cost Calculator Alternatives\n\n| Tool | Best For | Real-Time | Free Tier | Starting Price |\n| --- | --- | --- | --- | --- |\n| **MeetingToll** | Real-time visibility during calls | Yes | Yes | Free / $12/user |\n| Flowtrace | Enterprise analytics | No | Yes | ~$1.30/user |\n| Clockwise | Calendar optimization | No | Yes | $6.75/user |\n| Ramp Calculator | Finance teams | No | Yes | Free |\n| Fellow | Meeting management | No | Freemium | $7/user |\n| Range | Team standups | No | Yes | Free / $8/user |\n| Reclaim.ai | AI scheduling | No | Yes | Free / $10/user |\n| Time is Money | Simple calculator | No | Yes | Free |\n| Meeting Cost Calculator | Basic tracking | No | Yes | Free |\n| DIY Spreadsheet | Full customization | No | Free | Free |\n\n## 1\\. MeetingToll - Best Real-Time Meeting Cost Calculator\n\n**[MeetingToll](https://www.meetingtoll.com/)** is the only meeting cost calculator that displays costs in real-time during live video calls - not just in your calendar.\n\n### Why MeetingToll Stands Out\n\nWhile most alternatives show meeting costs before or after meetings, MeetingToll displays a floating cost meter during the actual call. You see costs climbing live: \"$127... $284... $402...\" - creating immediate awareness that drives behavior change.\n\n### Key Features\n\n- **Real-time cost overlay** during Zoom, Google Meet, and Microsoft Teams\n- **Multi-platform support** from a single Chrome extension\n- **Customizable hourly rates** with team and department configurations\n- **Multi-currency support** (USD, EUR, GBP, CAD, AUD, JPY, INR)\n- **Team analytics dashboard** with cost trends and breakdowns\n- **CSV export** for reporting and presentations\n- **SOC 2 Type II certified** and GDPR compliant\n\n### Pricing\n\n- **Solo (Free)**: Real-time overlay, personal dashboard, 30-day history\n- **Team ($12/user/month)**: Team analytics, shared rates, unlimited history\n- **Business ($20/user/month)**: Department rates, API, SSO\n\n### Best For\n\nTeams that want immediate behavior change through real-time visibility during meetings.\n\n### Interactive Meeting Cost Calculator\n\nNumber of Attendees\n\nAverage Annual Salary ($)\n\nHourly rate: $38/hr\n\nMeeting Duration (minutes)\n\nMeeting TypeStatus Update (0.25x prep)Strategy Session (0.5x prep)Client Presentation (1x prep)\n\nInclude context-switch cost (+25%)Include opportunity cost (+50%)\n\n#### Cost Breakdown\n\nDirect cost:$231\n\nPreparation cost (0.25x):$58\n\nContext-switch cost:$58\n\nOpportunity cost:$115\n\nTotal per meeting:$462\n\nAnnual cost (weekly):$24,000\n\n**Note:** The true cost of this meeting is200% higher than the basic calculation would suggest.\n\n**[Try MeetingToll Free](https://www.meetingtoll.com/pricing)**\n\n* * *\n\n## 2\\. Flowtrace - Best for Enterprise Analytics\n\n[Flowtrace](https://www.flowtrace.co/) provides comprehensive meeting analytics and culture transformation tools for larger organizations.\n\n### Key Features\n\n- Calendar-based cost estimates in Google Calendar and Outlook\n- Meeting policy enforcement and validation rules\n- Team benchmarking and organizational network analysis\n- AI-powered recommendations\n- Deep-work time calculations\n\n### Pricing\n\n- Free tier (limited)\n- Team: ~$1.30/user/month\n- Scale: ~$2.50/user/month\n- Enterprise: Custom\n\n### Limitations\n\n- No real-time cost display during meetings\n- Requires organizational rollout\n- More complex setup than simple calculators\n\n### Best For\n\nEnterprise organizations driving top-down meeting culture transformation with analytics and policy enforcement.\n\n* * *\n\n## 3\\. Clockwise - Best for Calendar Optimization\n\n[Clockwise](https://www.getclockwise.com/) focuses on calendar optimization and creating focus time, with meeting cost insights as part of its broader offering.\n\n### Key Features\n\n- Automatic meeting rescheduling for optimal times\n- Focus time protection\n- Team calendar coordination\n- Meeting cost awareness features\n- Slack integration\n\n### Pricing\n\n- Free tier available\n- Teams: $6.75/user/month\n- Business: $11.50/user/month\n\n### Limitations\n\n- Meeting cost is secondary to scheduling features\n- No real-time tracking during calls\n- May be overkill if you only need cost tracking\n\n### Best For\n\nTeams primarily wanting calendar optimization who also want meeting cost visibility.\n\n* * *\n\n## 4\\. Ramp Meeting Cost Calculator - Best for Finance Teams\n\n[Ramp's Meeting Cost Calculator](https://chromewebstore.google.com/detail/meeting-cost-calculator-b/iplacnfmnghdnjkknaglkiifimoaecep) is a free Chrome extension from the corporate card company.\n\n### Key Features\n\n- Cost estimates in Google Calendar\n- Simple, lightweight interface\n- Privacy-focused (local calculations)\n- Integration with Ramp's financial tools\n\n### Pricing\n\n- **Free** (completely free, no paid tier)\n\n### Limitations\n\n- Google Calendar only\n- No real-time tracking\n- No team features\n- Basic functionality\n\n### Best For\n\nRamp customers or teams wanting a sim",
-          "warning": null,
-          "limitations": [
-            "Classification is rule-based and is not a full semantic assessment.",
-            "Page content may be incomplete, outdated, or promotional.",
-            "A page inspection does not establish search volume or willingness to pay.",
-            "A potential competitor must be checked for actual functionality and feature overlap."
-          ]
-        },
-        {
           "url": "https://www.g2.com/products/meeting-cost-calculator/competitors/alternatives",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-18T21:04:35.815Z",
+          "inspectedAt": "2026-11-19T21:09:42.498Z",
           "pageTitle": "Top 10 Meeting Cost Calculator Alternatives & Competitors in 2026 | G2",
           "pageDescription": "The best Meeting Cost Calculator alternatives are EverAfter, Zeplin, and Zenzap. Find top-ranking free & paid apps similar to Meeting Cost Calculator for your Other Collaboration Software needs. Read the latest reviews, pricing details, and features.",
           "httpStatusCode": 200,
@@ -1015,6 +977,30 @@
             "A page inspection does not establish search volume or willingness to pay.",
             "A potential competitor must be checked for actual functionality and feature overlap."
           ]
+        },
+        {
+          "url": "https://calwise.io/alternatives",
+          "status": "INSPECTED",
+          "inspectedAt": "2026-11-19T21:09:44.900Z",
+          "pageTitle": "Meeting Cost Calculator Alternatives — Compare Calwise vs. Fellow.ai, MeetingKing & More",
+          "pageDescription": "Compare Calwise to Fellow.ai, meetingcostcal.com, MeetingKing, Beenote, Memtime, and more. Find the right meeting cost analytics tool for your team.",
+          "httpStatusCode": 200,
+          "classification": "RELATED_ALTERNATIVE",
+          "sourceType": "POSSIBLE_SOFTWARE_ALTERNATIVE",
+          "classificationReason": "Some software or product signals are present, but the available evidence is not enough to confirm direct feature overlap.",
+          "classificationSignals": [
+            "product_capability_match"
+          ],
+          "contentLength": 7061,
+          "contentTruncated": true,
+          "contentExcerpt": "![Revisit consent button](https://cdn-cookieyes.com/assets/images/revisit.svg)\n\nWe value your privacy\n\nWe use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking \"Accept All\", you consent to our use of cookies.\n\nCustomiseReject AllAccept All\n\nPowered by [Visit CookieYes website](https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding)\n\nCustomise Consent Preferences![](https://cdn-cookieyes.com/assets/images/close.svg)\n\nWe use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.\n\nThe cookies that are categorised as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site. ... Show more\n\nNecessaryAlways Active\n\nNecessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.\n\nNo cookies to display.\n\nFunctional\n\nFunctional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features.\n\nNo cookies to display.\n\nAnalytics\n\nAnalytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.\n\n- Cookie\n\n\\_ga\\_\\*\n\n- Duration\n\n1 year 1 month 4 days\n\n- Description\n\nGoogle Analytics sets this cookie to store and count page views.\n\n\n- Cookie\n\n\\_ga\n\n- Duration\n\n1 year 1 month 4 days\n\n- Description\n\nGoogle Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognise unique visitors.\n\n\nPerformance\n\nPerformance cookies are used to understand and analyse the key performance indexes of the website which helps in delivering a better user experience for the visitors.\n\nNo cookies to display.\n\nAdvertisement\n\nAdvertisement cookies are used to provide visitors with customised advertisements based on the pages you visited previously and to analyse the effectiveness of the ad campaigns.\n\nNo cookies to display.\n\nReject AllSave My PreferencesAccept All\n\nPowered by [Visit CookieYes website](https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding)\n\n## Compare Calwise to Specific Tools\n\nEach comparison page explains the key differences, feature-by-feature breakdowns, and which tool fits which use case.\n\nCalwise vs.\n\nFellow.ai\n\nFellow.ai focuses on meeting notes, agendas, and action items. Calwise focuses on automatically calculating what every meeting costs. Different tools for different problems.\n\n[See comparison →](https://calwise.io/alternatives/fellow-ai-alternative)\n\nCalwise vs.\n\nmeetingcostcal.com\n\nmeetingcostcal.com is a free manual calculator — one meeting at a time, no history. Calwise tracks every meeting automatically using real salary data from HR.\n\n[See comparison →](https://calwise.io/alternatives/meetingcostcal-alternative)\n\nCalwise vs.\n\nMeetingKing\n\nMeetingKing combines meeting management with a manual cost calculator. Calwise specialises in automatic, salary-based cost analytics integrated with your calendar.\n\n[See comparison →](https://calwise.io/alternatives/meetingking-alternative)\n\nCalwise vs.\n\nBeenote\n\nBeenote is a meeting notes and agenda tool with a basic manual cost calculator. Calwise is a dedicated cost analytics platform with real-time tracking and an organisational dashboard.\n\n[See comparison →](https://calwise.io/alternatives/beenote-alternative)\n\nCalwise vs.\n\nMemtime\n\nMemtime automatically tracks all work time for billing and project management. Calwise focuses specifically on meeting cost analytics for HR, Finance, and Operations leaders.\n\n[See comparison →](https://calwise.io/alternatives/memtime-alternative)\n\nCalwise vs.\n\nHogoflow\n\nHogoflow is a workflow and productivity tool. Calwise is purpose-built for meeting cost analytics — it shows HR and Finance exactly what every meeting costs the organisation.\n\n[See comparison →](https://calwise.io/alternatives/hogoflow-alternative)\n\nCalwise vs.\n\nWorklenz\n\nWorklenz is an open-source project management platform. Calwise is a meeting cost analytics platform — if your goal is quantifying meeting waste, Calwise is the right tool.\n\n[See comparison →](https://calwise.io/alternatives/worklenz-alternative)\n\nCalwise vs.\n\nInsightDraft\n\nInsightDraft focuses on AI transcription and meeting summaries. Calwise focuses on the financial cost of meetings — different angles on the same problem of meeting overload.\n\n[See comparison →](https://calwise.io/alternatives/insightdraft-alternative)\n\n## Master Feature Comparison\n\nHow does Calwise stack up against the most common alternatives for meeting cost analytics?\n\n| Feature | Calwise | Fellow.ai | meetingcostcal | MeetingKing | Beenote | Memtime |\n| --- | --- | --- | --- | --- | --- | --- |\n| **Auto meeting cost tracking** | Yes ✓ | No | No | No | No | Time only |\n| Google Calendar integration | Yes ✓ | Yes ✓ | No | No | Partial | Yes ✓ |\n| Outlook integration | Yes ✓ | Yes ✓ | No | No | Partial | Yes ✓ |\n| **Salary-based cost calc** | Auto ✓ | Manual | Manual | Manual | Manual | No |\n| **Real-time cost overlay** | Yes ✓ | No | No | No | No | No |\n| **Department analytics dashboard** | Yes ✓ | No | No | No | No | Projects only |\n| Meeting notes & agendas | No | Yes ✓ | No | Yes ✓ | Yes ✓ | No |\n| GDPR compliant | Yes ✓ | Yes ✓ | N/A | Yes ✓ | Yes ✓ | Yes ✓ |\n| Free plan | Yes (10 users) ✓ | Limited | Yes ✓ | Yes ✓ | Trial | Trial |\n| Primary audience | HR, Finance, Ops | All teams | Anyone | Managers | Teams | Freelancers, PMs |\n\n## What Makes Calwise Differen",
+          "warning": null,
+          "limitations": [
+            "Classification is rule-based and is not a full semantic assessment.",
+            "Page content may be incomplete, outdated, or promotional.",
+            "A page inspection does not establish search volume or willingness to pay.",
+            "A potential competitor must be checked for actual functionality and feature overlap."
+          ]
         }
       ],
       "seoFindings": {
@@ -1026,17 +1012,6 @@
         "geographicCoverage": null,
         "findings": [
           {
-            "url": "https://www.meetingtoll.com/blog/meeting-cost-calculator-alternatives",
-            "title": "10 Best Meeting Cost Calculator Alternatives in 2026 [Free + Paid]",
-            "description": "Compare the top meeting cost calculator alternatives for 2025. Find free and paid tools to track meeting expenses across Zoom, Google Meet, and Teams.",
-            "matchedQueries": [
-              "\"Meeting Cost Calculator\" tool alternatives"
-            ],
-            "sourceType": "ARTICLE_OR_GUIDE",
-            "relevanceClassification": "INFORMATIONAL_CONTENT",
-            "classificationReason": "The source appears to explain a topic or provide guidance. It may help establish search intent or common problems, but is not classified as a working competitor based on this evidence."
-          },
-          {
             "url": "https://www.g2.com/products/meeting-cost-calculator/competitors/alternatives",
             "title": "Top 10 Meeting Cost Calculator Alternatives & Competitors in 2026 | G2",
             "description": "The best Meeting Cost Calculator alternatives are EverAfter, Zeplin, and Zenzap. Find top-ranking free & paid apps similar to Meeting Cost Calculator for your Other Collaboration Software needs. Read the latest reviews, pricing details, and features.",
@@ -1046,6 +1021,17 @@
             "sourceType": "SOFTWARE_PRODUCT",
             "relevanceClassification": "RELATED_ALTERNATIVE",
             "classificationReason": "The source appears to describe broader software that may solve part of the same problem, rather than necessarily being a direct competitor."
+          },
+          {
+            "url": "https://calwise.io/alternatives",
+            "title": "Meeting Cost Calculator Alternatives — Compare Calwise vs. Fellow.ai, MeetingKing & More",
+            "description": "Compare Calwise to Fellow.ai, meetingcostcal.com, MeetingKing, Beenote, Memtime, and more. Find the right meeting cost analytics tool for your team.",
+            "matchedQueries": [
+              "\"Meeting Cost Calculator\" tool alternatives"
+            ],
+            "sourceType": "POSSIBLE_SOFTWARE_ALTERNATIVE",
+            "relevanceClassification": "RELATED_ALTERNATIVE",
+            "classificationReason": "Some software or product signals are present, but the available evidence is not enough to confirm direct feature overlap."
           }
         ],
         "limitations": [
