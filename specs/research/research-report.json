@@ -1,6 +1,6 @@
 {
   "reportVersion": 5,
-  "generatedAt": "2026-11-26T22:06:17.183Z",
+  "generatedAt": "2026-11-27T21:48:02.402Z",
   "status": "PARTIAL_WEB_RESEARCH",
   "instructionsFile": "specs/research/research-agent-instructions.md",
   "researchExecution": {
@@ -14,13 +14,13 @@
     "uniqueSourcesCollected": 30,
     "pagesInspected": 4,
     "maxPagesToInspectPerCandidate": 2,
-    "reportedCreditsUsed": 12,
+    "reportedCreditsUsed": 0,
     "cache": {
-      "searchCacheHits": 0,
-      "scrapeCacheHits": 1,
-      "freshSearchRequests": 9,
-      "freshScrapeRequests": 4,
-      "expiredCacheEntriesRemoved": 9,
+      "searchCacheHits": 9,
+      "scrapeCacheHits": 4,
+      "freshSearchRequests": 0,
+      "freshScrapeRequests": 1,
+      "expiredCacheEntriesRemoved": 0,
       "cacheFile": "/home/runner/work/micro-saas-factory/micro-saas-factory/specs/research/research-cache.json",
       "crossRunPersistenceRequiresWorkflowCache": true
     },
@@ -35,7 +35,7 @@
         "stage": "page_inspection",
         "url": "https://www.reddit.com/r/scrum/comments/1i1yxab/built_a_meeting_cost_calculator",
         "message": "Firecrawl returned HTTP 403.",
-        "recordedAt": "2026-11-26T22:06:17.182Z"
+        "recordedAt": "2026-11-27T21:48:02.402Z"
       }
     ],
     "explanation": "This report collects web-search sources and inspects a limited number of pages. It applies rule-based classifications with reasons and signals. It does not independently verify claims, measure actual search volume, interview customers, or establish willingness to pay.",
@@ -125,12 +125,12 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:05:53.381Z",
+          "retrievedAt": "2026-11-27T21:48:02.215Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-26T22:05:57.107Z",
+            "inspectedAt": "2026-11-27T21:48:02.221Z",
             "pageTitle": "Freelance Rate Calculator",
             "httpStatusCode": 200,
             "classification": "RELATED_ALTERNATIVE",
@@ -151,12 +151,12 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:05:53.381Z",
+          "retrievedAt": "2026-11-27T21:48:02.215Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-26T22:06:01.131Z",
+            "inspectedAt": "2026-11-27T21:48:02.222Z",
             "pageTitle": "Freelance Hourly Rate Calculator | All Freelance Writing",
             "httpStatusCode": 200,
             "classification": "POTENTIAL_DIRECT_COMPETITOR",
@@ -178,7 +178,7 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:05:53.381Z",
+          "retrievedAt": "2026-11-27T21:48:02.215Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -190,7 +190,7 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:05:53.381Z",
+          "retrievedAt": "2026-11-27T21:48:02.215Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -202,7 +202,7 @@
           "matchedQueries": [
             "\"Freelance Hourly Rate Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:05:53.381Z",
+          "retrievedAt": "2026-11-27T21:48:02.215Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -214,7 +214,7 @@
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:05:57.106Z",
+          "retrievedAt": "2026-11-27T21:48:02.220Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -226,7 +226,7 @@
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:05:57.106Z",
+          "retrievedAt": "2026-11-27T21:48:02.220Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -238,7 +238,7 @@
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:05:57.106Z",
+          "retrievedAt": "2026-11-27T21:48:02.220Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -250,7 +250,7 @@
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:05:57.106Z",
+          "retrievedAt": "2026-11-27T21:48:02.220Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -262,7 +262,7 @@
           "matchedQueries": [
             "Freelancers, consultants and independent professionals Helps freelancers estimate a rate that accounts for expenses and existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:05:57.106Z",
+          "retrievedAt": "2026-11-27T21:48:02.220Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
@@ -296,7 +296,7 @@
         {
           "url": "https://www.upwork.com/tools/freelance-rate-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-26T22:05:57.107Z",
+          "inspectedAt": "2026-11-27T21:48:02.221Z",
           "pageTitle": "Freelance Rate Calculator",
           "pageDescription": "Use our handy freelance rate calculator to help you quickly determine a minimum hourly rate that may work for you based on your monthly expenses and desired number of working hours.",
           "httpStatusCode": 200,
@@ -320,7 +320,7 @@
         {
           "url": "https://allfreelancewriting.com/freelance-hourly-rate-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-26T22:06:01.131Z",
+          "inspectedAt": "2026-11-27T21:48:02.222Z",
           "pageTitle": "Freelance Hourly Rate Calculator | All Freelance Writing",
           "pageDescription": "Use this dual-mode freelance hourly rate calculator to figure out what to charge to meet your financial goals and earn what you're worth as a freelancer.",
           "httpStatusCode": 200,
@@ -470,12 +470,12 @@
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:02.037Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-26T22:06:07.245Z",
+            "inspectedAt": "2026-11-27T21:48:02.223Z",
             "pageTitle": "Invoice Late Fee Calculator: Monthly or Yearly Interest",
             "httpStatusCode": 200,
             "classification": "INFORMATIONAL_CONTENT",
@@ -496,12 +496,12 @@
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:02.037Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "PARTIAL_PAGE_INSPECTED",
           "limitations": "Page content was retrieved, but its claims have not been independently verified and no market demand metrics were collected.",
           "pageInspection": {
             "status": "INSPECTED",
-            "inspectedAt": "2026-11-26T22:06:12.248Z",
+            "inspectedAt": "2026-11-27T21:48:02.224Z",
             "pageTitle": "Invoice Late Fee Calculator with Wording | Neweb",
             "httpStatusCode": 200,
             "classification": "RELATED_ALTERNATIVE",
@@ -522,7 +522,7 @@
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:02.037Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -534,7 +534,7 @@
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:02.037Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -546,7 +546,7 @@
           "matchedQueries": [
             "\"Invoice Late Fee Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:02.037Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -558,7 +558,7 @@
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:05.162Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -570,7 +570,7 @@
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:05.162Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -582,7 +582,7 @@
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:05.162Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -594,7 +594,7 @@
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:05.162Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -606,7 +606,7 @@
           "matchedQueries": [
             "Freelancers and small business owners Makes it easier to estimate late payment charges. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:05.162Z",
+          "retrievedAt": "2026-11-27T21:48:02.223Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
@@ -628,7 +628,7 @@
         {
           "url": "https://we.inc/tools/invoice-late-fee-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-26T22:06:07.245Z",
+          "inspectedAt": "2026-11-27T21:48:02.223Z",
           "pageTitle": "Invoice Late Fee Calculator: Monthly or Yearly Interest",
           "pageDescription": "Free invoice late fee calculator. Work out the late charge on an overdue invoice from a flat fee, a monthly percent or a yearly rate and the days it is late.",
           "httpStatusCode": 200,
@@ -652,7 +652,7 @@
         {
           "url": "https://neweb.ai/pages/tools/late-fee-calculator",
           "status": "INSPECTED",
-          "inspectedAt": "2026-11-26T22:06:12.248Z",
+          "inspectedAt": "2026-11-27T21:48:02.224Z",
           "pageTitle": "Invoice Late Fee Calculator with Wording | Neweb",
           "pageDescription": "Free late fee calculator for overdue invoices: flat fee, percent per month, daily interest or UK statutory interest, plus wording for your invoice.",
           "httpStatusCode": 200,
@@ -800,7 +800,7 @@
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:14.036Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -812,7 +812,7 @@
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:14.036Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -824,7 +824,7 @@
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:14.036Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -836,7 +836,7 @@
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:14.036Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -848,7 +848,7 @@
           "matchedQueries": [
             "\"Meeting Cost Calculator\" tool alternatives"
           ],
-          "retrievedAt": "2026-11-26T22:06:14.036Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -860,7 +860,7 @@
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:17.111Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -872,7 +872,7 @@
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:17.111Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -884,7 +884,7 @@
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:17.111Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -896,7 +896,7 @@
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:17.111Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         },
@@ -908,7 +908,7 @@
           "matchedQueries": [
             "Small business owners, managers and team Helps teams understand how much paid staff time meetings consume. existing tools reviews"
           ],
-          "retrievedAt": "2026-11-26T22:06:17.111Z",
+          "retrievedAt": "2026-11-27T21:48:02.224Z",
           "evidenceQuality": "LOW",
           "limitations": "Search-result information only. The underlying page has not yet been independently inspected."
         }
@@ -918,7 +918,7 @@
         {
           "url": "https://www.reddit.com/r/scrum/comments/1i1yxab/built_a_meeting_cost_calculator",
           "status": "INSPECTION_FAILED",
-          "inspectedAt": "2026-11-26T22:06:17.182Z",
+          "inspectedAt": "2026-11-27T21:48:02.402Z",
           "classification": "UNCLASSIFIED",
           "sourceType": "UNCLASSIFIED",
           "classificationReason": "The page could not be inspected.",
@@ -1003,7 +1003,7 @@
             "stage": "page_inspection",
             "url": "https://www.reddit.com/r/scrum/comments/1i1yxab/built_a_meeting_cost_calculator",
             "message": "Firecrawl returned HTTP 403.",
-            "recordedAt": "2026-11-26T22:06:17.182Z"
+            "recordedAt": "2026-11-27T21:48:02.402Z"
           }
         ]
       },
